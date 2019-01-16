@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/HomeForm.ui.qml</file>
+        <file>qml/Page1Form.ui.qml</file>
+        <file>qml/Page2Form.qml</file>
+        <file>qml/FruitComponent.qml</file>
+        <file>qml/MenuItem.qml</file>
+        <file>assets/icon.png</file>
+        <file>assets/logo.svg</file>
+        <file>qml/testouilleRow.qml</file>
+        <file>assets/drawer@4x.png</file>
+        <file>assets/drawer@3x.png</file>
+        <file>assets/drawer@2x.png</file>
+        <file>assets/drawer.png</file>
+        <file>assets/back@4x.png</file>
+        <file>assets/back@3x.png</file>
+        <file>assets/back@2x.png</file>
+        <file>assets/back.png</file>
+        <file>qml/SpinBoxTest.qml</file>
+        <file>qml/ScrollablePage.qml</file>
+        <file>assets/icomoon.ttf</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>qml/SwipableItem.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,15 @@
+{
+    "name": "appname.yourname",
+    "description": "A short description of your app",
+    "architecture": "@CLICK_ARCH@",
+    "title": "TestMacOS",
+    "hooks": {
+        "macostest": {
+            "apparmor": "macostest.apparmor",
+            "desktop":  "macostest.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "lionel <email@domain.org>",
+    "framework" : "ubuntu-sdk-16.04"
+}

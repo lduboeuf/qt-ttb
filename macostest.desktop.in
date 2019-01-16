@@ -1,0 +1,7 @@
+[Desktop Entry]
+_Name=QQC2 Gallery
+Exec=macostest
+Icon=assets/icon.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
