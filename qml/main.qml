@@ -164,7 +164,7 @@ ApplicationWindow {
                 ListElement { title: qsTr("Home"); source: "qrc:/qml/ToolsTab.qml"; icon:"\ue900" }
                 ListElement { title: qsTr("My Groups"); source: "qrc:/qml/Page1Form.ui.qml"; icon:"\ue972" }
                 ListElement { title: qsTr("About"); source: "qrc:/qml/About.qml"; icon:"\uea09" }
-               // ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; icon:"\uea09" }
+                ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; icon:"\uea09" }
             }
         }
     }

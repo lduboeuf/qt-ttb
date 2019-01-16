@@ -5,27 +5,8 @@ import QtQuick.Controls 2.2
 SwipeDelegate {
     id: swipeDelegate
     text: model.name
+    width: parent.width
 
-    ListView.onRemove: SequentialAnimation {
-
-
-        PropertyAction {
-            target: swipeDelegate
-            property: "ListView.delayRemove"
-            value: true
-        }
-        NumberAnimation {
-            target: swipeDelegate
-            property: "height"
-            to: 0
-            easing.type: Easing.InOutQuad
-        }
-        PropertyAction {
-            target: swipeDelegate;
-            property: "ListView.delayRemove";
-            value: false
-        }
-    }
 
     swipe.left: Label {
         id: deleteLabel
@@ -33,7 +14,7 @@ SwipeDelegate {
         text: "\ue9ac"
         color: "white"
         verticalAlignment: Label.AlignVCenter
-        padding: 50
+        padding: 12
         height: parent.height
         anchors.left: parent.left
 
@@ -50,7 +31,7 @@ SwipeDelegate {
         text: "\ue905"
         color: "white"
         verticalAlignment: Label.AlignVCenter
-        padding: 50
+        padding: 12
         height: parent.height
         anchors.right: parent.right
 
