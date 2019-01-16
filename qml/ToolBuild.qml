@@ -43,11 +43,10 @@ ScrollablePage {
             Button {
                 id: button
                 text: qsTr("OK")
-                font.family: "Times New Roman"
                 focusPolicy: Qt.ClickFocus
                 width: form.width
                 topPadding: 6
-                highlighted: true
+                //highlighted: true
             }
         }
     }
