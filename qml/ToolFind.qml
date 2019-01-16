@@ -2,8 +2,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 
 ScrollablePage {
-    id: page
-    title: qsTr("Page 1")
+    id: toolBuild
+    title: qsTr("Build Teams")
 
     Column {
         id: form
@@ -13,7 +13,7 @@ ScrollablePage {
         anchors.horizontalCenter: parent.horizontalCenter
 
         Label {
-            text: qsTr("Define:")
+            text: qsTr("Find:")
         }
 
         SpinBox {
@@ -26,7 +26,7 @@ ScrollablePage {
 
         Label {
 
-            text: qsTr("Members per team within:")
+            text: qsTr("Members within:")
         }
 
         ComboBox {

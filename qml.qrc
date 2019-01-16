@@ -1,9 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/main.qml</file>
-        <file>qml/HomeForm.ui.qml</file>
+        <file>qml/ToolBuild.qml</file>
         <file>qml/Page1Form.ui.qml</file>
-        <file>qml/Page2Form.qml</file>
+        <file>qml/About.qml</file>
         <file>qml/FruitComponent.qml</file>
         <file>qml/MenuItem.qml</file>
         <file>assets/icon.png</file>
@@ -22,5 +22,7 @@
         <file>assets/icomoon.ttf</file>
         <file>qtquickcontrols2.conf</file>
         <file>qml/SwipableItem.qml</file>
+        <file>qml/ToolsTab.qml</file>
+        <file>qml/ToolFind.qml</file>
     </qresource>
 </RCC>
