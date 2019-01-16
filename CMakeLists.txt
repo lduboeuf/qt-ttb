@@ -1,4 +1,4 @@
-project(macostest C CXX)
+project(ttb C CXX)
 cmake_minimum_required(VERSION 3.0.0)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
@@ -9,6 +9,8 @@ find_package(Qt5Quick)
 
 # Automatically create moc files
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
 
 # Components PATH
 execute_process(
@@ -19,8 +21,8 @@ execute_process(
 
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
-set(PROJECT_NAME "macostest")
-set(FULL_PROJECT_NAME "appname.yourname")
+set(PROJECT_NAME "ttb")
+set(FULL_PROJECT_NAME "ttb.lduboeuf")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
@@ -32,21 +34,20 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-set(PROJECT_ROOT "ttb")
 
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
 install(FILES ${PROJECT_NAME}.apparmor DESTINATION ${DATA_DIR})
-install(DIRECTORY ${PROJECT_ROOT}/qml DESTINATION ${DATA_DIR})
-install(FILES ${PROJECT_ROOT}/qtquickcontrols2.conf DESTINATION ${DATA_DIR})
-install(DIRECTORY ${PROJECT_ROOT}/assets DESTINATION ${DATA_DIR})
+install(DIRECTORY qml DESTINATION ${DATA_DIR})
+install(FILES qtquickcontrols2.conf DESTINATION ${DATA_DIR})
+install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
 set(
     SRCS
     main.cpp
 )
 	
-add_executable(${PROJECT_NAME} ${SRCS} ${RSCS} ${qqc2-gallery_SRC})		
+add_executable(${PROJECT_NAME} ${SRCS} ${RSCS} qml.qrc)		
 qt5_use_modules(${PROJECT_NAME} Gui Qml Quick QuickControls2)		
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${DATA_DIR})
 

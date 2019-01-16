@@ -157,9 +157,9 @@ ApplicationWindow {
 
 
             model: ListModel {
-                ListElement { title: qsTr("Page 1"); source: "Page1Form.ui.qml"; icon:"\ue972" }
-                ListElement { title: qsTr("Page 2"); source: "Page2Form.qml"; icon:"\uea09" }
-                ListElement { title: qsTr("Spinbox"); source: "SpinBoxTest.qml"; icon:"\uea09" }
+                ListElement { title: qsTr("Page 1"); source: "qrc:/qml/Page1Form.ui.qml"; icon:"\ue972" }
+                ListElement { title: qsTr("Page 2"); source: "qrc:/qml/Page2Form.qml"; icon:"\uea09" }
+                ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; icon:"\uea09" }
             }
         }
     }
@@ -167,7 +167,7 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "HomeForm.ui.qml"
+        initialItem: "qrc:/qml/HomeForm.ui.qml"
         anchors.fill: parent
     }
 

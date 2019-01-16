@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=QQC2 Gallery
-Exec=macostest
+_Name=Team Toolbox
+Exec=ttb
 Icon=assets/icon.png
 Terminal=false
 Type=Application

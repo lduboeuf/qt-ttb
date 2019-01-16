@@ -1,15 +1,15 @@
 {
-    "name": "appname.yourname",
-    "description": "A short description of your app",
+    "name": "ttb.lduboeuf",
+    "description": "Play with teams",
     "architecture": "@CLICK_ARCH@",
-    "title": "TestMacOS",
+    "title": "Team Toolbox",
     "hooks": {
-        "macostest": {
-            "apparmor": "macostest.apparmor",
-            "desktop":  "macostest.desktop"
+        "ttb": {
+            "apparmor": "ttb.apparmor",
+            "desktop":  "ttb.desktop"
         }
     },
     "version": "1.0.0",
-    "maintainer": "lionel <email@domain.org>",
+    "maintainer": "lionel <lionel.duboeuf@gmail.com>",
     "framework" : "ubuntu-sdk-16.04"
 }
