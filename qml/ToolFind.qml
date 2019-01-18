@@ -1,14 +1,15 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 
-ScrollablePage {
+Page {
     id: toolBuild
     title: qsTr("Build Teams")
 
     Column {
         id: form
-        anchors.top: parent.top
-        anchors.topMargin: 12
+        anchors.fill: parent
+
+        anchors.margins:16
         spacing: 6
         anchors.horizontalCenter: parent.horizontalCenter
 

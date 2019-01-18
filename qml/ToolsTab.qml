@@ -5,12 +5,17 @@ Page {
     id: toolsTab
     title: qsTr("Tools")
 
+    //anchors.fill: parent
+
+    header:NavigationBar{}
+
     SwipeView {
         id: swipeView
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        ToolBuild{}
+        ToolBuild{
+        }
 
         ToolFind{}
 

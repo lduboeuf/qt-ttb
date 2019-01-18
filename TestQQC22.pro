@@ -1,7 +1,8 @@
-QT += quick svg quickcontrols2
+QT += quick svg xml quickcontrols2
 CONFIG += c++11
 
-QTPLUGIN += qsvg
+#QTPLUGIN += qsvg qsvgicon
+
 
 
 # The following define makes your compiler emit warnings if you use

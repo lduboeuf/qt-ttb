@@ -24,5 +24,21 @@
         <file>qml/SwipableItem.qml</file>
         <file>qml/ToolsTab.qml</file>
         <file>qml/ToolFind.qml</file>
+        <file>qml/Database.js</file>
+        <file>qml/Groups.qml</file>
+        <file>qml/PageTheme.qml</file>
+        <file>qml/HeaderTest.qml</file>
+        <file>qml/GroupForm.qml</file>
+        <file>assets/next.svg</file>
+        <file>qml/NavigationBar.qml</file>
+        <file>assets/add.svg</file>
+        <file>assets/contact-group.svg</file>
+        <file>assets/edit-delete.svg</file>
+        <file>assets/edit.svg</file>
+        <file>assets/go-previous.svg</file>
+        <file>assets/home.svg</file>
+        <file>assets/info.svg</file>
+        <file>assets/navigation-menu.svg</file>
+        <file>assets/ok.svg</file>
     </qresource>
 </RCC>

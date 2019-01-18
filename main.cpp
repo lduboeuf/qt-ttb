@@ -4,8 +4,10 @@
 #include <QSettings>
 #include <QQuickStyle>
 
+
 int main(int argc, char *argv[])
 {
+    QGuiApplication::setApplicationName("ttb.lduboeuf");
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);

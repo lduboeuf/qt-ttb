@@ -5,7 +5,8 @@ import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0
-
+import QtQuick.LocalStorage 2.0
+import "./Database.js" as DB
 
 ApplicationWindow {
     id: window
@@ -15,54 +16,76 @@ ApplicationWindow {
 
     title: qsTr("Kikou ttb")
 
+
+
+    //property var db: LocalStorage.openDatabaseSync("ttb", "1.0", "The Example QML SQL!", 1000000)
+
+
     Settings {
         id: settings
         property string style: "Suru"
     }
 
+    //header: NavigationBar{}
 
-    header: ToolBar {
-        Material.foreground: "white"
+   // property alias actionButtons: buttonsLoader.sourceComponent
 
-
-        RowLayout {
-            anchors.fill: parent
-
-
+//    header: ToolBar {
+//        id:mainToolBar
+//        Material.foreground: "white"
 
 
-            ToolButton {
-                contentItem: Image {
-                    fillMode: Image.Pad
-                    horizontalAlignment: Image.AlignHCenter
-                    verticalAlignment: Image.AlignVCenter
-                    source: stackView.depth > 1 ? "../assets/back.png" : "../assets/drawer.png"
-                }
-                onClicked: {
-                    if (stackView.depth > 1) {
-                        stackView.pop()
-                        menuList.currentIndex = -1
-                    } else {
-                        drawer.open()
-                    }
-                }
-            }
 
-            Label {
-                id: titleLabel
-                text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
-                font.pixelSize: 20
-                elide: Label.ElideRight
-                //anchors.fill: parent
-                anchors.left: parent.left
-                anchors.right: parent.right
-                horizontalAlignment: Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
-                Layout.fillWidth: true
-            }
-        }
+//        RowLayout {
+//            anchors.fill: parent
 
-    }
+//            ToolButton {
+//                contentItem: Image {
+//                    fillMode: Image.Pad
+//                    horizontalAlignment: Image.AlignHCenter
+//                    verticalAlignment: Image.AlignVCenter
+//                    source: stackView.depth > 1 ? "../assets/back.png" : "../assets/drawer.png"
+//                }
+//                onClicked: {
+//                    if (stackView.depth > 1) {
+//                        stackView.pop()
+//                        menuList.currentIndex = -1
+//                    } else {
+//                        drawer.open()
+//                    }
+//                }
+//            }
+
+//            Label {
+//                id: titleLabel
+//                text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
+//                font.pixelSize: 20
+//                elide: Label.ElideRight
+//                //anchors.fill: parent
+//                anchors.left: parent.left
+//                anchors.right: parent.right
+//                horizontalAlignment: Qt.AlignHCenter
+//                verticalAlignment: Qt.AlignVCenter
+//                Layout.fillWidth: true
+//            }
+//            Loader {
+//                Layout.alignment: Qt.AlignRight
+//                id: buttonsLoader
+//            }
+
+////            ToolButton {
+////               id: addActionBar
+////               anchors.right: parent.right
+
+////               font.family: customFont.name
+////               text: "\uea0a"
+////               visible: false
+////            }
+
+
+//        }
+
+//    }
 
     Drawer {
         id: drawer
@@ -81,7 +104,7 @@ ApplicationWindow {
                 RowLayout{
                 id:menuHeader
                 width:drawer.width
-                height: window.header.height
+                height: stackView.currentItem.header.height
 
                 LinearGradient {
                     anchors.fill:parent
@@ -162,12 +185,13 @@ ApplicationWindow {
 
             model: ListModel {
                 ListElement { title: qsTr("Home"); source: "qrc:/qml/ToolsTab.qml"; icon:"\ue900" }
-                ListElement { title: qsTr("My Groups"); source: "qrc:/qml/Page1Form.ui.qml"; icon:"\ue972" }
+                ListElement { title: qsTr("My Groups"); source: "qrc:/qml/Groups.qml"; icon:"\ue972" }
                 ListElement { title: qsTr("About"); source: "qrc:/qml/About.qml"; icon:"\uea09" }
                 ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; icon:"\uea09" }
             }
         }
     }
+
 
 
     StackView {
@@ -177,4 +201,8 @@ ApplicationWindow {
     }
 
     FontLoader { id: customFont; source: "../assets/icomoon.ttf" }
+
+    Component.onCompleted: {
+            DB.dbInit()
+        }
 }
