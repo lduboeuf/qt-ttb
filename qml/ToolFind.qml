@@ -22,7 +22,7 @@ Page {
             width: form.width
             from: 1
             to: 10
-            value: 1
+            value: 2
         }
 
         Label {

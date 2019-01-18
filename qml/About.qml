@@ -23,14 +23,11 @@ Page{
             horizontalAlignment: Qt.AlignHCenter
 
 
-            text: "Welcome to Team ToolBox, a project to help you work or play with teams/groups randomly!
-
-It helps whenever we need to pick someone, don't find volunteers, define teams (practical exercises, collective workshops etc...) , define passing order or assign tasks.
-
-This tool may be useful for trainers, teachers, managers or anyone else who works with or within groups.
-
-
-Author: Lionel Duboeuf"
+            text: "Welcome to Team ToolBox, a project to help you work or play with teams/groups randomly!"
+            + "It helps whenever we need to pick someone, don't find volunteers, define teams (practical exercises, collective workshops etc...) , define passing order or assign tasks."
+            + "This tool may be useful for trainers, teachers, managers or anyone else who works with or within groups."
+            + ""
+            + "Author: Lionel Duboeuf"
 
         }
 
