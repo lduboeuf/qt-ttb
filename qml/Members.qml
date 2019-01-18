@@ -7,9 +7,12 @@ import "Database.js" as DB
 
 
 Page {
-    id: groupPage
+    id: membersPage
 
-    title: qsTr("My Groups")
+    title: group_name + qsTr("Members")
+
+    property string group_id
+    property string group_name
 
      header:NavigationBar{
          toolbarButtons: ToolButton {
@@ -24,16 +27,16 @@ Page {
                    source: "../assets/add.svg"
                }
 
-               onClicked: stackView.push("qrc:/qml/GroupForm.qml")
+               onClicked: stackView.push("qrc:/qml/MemberForm.qml", {group_id: group_id, group_name: group_name})
             }
 
      }
 
 
 
-    StackView.onActivated: DB.findAllGroups()
-
-
+    StackView.onActivated: {
+        DB.findAllMembers(group_id)
+    }
 
     Column {
         spacing: 40
@@ -41,7 +44,7 @@ Page {
         anchors.fill: parent
 
         ListView {
-            id: groupList
+            id: memberList
              width: parent.width
              height: parent.height
             ScrollBar.vertical: ScrollBar {
@@ -49,34 +52,27 @@ Page {
             }
 
             model: ListModel{
-
                     id: listModel
-                   // Component.onCompleted: DB.findAllGroups()
-
             }
 
             delegate: SwipableItem{
 
-                iconSource : "../assets/contact-group.svg"
+                iconSource : "../assets/contact.svg"
 
                 onRemoveClicked: function(index){
-                    var data = groupList.model.get(index)
+                    var data = memberList.model.get(index)
                     console.log("delete index:"+index)
-                    DB.deleteGroup(data.rowid)
-                    groupList.model.remove(index, 1)
+                    DB.deleteMember(data.rowid)
+                    memberList.model.remove(index, 1)
                 }
 
                 onEditClicked: function(index){
-                    var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/GroupForm.qml", {rowid: data.rowid, name:data.name})
-                }
-
-                onItemClicked: function(index){
-                    var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/Members.qml", {group_id: data.rowid, group_name:data.name})
+                    var data = memberList.model.get(index)
+                    stackView.push("qrc:/qml/MemberForm.qml", {rowid: data.rowid, name:data.name, group_id:data.groupid})
                 }
             }
         }
 
     }
 }
+

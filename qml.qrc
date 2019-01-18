@@ -4,7 +4,6 @@
         <file>qml/ToolBuild.qml</file>
         <file>qml/Page1Form.ui.qml</file>
         <file>qml/About.qml</file>
-        <file>qml/FruitComponent.qml</file>
         <file>qml/MenuItem.qml</file>
         <file>assets/icon.png</file>
         <file>assets/logo.svg</file>
@@ -31,5 +30,8 @@
         <file>assets/info.svg</file>
         <file>assets/navigation-menu.svg</file>
         <file>assets/ok.svg</file>
+        <file>qml/Members.qml</file>
+        <file>assets/contact.svg</file>
+        <file>qml/MemberForm.qml</file>
     </qresource>
 </RCC>

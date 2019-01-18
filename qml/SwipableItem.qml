@@ -10,6 +10,7 @@ SwipeDelegate {
 
     property var onRemoveClicked
     property var onEditClicked
+    property var onItemClicked
 
     property string iconSource : "../assets/contact-group.svg"
 
@@ -49,8 +50,10 @@ SwipeDelegate {
             source: "../assets/next.svg"
 
         }
+
     }
 
+    onClicked: onItemClicked(index)
 
 
 
