@@ -176,14 +176,10 @@ ApplicationWindow {
 
                         Text {
                             opacity: 0.60
-                            //font.pixelSize: Qt.application.font.pixelSize * 1.2
-                            font.family: customFont.name
                             text: model.title
                             anchors.left: parent.left
                             anchors.bottom:  menuIcon.bottom
                             anchors.leftMargin: 36
-                            //verticalAlignment: Text.AlignVCenter
-                            //anchors.verticalCenter: parent.verticalCenter
                         }
 
 

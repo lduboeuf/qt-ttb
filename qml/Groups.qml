@@ -70,6 +70,9 @@ Page {
             }
 
             delegate: SwipableItem{
+
+                iconSource : "../assets/contact-group.svg"
+
                 onRemoveClicked: function(index){
                     var data = groupList.model.get(index)
                     console.log("delete index:"+index)

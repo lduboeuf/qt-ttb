@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
 
@@ -7,61 +8,83 @@ SwipeDelegate {
     id: swipeDelegate
     width: parent.width
 
-    contentItem:
+    property var onRemoveClicked
+    property var onEditClicked
+
+    property string iconSource : "../assets/contact-group.svg"
+
+
+    contentItem: RowLayout {
+        width: parent.width
+        height: parent.height
+        spacing: 16
+
+        Image {
+            id: iconLeft
+            anchors.leftMargin: 16
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            sourceSize.width: swipeDelegate.height * 0.4
+            sourceSize.height: sourceSize.height
+            source: iconSource
+
+        }
 
         Text{
-        anchors.leftMargin: 16
-        anchors.verticalCenter: parent.verticalCenter
-        //font.pixelSize: Qt.application.font.pixelSize * 1.2
-        //anchors.left: parent.left
-        text: name
-
+            anchors.left: iconLeft.right
+            anchors.leftMargin: 16
+            opacity: 0.60
+            anchors.verticalCenter: parent.verticalCenter
+            //font.pixelSize: Qt.application.font.pixelSize * 1.2
+            //anchors.left: parent.left
+            text: name
+        }
         Image {
             anchors.right: parent.right
             //fillMode: Image.Pad
             //horizontalAlignment: Image.AlignHCenter
             anchors.verticalCenter: parent.verticalCenter
-            sourceSize.width: swipeDelegate.height - (swipeDelegate.height * 0.4)
+            sourceSize.width: swipeDelegate.height * 0.4
             sourceSize.height: sourceSize.height
             source: "../assets/next.svg"
 
         }
     }
 
-    property var onRemoveClicked
-    property var onEditClicked
 
 
-swipe.left: Rectangle {
-    color: SwipeDelegate.pressed ? Qt.darker("red", 1.1) : "red"
-    //width: parent.width
-    anchors.left: parent.left
-    width: parent.width - (parent.width*0.6)
-    height: parent.height
-    clip: true
 
 
-    //SwipeDelegate.onClicked: view.model.remove(ourIndex)
+    swipe.left: Rectangle {
+        color: SwipeDelegate.pressed ? Qt.darker("red", 1.1) : "red"
+        //width: parent.width
+        anchors.left: parent.left
+        width: parent.width - (parent.width*0.6)
+        height: parent.height
+        clip: true
 
-    Image {
-        id: deleteImg
 
-        anchors.centerIn: parent
-        sourceSize.width: parent.height * 0.3
-        sourceSize.height: sourceSize.height
-        source: "../assets/edit-delete.svg"
+        //SwipeDelegate.onClicked: view.model.remove(ourIndex)
+
+        Image {
+            id: deleteImg
+
+            anchors.centerIn: parent
+            sourceSize.width: parent.height * 0.3
+            sourceSize.height: sourceSize.height
+            source: "../assets/edit-delete.svg"
+        }
+        ColorOverlay {
+            anchors.fill: deleteImg
+            source: deleteImg
+            color: "white"  // make image like it lays under red glass
+        }
+
+        MouseArea { //workaround for mobile
+            anchors.fill: parent
+            onClicked: onRemoveClicked(index)
+        }
     }
-    ColorOverlay {
-        anchors.fill: deleteImg
-        source: deleteImg
-        color: "white"  // make image like it lays under red glass
-    }
-
-    MouseArea { //workaround for mobile
-        anchors.fill: parent
-        onClicked: onRemoveClicked(index)
-    }
-}
 
 
 
