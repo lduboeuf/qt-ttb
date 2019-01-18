@@ -23,7 +23,18 @@ ApplicationWindow {
 
     Settings {
         id: settings
-        property string style: "Suru"
+        //property string style: getStyle()
+    }
+
+    function getStyle(){
+        var style = "System";
+        console.log("os:" + Qt.platform.os)
+        if (Qt.platform.os == "android"){
+            style = "Material"
+        } else if (Qt.platform.os == "linux"){
+            style = "Suru"
+        }
+        return style
     }
 
     //header: NavigationBar{}

@@ -21,7 +21,7 @@ ToolBar {
                 fillMode: Image.Pad
                 horizontalAlignment: Image.AlignHCenter
                 verticalAlignment: Image.AlignVCenter
-                sourceSize.width: parent.height - (parent.height * 0.4)
+                sourceSize.width: parent.height * 0.4
                 sourceSize.height: sourceSize.height
                 source: stackView.depth > 1 ? "../assets/go-previous.svg" : "../assets/navigation-menu.svg"
             }

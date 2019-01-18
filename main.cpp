@@ -14,13 +14,19 @@ int main(int argc, char *argv[])
 
     QSettings settings;
         QString style = QQuickStyle::name();
-        if (settings.contains("style")) {
+        QString platform = QGuiApplication::platformName();
+        if (platform=="android"){
+            settings.setValue("style", "material");
+            QQuickStyle::setStyle("material");
+        }else if (settings.contains("style")) {
             QQuickStyle::setStyle(settings.value("style").toString());
         }
         else {
             settings.setValue("style", "Suru");
             QQuickStyle::setStyle("Suru");
         }
+
+
 
 
     QQmlApplicationEngine engine;
