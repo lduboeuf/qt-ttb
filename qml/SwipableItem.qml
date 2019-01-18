@@ -47,7 +47,7 @@ swipe.left: Rectangle {
         id: deleteImg
 
         anchors.centerIn: parent
-        sourceSize.width: parent.height - (parent.height * 0.6)
+        sourceSize.width: parent.height * 0.3
         sourceSize.height: sourceSize.height
         source: "../assets/edit-delete.svg"
     }
@@ -68,7 +68,7 @@ swipe.left: Rectangle {
     swipe.right: Rectangle {
         color: SwipeDelegate.pressed ? Qt.darker("green", 1.1) : "green"
         anchors.right: parent.right
-        width: parent.width - (parent.width*0.6)
+        width: parent.width * 0.3
         height: parent.height
         clip: true
 

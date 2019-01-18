@@ -150,18 +150,28 @@ ApplicationWindow {
                         anchors.leftMargin: 16
                         anchors.fill: parent
 
-                        Text {
-                            id:menuIcon
-                            opacity: 0.60
-                            //font.pixelSize: Qt.application.font.pixelSize * 1.2
-                            font.family: customFont.name
-                            text: model.icon
-                            verticalAlignment: Text.AlignVCenter
-                            anchors.verticalCenter: parent.verticalCenter
+                        Image {
+                           id:menuIcon
+                           fillMode: Image.Pad
+                           horizontalAlignment: Image.AlignHCenter
+                           verticalAlignment: Image.AlignVCenter
+                           sourceSize.width: parent.height * 0.4
+                           sourceSize.height: sourceSize.height
+                           source: model.iconsource
+                       }
 
-                            //anchors.baseline: parent.bottom
+//                        Text {
+//                            id:menuIcon
+//                            opacity: 0.60
+//                            //font.pixelSize: Qt.application.font.pixelSize * 1.2
+//                            font.family: customFont.name
+//                            text: model.icon
+//                            verticalAlignment: Text.AlignVCenter
+//                            anchors.verticalCenter: parent.verticalCenter
 
-                        }
+//                            //anchors.baseline: parent.bottom
+
+//                        }
 
 
                         Text {
@@ -170,9 +180,9 @@ ApplicationWindow {
                             font.family: customFont.name
                             text: model.title
                             anchors.left: parent.left
-                            anchors.baseline: menuIcon.baseline
+                            anchors.bottom:  menuIcon.bottom
                             anchors.leftMargin: 36
-                            verticalAlignment: Text.AlignVCenter
+                            //verticalAlignment: Text.AlignVCenter
                             //anchors.verticalCenter: parent.verticalCenter
                         }
 
@@ -184,10 +194,10 @@ ApplicationWindow {
 
 
             model: ListModel {
-                ListElement { title: qsTr("Home"); source: "qrc:/qml/ToolsTab.qml"; icon:"\ue900" }
-                ListElement { title: qsTr("My Groups"); source: "qrc:/qml/Groups.qml"; icon:"\ue972" }
-                ListElement { title: qsTr("About"); source: "qrc:/qml/About.qml"; icon:"\uea09" }
-                ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; icon:"\uea09" }
+                ListElement { title: qsTr("Home"); source: "qrc:/qml/ToolsTab.qml"; iconsource:"../assets/home.svg" }
+                ListElement { title: qsTr("My Groups"); source: "qrc:/qml/Groups.qml"; iconsource:"../assets/contact-group.svg" }
+                ListElement { title: qsTr("About"); source: "qrc:/qml/About.qml"; iconsource:"../assets/info.svg" }
+                //ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; iconsource:"\uea09" }
             }
         }
     }
@@ -200,7 +210,7 @@ ApplicationWindow {
         anchors.fill: parent
     }
 
-    FontLoader { id: customFont; source: "../assets/icomoon.ttf" }
+    //FontLoader { id: customFont; source: "../assets/icomoon.ttf" }
 
     Component.onCompleted: {
             DB.dbInit()
