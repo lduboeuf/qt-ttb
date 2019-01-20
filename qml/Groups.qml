@@ -1,8 +1,8 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
-import QtQuick.LocalStorage 2.0
-import "Database.js" as DB
+//import TTBApplication 1.0
+
 
 
 
@@ -31,7 +31,7 @@ Page {
 
 
 
-    StackView.onActivated: DB.findAllGroups()
+    //StackView.onActivated: DB.findAllGroups()
 
 
 
@@ -48,27 +48,24 @@ Page {
                 active: true
             }
 
-            model: ListModel{
-
-                    id: listModel
-                   // Component.onCompleted: DB.findAllGroups()
-
-            }
+            model: TTBApplication.groupModel
 
             delegate: SwipableItem{
 
-                iconSource : "../assets/contact-group.svg"
+               iconSource : TTBApplication.getImageSource(model.type)
 
                 onRemoveClicked: function(index){
-                    var data = groupList.model.get(index)
-                    console.log("delete index:"+index)
-                    DB.deleteGroup(data.rowid)
-                    groupList.model.remove(index, 1)
+                    TTBApplication.removeGroup(index)
+//                    var data = groupList.model.get(index)
+//                    console.log("delete index:"+index)
+//                    DB.deleteGroup(data.rowid)
+//                    groupList.model.remove(index, 1)
                 }
 
                 onEditClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/GroupForm.qml", {rowid: data.rowid, name:data.name})
+                    stackView.push("qrc:/qml/GroupForm.qml", {index: index, rowid: data.rowid, name:data.name})
+                    swipe.close()
                 }
 
                 onItemClicked: function(index){

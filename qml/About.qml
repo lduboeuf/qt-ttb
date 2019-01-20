@@ -19,7 +19,7 @@ Page{
             id:content
             anchors.margins: 16
             width: parent.width
-            wrapMode: Label.Wrap
+            wrapMode: Text.Wrap
             horizontalAlignment: Qt.AlignHCenter
 
 

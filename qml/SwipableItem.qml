@@ -8,11 +8,13 @@ SwipeDelegate {
     id: swipeDelegate
     width: parent.width
 
-    property var onRemoveClicked
-    property var onEditClicked
-    property var onItemClicked
 
-    property string iconSource : "../assets/contact-group.svg"
+    signal removeClicked(int index)
+    signal editClicked(int index)
+    signal itemClicked(int index)
+
+
+    property string iconSource : ""
 
 
     contentItem: RowLayout {
@@ -53,7 +55,7 @@ SwipeDelegate {
 
     }
 
-    onClicked: onItemClicked(index)
+    onClicked: itemClicked(index)
 
 
 
@@ -85,7 +87,7 @@ SwipeDelegate {
 
         MouseArea { //workaround for mobile
             anchors.fill: parent
-            onClicked: onRemoveClicked(index)
+            onClicked: swipeDelegate.removeClicked(index)
         }
     }
 
@@ -117,7 +119,7 @@ SwipeDelegate {
 
         MouseArea { //workaround for mobile
             anchors.fill: parent
-            onClicked: onEditClicked(index)
+            onClicked: swipeDelegate.editClicked(index)
         }
     }
 

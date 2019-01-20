@@ -1,12 +1,12 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-import QtQuick.LocalStorage 2.0
-
-import "Database.js" as DB
+import "." //Apparently pages that are not shown troughout stackView cannot load singleton TTBApplication
 
 Page {
     id: toolBuild
     title: qsTr("Build Teams")
+
+    property var selectedGroup: []
 
     Column {
         id: form
@@ -16,6 +16,7 @@ Page {
         anchors.margins:16
         spacing: 6
         anchors.horizontalCenter: parent.horizontalCenter
+
 
         Label {
             text: qsTr("Define:")
@@ -38,12 +39,34 @@ Page {
             id: comboBox
             width: form.width
             textRole: "name"
-            model: ListModel{
-                id: listModel
+            model: TTBApplication.groupModel
+
+            // ComboBox closes the popup when its items (anything AbstractButton derivative) are
+                    //  activated. Wrapping the delegate into a plain Item prevents that.
+            delegate: Item {
+                width: parent.width
+                height: checkDelegate.height
+
+                function toggle() { checkDelegate.toggle() }
+
+                CheckDelegate {
+                    id: checkDelegate
+                    anchors.fill: parent
+                    text: model.name
+                    highlighted: comboBox.highlightedIndex == index
+                    checked: selectedGroup.indexOf(index) !== -1
+                    onCheckedChanged: {
+                        var idx = selectedGroup.indexOf(index)
+                        if (idx === -1){
+                            selectedGroup.push(index)
+                        }else{
+                            selectedGroup.splice(idx, 1)
+                        }
+                    }
+
+                }
             }
-//            ItemDelegate {
-//                   text: listModel.name
-//            }
+
         }
 
         Row {
@@ -65,17 +88,12 @@ Page {
                         console.log("tout selectionné")
                     }
 
+                    console.log(selectedGroup)
+                    selectedGroup = []
+
                 }
             }
         }
-    }
-
-    Component.onCompleted: {
-
-        DB.findAllGroups()
-        //add fake Item
-        comboBox.model.insert(0, {rowid:-1, name: qsTr("All groups")})
-
     }
 
 }

@@ -15,9 +15,12 @@ Page {
         currentIndex: tabBar.currentIndex
 
         ToolBuild{
+            id:toolBuild
         }
 
-        ToolFind{}
+        ToolFind{
+            id: toolFind
+        }
 
     }
 
@@ -35,4 +38,6 @@ Page {
             text: "Third"
         }
     }
+
+
 }

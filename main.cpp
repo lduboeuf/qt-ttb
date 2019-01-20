@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+    //qmlRegisterSingletonType(QUrl("qrc:/qml/TTBApplication.qml"), "TTBApplication", 1, 0, "TTBApplication");
 
     QSettings settings;
         QString style = QQuickStyle::name();
@@ -31,6 +32,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("availableStyles", QQuickStyle::availableStyles());
+    //engine.addImportPath("qrc:qml");
     engine.load(QUrl(QStringLiteral("qrc:qml/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;

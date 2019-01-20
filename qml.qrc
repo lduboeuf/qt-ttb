@@ -33,5 +33,14 @@
         <file>qml/Members.qml</file>
         <file>assets/contact.svg</file>
         <file>qml/MemberForm.qml</file>
+        <file>qml/test.js</file>
+        <file>qml/tools.js</file>
+        <file>qml/TTBApplication.qml</file>
+        <file>assets/select.svg</file>
+        <file>assets/item.svg</file>
+        <file>assets/items.svg</file>
+        <file>qml/qmldir</file>
+        <file>assets/tasks.svg</file>
+        <file>assets/groups.svg</file>
     </qresource>
 </RCC>

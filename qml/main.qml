@@ -16,6 +16,8 @@ ApplicationWindow {
 
     title: qsTr("Team Toolbox")
 
+    property var groupList
+
 
 //    Settings {
 //        id: settings
@@ -91,13 +93,14 @@ ApplicationWindow {
                            fillMode: Image.Pad
                            horizontalAlignment: Image.AlignHCenter
                            verticalAlignment: Image.AlignVCenter
-                           sourceSize.width: parent.height * 0.4
-                           sourceSize.height: sourceSize.height
+                           sourceSize.width: menuLabel.height
+                           sourceSize.height: menuLabel.height
                            source: model.iconsource
                        }
 
 
                         Text {
+                            id:menuLabel
                             opacity: 0.60
                             text: model.title
                             anchors.left: parent.left
@@ -114,7 +117,7 @@ ApplicationWindow {
 
             model: ListModel {
                 ListElement { title: qsTr("Home"); source: "qrc:/qml/ToolsTab.qml"; iconsource:"../assets/home.svg" }
-                ListElement { title: qsTr("My Groups"); source: "qrc:/qml/Groups.qml"; iconsource:"../assets/contact-group.svg" }
+                ListElement { title: qsTr("My Groups"); source: "qrc:/qml/Groups.qml"; iconsource:"../assets/groups.svg" }
                 ListElement { title: qsTr("About"); source: "qrc:/qml/About.qml"; iconsource:"../assets/info.svg" }
                 //ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; iconsource:"\uea09" }
             }
@@ -133,5 +136,6 @@ ApplicationWindow {
 
     Component.onCompleted: {
             DB.dbInit()
+            groupList = DB.findGroups()
         }
 }
