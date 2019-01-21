@@ -2,7 +2,8 @@ import QtQuick 2.6
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
 import QtQuick.LocalStorage 2.0
-import "Database.js" as DB
+import "../Components"
+import "../Model/Database.js" as DB
 
 
 
@@ -24,10 +25,10 @@ Page {
                    verticalAlignment: Image.AlignVCenter
                    sourceSize.width: parent.height  * 0.4
                    sourceSize.height: sourceSize.height
-                   source: "../assets/add.svg"
+                   source: "/assets/add.svg"
                }
 
-               onClicked: stackView.push("qrc:/qml/MemberForm.qml", {group_id: group_id, group_name: group_name})
+               onClicked: stackView.push("qrc:/qml/MyGroups/MemberForm.qml", {group_id: group_id, group_name: group_name})
             }
 
      }
@@ -57,7 +58,7 @@ Page {
 
             delegate: SwipableItem{
 
-                iconSource : "../assets/contact.svg"
+                iconSource : "/assets/contact.svg"
 
                 onRemoveClicked: function(index){
                     var data = memberList.model.get(index)
@@ -68,7 +69,7 @@ Page {
 
                 onEditClicked: function(index){
                     var data = memberList.model.get(index)
-                    stackView.push("qrc:/qml/MemberForm.qml", {rowid: data.rowid, name:data.name, group_id:data.groupid})
+                    stackView.push("qrc:/qml/MyGroups/MemberForm.qml", {rowid: data.rowid, name:data.name, group_id:data.groupid})
                 }
             }
         }

@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-import "." //Apparently pages that are not shown troughout stackView cannot load singleton TTBApplication
+import "../Model"
+//import "." //Apparently pages that are not shown troughout stackView cannot load singleton TTBApplication
 
 Page {
     id: toolBuild
@@ -39,7 +40,7 @@ Page {
             id: comboBox
             width: form.width
             textRole: "name"
-            model: TTBApplication.groupModel
+            model: GroupModel.groupModel
 
             // ComboBox closes the popup when its items (anything AbstractButton derivative) are
                     //  activated. Wrapping the delegate into a plain Item prevents that.

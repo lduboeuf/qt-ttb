@@ -49,7 +49,7 @@ SwipeDelegate {
             anchors.verticalCenter: parent.verticalCenter
             sourceSize.width: swipeDelegate.height * 0.4
             sourceSize.height: sourceSize.height
-            source: "../assets/next.svg"
+            source: "/assets/next.svg"
 
         }
 
@@ -77,7 +77,7 @@ SwipeDelegate {
             anchors.centerIn: parent
             sourceSize.width: parent.height * 0.3
             sourceSize.height: sourceSize.height
-            source: "../assets/edit-delete.svg"
+            source: "/assets/edit-delete.svg"
         }
         ColorOverlay {
             anchors.fill: deleteImg
@@ -109,7 +109,7 @@ SwipeDelegate {
             anchors.centerIn: parent
             sourceSize.width: parent.height - (parent.height * 0.6)
             sourceSize.height: sourceSize.height
-            source: "../assets/edit.svg"
+            source: "/assets/edit.svg"
         }
         ColorOverlay {
             anchors.fill: editImg

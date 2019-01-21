@@ -2,7 +2,8 @@ import QtQuick 2.4
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
-import "Database.js" as DB
+import "../Components"
+import "../Model/Database.js" as DB
 
 
 Page {
@@ -27,7 +28,7 @@ Page {
                   verticalAlignment: Image.AlignVCenter
                   sourceSize.width: parent.height  * 0.4
                   sourceSize.height: sourceSize.height
-                  source: "../assets/ok.svg"
+                  source: "/assets/ok.svg"
               }
 
               onClicked: {
@@ -69,6 +70,8 @@ Page {
 
         }
     }
+    StackView.onActivated: memberInput.forceActiveFocus()
+
 
 
 }

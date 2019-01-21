@@ -1,7 +1,9 @@
 import QtQuick 2.6
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
-//import TTBApplication 1.0
+import "../Components"
+import "../Model"
+//import GroupModel 1.0
 
 
 
@@ -21,10 +23,10 @@ Page {
                    verticalAlignment: Image.AlignVCenter
                    sourceSize.width: parent.height  * 0.4
                    sourceSize.height: sourceSize.height
-                   source: "../assets/add.svg"
+                   source: "/assets/add.svg"
                }
 
-               onClicked: stackView.push("qrc:/qml/GroupForm.qml")
+               onClicked: stackView.push("qrc:/qml/MyGroups/GroupForm.qml")
             }
 
      }
@@ -48,14 +50,14 @@ Page {
                 active: true
             }
 
-            model: TTBApplication.groupModel
+            model: GroupModel.groupModel
 
             delegate: SwipableItem{
 
-               iconSource : TTBApplication.getImageSource(model.type)
+               iconSource : GroupModel.getImageSource(model.type)
 
                 onRemoveClicked: function(index){
-                    TTBApplication.removeGroup(index)
+                    GroupModel.removeGroup(index)
 //                    var data = groupList.model.get(index)
 //                    console.log("delete index:"+index)
 //                    DB.deleteGroup(data.rowid)
@@ -64,13 +66,13 @@ Page {
 
                 onEditClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/GroupForm.qml", {index: index, rowid: data.rowid, name:data.name})
+                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowid: data.rowid, name:data.name})
                     swipe.close()
                 }
 
                 onItemClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/Members.qml", {group_id: data.rowid, group_name:data.name})
+                    stackView.push("qrc:/qml/MyGroups/Members.qml", {group_id: data.rowid, group_name:data.name})
                 }
             }
         }

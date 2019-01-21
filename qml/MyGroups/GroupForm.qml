@@ -1,7 +1,8 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
-//import TTBApplication 1.0
+import "../Components"
+import "../Model"
 
 
 Page {
@@ -12,9 +13,10 @@ Page {
     property string name:""
 
     property bool updateMode: name.length==0 ? false: true
-    property string selectedGroupType: TTBApplication.groupTypePeoplesName
+    property string selectedGroupType: GroupModel.groupTypePeoplesName
 
     title: updateMode ? qsTr("Modify Group"): qsTr("Add Group")
+
 
 
     header:NavigationBar{
@@ -27,7 +29,7 @@ Page {
                 verticalAlignment: Image.AlignVCenter
                 sourceSize.width: parent.height  * 0.4
                 sourceSize.height: sourceSize.height
-                source: "../assets/ok.svg"
+                source: "/assets/ok.svg"
             }
 
             onClicked: {
@@ -44,9 +46,9 @@ Page {
 
         if (updateMode){
             //DB.updateGroup(rowid, groupInput.displayText)
-            TTBApplication.updateGroup(index, rowid, groupInput.displayText, selectedGroupType)
+            GroupModel.updateGroup(index, rowid, groupInput.displayText, selectedGroupType)
         }else{
-            TTBApplication.addGroup(groupInput.displayText, selectedGroupType)
+            GroupModel.addGroup(groupInput.displayText, selectedGroupType)
             //DB.insertGroup(groupInput.displayText)
         }
 
@@ -64,6 +66,7 @@ Page {
 
         TextField {
             id: groupInput
+            //focus: true
             //anchors.horizontalCenter:  parent.horizontalCenter
             placeholderText: "Group name"
             text:  name
@@ -82,7 +85,7 @@ Page {
 
         Column {
             id: iconType
-            spacing: 4
+            spacing: 6
             width: parent.width
 
 
@@ -93,11 +96,12 @@ Page {
                 padding:0
 
                 anchors.margins: 0
-                onCheckedChanged:if (checked) selectedGroupType = TTBApplication.groupTypePeoplesName
+                onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypePeoplesName
 
                 contentItem: RowLayout{
                     spacing:4
                     anchors.left: parent.right
+                    anchors.leftMargin: 8
 
                     width: parent.width
                     height: parent.height
@@ -107,7 +111,7 @@ Page {
                         //anchors.centerIn: parent
                         sourceSize.width: peopleLabel.height
                         sourceSize.height: peopleLabel.width
-                        source: "../assets/contact-group.svg"
+                        source: GroupModel.getImageSource(GroupModel.groupTypePeoplesName)
                     }
                     Label{
                         id: peopleLabel
@@ -127,12 +131,13 @@ Page {
                 implicitWidth: implicitHeight
                 padding:0
 
-                onCheckedChanged:if (checked) selectedGroupType = TTBApplication.groupTypeItemsName
+                onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypeItemsName
 
 
 
                 contentItem: RowLayout{
                     anchors.left: parent.right
+                    anchors.leftMargin: 8
 
                     //anchors.leftMargin: 16
                     width: parent.width
@@ -147,7 +152,7 @@ Page {
                         //anchors.centerIn: parent
                         sourceSize.width: itemLabel.height
                         sourceSize.height: itemLabel.width
-                        source: "../assets/items.svg"
+                        source: GroupModel.getImageSource(GroupModel.groupTypeItemsName)
                     }
                     Label{
                         id: itemLabel
@@ -164,12 +169,13 @@ Page {
                 implicitHeight: 30
                 implicitWidth: implicitHeight
                 padding:0
-                onCheckedChanged:if (checked) selectedGroupType = TTBApplication.groupTypeTasksName
+                onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypeTasksName
 
                 contentItem: RowLayout{
                     //anchors.leftMargin: 16
                     width: parent.width
                     height: parent.height
+                    anchors.leftMargin: 8
 
                     spacing:4
                     anchors.left: parent.right
@@ -179,7 +185,7 @@ Page {
                         //anchors.centerIn: parent
                         sourceSize.width: taskLabel.height
                         sourceSize.height: taskLabel.width
-                        source: "../assets/groups.svg"
+                        source: GroupModel.getImageSource(GroupModel.groupTypeTasksName)
                     }
                     Label{
                         id:taskLabel
@@ -193,6 +199,7 @@ Page {
         }
     }
 
+    StackView.onActivated: groupInput.forceActiveFocus()
 
 
 

@@ -5,8 +5,10 @@ import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0
-import QtQuick.LocalStorage 2.0
-import "./Database.js" as DB
+
+import "qrc:/qml/Model" //import "Model" doesn't work here
+
+
 
 ApplicationWindow {
     id: window
@@ -16,7 +18,7 @@ ApplicationWindow {
 
     title: qsTr("Team Toolbox")
 
-    property var groupList
+ //   property var groupList
 
 
 //    Settings {
@@ -42,6 +44,8 @@ ApplicationWindow {
         width: Math.min(window.width, window.height) / 3 * 2
         height: window.height
 
+        property int headerHeight: window.height * 0.15
+
 
         ListView {
             id: menuList
@@ -53,7 +57,7 @@ ApplicationWindow {
                 RowLayout{
                 id:menuHeader
                 width:drawer.width
-                height: stackView.currentItem.header.height
+                height: drawer.headerHeight
 
                 LinearGradient {
                     anchors.fill:parent
@@ -76,6 +80,7 @@ ApplicationWindow {
 
                     onClicked: {
                         menuList.currentIndex = index
+                        stackView.clear()
                         stackView.push(model.source)
                         drawer.close()
                     }
@@ -116,8 +121,8 @@ ApplicationWindow {
 
 
             model: ListModel {
-                ListElement { title: qsTr("Home"); source: "qrc:/qml/ToolsTab.qml"; iconsource:"../assets/home.svg" }
-                ListElement { title: qsTr("My Groups"); source: "qrc:/qml/Groups.qml"; iconsource:"../assets/groups.svg" }
+                ListElement { title: qsTr("Home"); source: "qrc:/qml/Tools/ToolsTab.qml"; iconsource:"../assets/home.svg" }
+                ListElement { title: qsTr("My Groups"); source: "qrc:/qml/MyGroups/Groups.qml"; iconsource:"../assets/groups.svg" }
                 ListElement { title: qsTr("About"); source: "qrc:/qml/About.qml"; iconsource:"../assets/info.svg" }
                 //ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; iconsource:"\uea09" }
             }
@@ -128,14 +133,16 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "qrc:/qml/ToolsTab.qml"
+        initialItem: "qrc:/qml/Tools/ToolsTab.qml"
         anchors.fill: parent
     }
 
     //FontLoader { id: customFont; source: "../assets/icomoon.ttf" }
 
     Component.onCompleted: {
-            DB.dbInit()
-            groupList = DB.findGroups()
-        }
+        drawer.headerHeight = stackView.currentItem.header.height
+           if (GroupModel.groupModel.rowCount()===0){
+               console.log("WelcomePage")
+           }
+    }
 }

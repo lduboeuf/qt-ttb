@@ -18,12 +18,13 @@ ToolBar {
 
         ToolButton {
             contentItem: Image {
+                id:navImage
                 fillMode: Image.Pad
                 horizontalAlignment: Image.AlignHCenter
                 verticalAlignment: Image.AlignVCenter
                 sourceSize.width: parent.height * 0.4
                 sourceSize.height: sourceSize.height
-                source: stackView.depth > 1 ? "../assets/go-previous.svg" : "../assets/navigation-menu.svg"
+                source: stackView.depth > 1 ? "/assets/go-previous.svg" : "/assets/navigation-menu.svg"
             }
             onClicked: {
                 if (stackView.depth > 1) {

@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/main.qml</file>
-        <file>qml/ToolBuild.qml</file>
         <file>qml/Page1Form.ui.qml</file>
         <file>qml/About.qml</file>
         <file>qml/MenuItem.qml</file>
@@ -9,18 +8,10 @@
         <file>assets/logo.svg</file>
         <file>qml/testouilleRow.qml</file>
         <file>qml/SpinBoxTest.qml</file>
-        <file>qml/ScrollablePage.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>qml/SwipableItem.qml</file>
-        <file>qml/ToolsTab.qml</file>
-        <file>qml/ToolFind.qml</file>
-        <file>qml/Database.js</file>
-        <file>qml/Groups.qml</file>
         <file>qml/PageTheme.qml</file>
         <file>qml/HeaderTest.qml</file>
-        <file>qml/GroupForm.qml</file>
         <file>assets/next.svg</file>
-        <file>qml/NavigationBar.qml</file>
         <file>assets/add.svg</file>
         <file>assets/contact-group.svg</file>
         <file>assets/edit-delete.svg</file>
@@ -30,17 +21,26 @@
         <file>assets/info.svg</file>
         <file>assets/navigation-menu.svg</file>
         <file>assets/ok.svg</file>
-        <file>qml/Members.qml</file>
         <file>assets/contact.svg</file>
-        <file>qml/MemberForm.qml</file>
         <file>qml/test.js</file>
         <file>qml/tools.js</file>
-        <file>qml/TTBApplication.qml</file>
         <file>assets/select.svg</file>
         <file>assets/item.svg</file>
         <file>assets/items.svg</file>
-        <file>qml/qmldir</file>
         <file>assets/tasks.svg</file>
         <file>assets/groups.svg</file>
+        <file>qml/Components/NavigationBar.qml</file>
+        <file>qml/Components/qmldir</file>
+        <file>qml/Tools/ToolBuild.qml</file>
+        <file>qml/Tools/ToolFind.qml</file>
+        <file>qml/Tools/ToolsTab.qml</file>
+        <file>qml/MyGroups/GroupForm.qml</file>
+        <file>qml/MyGroups/Groups.qml</file>
+        <file>qml/MyGroups/MemberForm.qml</file>
+        <file>qml/MyGroups/Members.qml</file>
+        <file>qml/Components/SwipableItem.qml</file>
+        <file>qml/Model/GroupModel.qml</file>
+        <file>qml/Model/qmldir</file>
+        <file>qml/Model/Database.js</file>
     </qresource>
 </RCC>

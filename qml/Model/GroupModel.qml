@@ -1,7 +1,7 @@
 pragma Singleton
 import QtQuick 2.0
 import QtQuick.LocalStorage 2.0
-import "Database.js" as DB
+import "./Database.js" as DB
 
 QtObject {
 
@@ -12,12 +12,12 @@ QtObject {
     function getImageSource(typeName)  {
         var imgSource = ""
         if (groupTypePeoplesName===typeName){
-            imgSource = "../assets/contact-group.svg"
+            imgSource = "/assets/contact-group.svg"
         }else if(groupTypeItemsName===typeName){
-            imgSource = "../assets/items.svg"
+            imgSource = "/assets/items.svg"
 
         }else if(groupTypeTasksName===typeName){
-            imgSource = "../assets/tasks.svg"
+            imgSource = "/assets/tasks.svg"
 
         }
 
