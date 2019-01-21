@@ -34,7 +34,7 @@ QtObject {
         //var id = DB.insertGroup(groupName, selectedGroupType)
         var rowid = 0;
         Database.db.transaction(function (tx) {
-            tx.executeSql('INSERT INTO groups(name, type) VALUES(?, ?)',
+            tx.executeSql('INSERT INTO group(name, type) VALUES(?, ?)',
                           [groupName, selectedGroupType])
             var result = tx.executeSql('SELECT last_insert_rowid()')
             rowid = result.insertId
@@ -48,7 +48,7 @@ QtObject {
         var data = groupModel.get(index)
         console.log("delete index:"+index)
         Database.db.transaction(function (tx) {
-            tx.executeSql('delete from groups where group_id = ?', [data.rowId])
+            tx.executeSql('delete from group where group_id = ?', [data.rowId])
         })
 
         groupModel.remove(index, 1)
@@ -60,7 +60,7 @@ QtObject {
 
         Database.db.transaction(function (tx) {
             tx.executeSql(
-                        'update groups set name=?, type=? where group_id = ?', [name, type, rowId])
+                        'update group set name=?, type=? where group_id = ?', [name, type, rowId])
         })
 
         data.name = name
@@ -72,7 +72,7 @@ QtObject {
 
          Database.db.transaction(function (tx) {
 
-            var results = tx.executeSql('SELECT * FROM groups')
+            var results = tx.executeSql('SELECT * FROM group')
             for (var i = 0; i < results.rows.length; i++) {
                 //console.log(results.rows.item(i).name + " - " + results.rows.item(i).type)
                 groupModel.append({
