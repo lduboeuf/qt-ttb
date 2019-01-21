@@ -56,7 +56,7 @@ Page {
 
             delegate: SwipableItem{
 
-                iconSource : "/assets/contact.svg"
+                iconSource : "/assets/starred.svg"
 
                 onRemoveClicked: function(index){
 

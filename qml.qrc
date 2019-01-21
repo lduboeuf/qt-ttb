@@ -44,5 +44,6 @@
         <file>qml/Model/Database.js.old</file>
         <file>qml/Model/Database.qml</file>
         <file>qml/Model/ItemModel.qml</file>
+        <file>assets/starred.svg</file>
     </qresource>
 </RCC>
