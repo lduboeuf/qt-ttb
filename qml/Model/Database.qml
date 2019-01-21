@@ -14,8 +14,8 @@ QtObject {
                 //tx.executeSql('DROP TABLE groups')
                 //tx.executeSql('DROP TABLE members')
 
-                tx.executeSql('CREATE TABLE IF NOT EXISTS groups (group_id INTEGER  PRIMARY KEY,name TEXT, type TEXT);')
-                tx.executeSql('CREATE TABLE IF NOT EXISTS items (item_id INTEGER  PRIMARY KEY,group_id INTEGER, name TEXT);')
+                tx.executeSql('CREATE TABLE IF NOT EXISTS group (group_id INTEGER  PRIMARY KEY,name TEXT, type TEXT);')
+                tx.executeSql('CREATE TABLE IF NOT EXISTS item (item_id INTEGER  PRIMARY KEY,group_id INTEGER, name TEXT);')
 
             })
         } catch (err) {

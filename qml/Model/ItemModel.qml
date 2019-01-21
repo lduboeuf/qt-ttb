@@ -15,7 +15,7 @@ QtObject {
         itemModel.clear()
         var list = []
         Database.db.transaction(function (tx) {
-            var results = tx.executeSql('SELECT * FROM items WHERE group_id = ?', [pGroupId])
+            var results = tx.executeSql('SELECT * FROM item WHERE group_id = ?', [pGroupId])
             for (var i = 0; i < results.rows.length; i++) {
                 console.log(results.rows.item(i).name)
                 itemModel.append({
@@ -34,7 +34,7 @@ QtObject {
 //    {
 //        Database.db.transaction(function (tx) {
 //            listModel.clear()
-//            var results = tx.executeSql('SELECT * FROM items WHERE group_id = ?', [pGroupId])
+//            var results = tx.executeSql('SELECT * FROM item WHERE group_id = ?', [pGroupId])
 //            for (var i = 0; i < results.rows.length; i++) {
 //                console.log(results.rows.item(i).name)
 //                listModel.append({
@@ -51,7 +51,7 @@ QtObject {
     {
         var rowid = 0;
         Database.db.transaction(function (tx) {
-            tx.executeSql('INSERT INTO items(group_id, name) VALUES(?, ?)',
+            tx.executeSql('INSERT INTO item(group_id, name) VALUES(?, ?)',
                           [pGroupId, pName])
             var result = tx.executeSql('SELECT last_insert_rowid()')
             rowid = result.insertId
@@ -70,7 +70,7 @@ QtObject {
 
         Database.db.transaction(function (tx) {
             tx.executeSql(
-                        'update items set name=? where item_id = ?', [pName, pId])
+                        'update item set name=? where item_id = ?', [pName, pId])
         })
 
         data.name = pName
@@ -82,7 +82,7 @@ QtObject {
         var data = itemModel.get(index)
         Database.db.transaction(function (tx) {
             console.log("delete rowid:" + data.rowId)
-            tx.executeSql('delete from items where item_id = ?', [data.rowId])
+            tx.executeSql('delete from item where item_id = ?', [data.rowId])
         })
 
         itemModel.remove(index, 1)
