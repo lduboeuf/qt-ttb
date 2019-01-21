@@ -1,1 +1,4 @@
+singleton Database 1.0 Database.qml
 singleton GroupModel 1.0 GroupModel.qml
+singleton ItemModel 1.0 ItemModel.qml
+

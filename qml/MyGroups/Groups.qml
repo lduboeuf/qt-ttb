@@ -66,13 +66,13 @@ Page {
 
                 onEditClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowid: data.rowid, name:data.name})
+                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowid: data.rowid, name:data.name, type:data.type})
                     swipe.close()
                 }
 
                 onItemClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/Members.qml", {group_id: data.rowid, group_name:data.name})
+                    stackView.push("qrc:/qml/MyGroups/Items.qml", {groupId: data.rowid, groupName:data.name})
                 }
             }
         }

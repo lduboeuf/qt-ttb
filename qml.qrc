@@ -36,11 +36,13 @@
         <file>qml/Tools/ToolsTab.qml</file>
         <file>qml/MyGroups/GroupForm.qml</file>
         <file>qml/MyGroups/Groups.qml</file>
-        <file>qml/MyGroups/MemberForm.qml</file>
-        <file>qml/MyGroups/Members.qml</file>
+        <file>qml/MyGroups/ItemForm.qml</file>
+        <file>qml/MyGroups/Items.qml</file>
         <file>qml/Components/SwipableItem.qml</file>
         <file>qml/Model/GroupModel.qml</file>
         <file>qml/Model/qmldir</file>
-        <file>qml/Model/Database.js</file>
+        <file>qml/Model/Database.js.old</file>
+        <file>qml/Model/Database.qml</file>
+        <file>qml/Model/ItemModel.qml</file>
     </qresource>
 </RCC>

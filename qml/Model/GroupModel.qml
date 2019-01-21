@@ -1,7 +1,8 @@
 pragma Singleton
 import QtQuick 2.0
 import QtQuick.LocalStorage 2.0
-import "./Database.js" as DB
+import "."
+//import "./Database.js" as DB
 
 QtObject {
 
@@ -30,15 +31,25 @@ QtObject {
     property ListModel groupModel : ListModel {}
 
     function addGroup(groupName, selectedGroupType){
-        var id = DB.insertGroup(groupName, selectedGroupType)
-        groupModel.append({rowId: id, name: groupName, type: selectedGroupType})
+        //var id = DB.insertGroup(groupName, selectedGroupType)
+        var rowid = 0;
+        Database.db.transaction(function (tx) {
+            tx.executeSql('INSERT INTO groups(name, type) VALUES(?, ?)',
+                          [groupName, selectedGroupType])
+            var result = tx.executeSql('SELECT last_insert_rowid()')
+            rowid = result.insertId
+        })
+
+        groupModel.append({rowId: rowid, name: groupName, type: selectedGroupType})
 
     }
 
     function removeGroup(index){
         var data = groupModel.get(index)
         console.log("delete index:"+index)
-        DB.deleteGroup(data.rowid)
+        Database.db.transaction(function (tx) {
+            tx.executeSql('delete from groups where group_id = ?', [data.rowId])
+        })
 
         groupModel.remove(index, 1)
 
@@ -46,18 +57,42 @@ QtObject {
 
     function updateGroup(index, rowId, name, type){
         var data = groupModel.get(index)
-        DB.updateGroup(rowId, name, type)
+
+        Database.db.transaction(function (tx) {
+            tx.executeSql(
+                        'update groups set name=?, type=? where group_id = ?', [name, type, rowId])
+        })
+
         data.name = name
         data.type = type
     }
 
-      Component.onCompleted:{
+    function buildModel(){
         groupModel.clear()
-        var groupList = DB.findGroups()
-        for (var i= 0; i < groupList.length; i++){
-            console.log(groupList[i])
-            groupModel.append(groupList[i])
-        }
+
+         Database.db.transaction(function (tx) {
+
+            var results = tx.executeSql('SELECT * FROM groups')
+            for (var i = 0; i < results.rows.length; i++) {
+                //console.log(results.rows.item(i).name + " - " + results.rows.item(i).type)
+                groupModel.append({
+                     rowid: results.rows.item(i).group_id,
+                     name: results.rows.item(i).name,
+                     type: results.rows.item(i).type
+                 })
+            }
+        })
+
+    }
+
+      Component.onCompleted:{
+        buildModel()
+
+//        var groupList = DB.findGroups()
+//        for (var i= 0; i < groupList.length; i++){
+//            console.log(groupList[i])
+//            groupModel.append(groupList[i])
+//        }
 
     }
 }

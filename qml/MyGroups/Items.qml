@@ -3,17 +3,21 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
 import QtQuick.LocalStorage 2.0
 import "../Components"
-import "../Model/Database.js" as DB
+import "../Model"
 
 
 
 Page {
     id: membersPage
 
-    title: group_name + qsTr("Members")
+    title: groupName + qsTr(" Members")
 
-    property string group_id
-    property string group_name
+    property int groupId: -1
+    property string groupName
+
+    onGroupIdChanged:{
+        ItemModel.buildModel(groupId)
+    }
 
      header:NavigationBar{
          toolbarButtons: ToolButton {
@@ -28,16 +32,12 @@ Page {
                    source: "/assets/add.svg"
                }
 
-               onClicked: stackView.push("qrc:/qml/MyGroups/MemberForm.qml", {group_id: group_id, group_name: group_name})
+               onClicked: stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {groupId: groupId, groupName: groupName})
             }
 
      }
 
 
-
-    StackView.onActivated: {
-        DB.findAllMembers(group_id)
-    }
 
     Column {
         spacing: 40
@@ -52,24 +52,27 @@ Page {
                 active: true
             }
 
-            model: ListModel{
-                    id: listModel
-            }
+            model: ItemModel.itemModel
 
             delegate: SwipableItem{
 
                 iconSource : "/assets/contact.svg"
 
                 onRemoveClicked: function(index){
-                    var data = memberList.model.get(index)
-                    console.log("delete index:"+index)
-                    DB.deleteMember(data.rowid)
-                    memberList.model.remove(index, 1)
+
+                    ItemModel.deleteMember(index)
                 }
 
                 onEditClicked: function(index){
                     var data = memberList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/MemberForm.qml", {rowid: data.rowid, name:data.name, group_id:data.groupid})
+                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId})
+                    swipe.close()
+
+                }
+
+                onItemClicked: function(index){
+                    var data = memberList.model.get(index)
+                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId})
                 }
             }
         }

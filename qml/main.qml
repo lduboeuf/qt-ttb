@@ -137,8 +137,6 @@ ApplicationWindow {
         anchors.fill: parent
     }
 
-    //FontLoader { id: customFont; source: "../assets/icomoon.ttf" }
-
     Component.onCompleted: {
         drawer.headerHeight = stackView.currentItem.header.height
            if (GroupModel.groupModel.rowCount()===0){

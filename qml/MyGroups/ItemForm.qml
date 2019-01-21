@@ -3,14 +3,14 @@ import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import "../Components"
-import "../Model/Database.js" as DB
-
+import "../Model"
 
 Page {
     id: memberForm
 
-    property int group_id:0
-    property int rowid:0
+    property int index: 0
+    property int groupId:0
+    property int rowId:0
     property string name:""
 
     property bool updateMode: name.length===0 ? false: true
@@ -43,9 +43,9 @@ Page {
         }
 
         if (updateMode){
-            DB.updateMember(rowid, memberInput.displayText)
+            ItemModel.updateMember(index, rowId, memberInput.displayText)
         }else{
-            DB.insertMember(group_id, memberInput.displayText)
+            ItemModel.insertMember(groupId, memberInput.displayText)
         }
 
         memberInput.text = ""

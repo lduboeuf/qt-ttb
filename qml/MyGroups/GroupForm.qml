@@ -11,6 +11,7 @@ Page {
     property int index: 0
     property int rowid:0
     property string name:""
+    property string type:GroupModel.groupTypePeoplesName
 
     property bool updateMode: name.length==0 ? false: true
     property string selectedGroupType: GroupModel.groupTypePeoplesName
@@ -90,7 +91,7 @@ Page {
 
 
             RadioButton {
-                checked: true
+                checked: type===GroupModel.groupTypePeoplesName ? true: false
                 implicitHeight: 30
                 implicitWidth: implicitHeight
                 padding:0
@@ -126,7 +127,7 @@ Page {
             }
             RadioButton {
 
-                checked: false
+                checked: type===GroupModel.groupTypeItemsName ? true: false
                 implicitHeight: 30
                 implicitWidth: implicitHeight
                 padding:0
@@ -164,7 +165,7 @@ Page {
 
             }
             RadioButton {
-                checked: false
+                checked: type===GroupModel.groupTypeTasksName ? true: false
 
                 implicitHeight: 30
                 implicitWidth: implicitHeight
