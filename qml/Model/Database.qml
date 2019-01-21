@@ -11,10 +11,10 @@ QtObject {
 
         try {
             db.transaction(function (tx) {
-                //tx.executeSql('DROP TABLE groups')
-                //tx.executeSql('DROP TABLE members')
+                //tx.executeSql('DROP TABLE _group')
+                //tx.executeSql('DROP TABLE member')
 
-                tx.executeSql('CREATE TABLE IF NOT EXISTS group (group_id INTEGER  PRIMARY KEY,name TEXT, type TEXT);')
+                tx.executeSql('CREATE TABLE IF NOT EXISTS _group (group_id INTEGER  PRIMARY KEY,name TEXT, type TEXT);')
                 tx.executeSql('CREATE TABLE IF NOT EXISTS item (item_id INTEGER  PRIMARY KEY,group_id INTEGER, name TEXT);')
 
             })
