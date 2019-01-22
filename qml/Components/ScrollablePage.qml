@@ -1,12 +1,14 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.0
 
+
 Page {
     id: page
 
     default property alias content: pane.contentItem
 
     Flickable {
+        id: flickable
         anchors.fill: parent
         contentHeight: pane.implicitHeight
         flickableDirection: Flickable.AutoFlickIfNeeded
@@ -17,5 +19,6 @@ Page {
         }
 
         ScrollIndicator.vertical: ScrollIndicator { }
+        //ScrollBar.vertical: ScrollBar { id: scrollBar }
     }
 }

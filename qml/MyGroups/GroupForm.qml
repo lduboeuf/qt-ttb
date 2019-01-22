@@ -64,12 +64,14 @@ Page {
         spacing: 20
         //anchors.margins:16
         width: parent.width
-        //anchors.horizontalCenter:  parent.AlignHCenter
+        anchors.horizontalCenter:  parent.horizontalCenter
 
 
         TextField {
             id: groupInput
             //focus: true
+            anchors.horizontalCenter:  parent.horizontalCenter
+
             //anchors.horizontalCenter:  parent.horizontalCenter
             placeholderText: "Group name"
             text:  name
@@ -82,11 +84,13 @@ Page {
         }
 
         Label{
+
             text: qsTr("Group type:")
         }
 
 
         Column {
+
             id: iconType
             spacing: 6
             width: parent.width

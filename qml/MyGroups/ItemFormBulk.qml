@@ -1,13 +1,16 @@
 import QtQuick 2.6
+import QtQuick.Window 2.2
 import QtQuick.Controls 2.1
 import "../Components"
 import "../Model"
 
 
-ScrollablePage {
+Page {
     id: bulkItemForm
 
-    title: groupId + qsTr(" - Add members")
+    title: name + qsTr(" - Add members")
+
+
 
     property int groupId:0
     property string name:""
@@ -47,51 +50,90 @@ ScrollablePage {
 
     }
 
-    Column {
-        id:container
-        spacing: 40
-        anchors.margins:16
-        //anchors.fill: parent
-        width: parent.width
-        //height: parent.height
 
 
 
-        Repeater {
-            id: fields
-            model: ListModel{
-                id:itemModel
-                ListElement { name: ""}
-                ListElement { name: ""}
-                ListElement { name: ""}
-            }
+    Flickable {
+        id: flickable
+        anchors.margins: 16
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: Qt.inputMethod && Qt.inputMethod.visible ? Qt.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio : parent.height
+        contentHeight: container.height + anchors.margins
+        flickableDirection: Flickable.VerticalFlick
 
 
-            delegate:  TextField {
-                //id: memberInput
-                id:input
-                anchors.horizontalCenter: parent.horizontalCenter
-                placeholderText: "Member name " + (index+1)
-                onEditingFinished: {
-                    console.log("index:" + index )
-                    if (index == (fields.count -2)){
-                        itemModel.append({name:""})
-                        //var newItem = Qt.createComponent(input)
-                        //newItem.createObject(fields, {"text": "Member name " + index })
+
+        Column {
+            id:container
+            spacing: 40
+            anchors.margins:16
+            //anchors.fill: parent
+            width: parent.width
+            //height: parent.height
+
+
+
+
+            Repeater {
+                id: fields
+
+                onItemAdded:function(index, item){
+                    if (index === count -1){ //only for last item
+                        var keyboardHeight=  Qt.inputMethod && Qt.inputMethod.visible ? Qt.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio : 0
+                        console.log("keyboard: h:" +keyboardHeight)
+                        console.log("header:" + bulkItemForm.header.height+" window height:" + bulkItemForm.height +" contentY:" + flickable.contentY + " height: " + flickable.height + " contentHeight:" + flickable.contentHeight)
+
+                        var visibleHeight = bulkItemForm.contentHeight  - keyboardHeight
+                        console.log("visibleHeight:" + visibleHeight)
+                        var todisplay = flickable.contentHeight + item.height *3 - visibleHeight
+                        if (todisplay > 0){
+                            flickable.contentY = todisplay
+                            flickable.returnToBounds()
+                            console.log("overlayedHeight:" + todisplay)
+                        }
+
                     }
+
+
+                }
+
+                model: ListModel{
+                    id:itemModel
+                    ListElement { name: ""}
+                    ListElement { name: ""}
+                    ListElement { name: ""}
                 }
 
 
-                //width: parent.width -this.height
+                delegate:  TextField {
+                    //id: memberInput
+                    id:input
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    placeholderText: "Member name " + (index+1)
+                    onEditingFinished: {
+                        if (text.length!==0){
+                            if (index == (fields.count -2)){ //only when the last - 1
+                                itemModel.append({name:""})
+                            }
+                        }
+
+
+                    }
+
+
+                }
+
 
             }
-
-
         }
+
+
+        ScrollIndicator.vertical: ScrollIndicator { }
+
+
     }
-
-
-
 
 
 
