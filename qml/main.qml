@@ -44,8 +44,9 @@ ApplicationWindow {
         width: Math.min(window.width, window.height) / 3 * 2
         height: window.height
 
-        property int headerHeight: window.height * 0.15
 
+
+        property int headerHeight: window.height * 0.15
 
         ListView {
             id: menuList
@@ -133,14 +134,13 @@ ApplicationWindow {
 
     StackView {
         id: stackView
-        initialItem: "qrc:/qml/Tools/ToolsTab.qml"
         anchors.fill: parent
+        initialItem: (GroupModel.groupModel.rowCount()===0) ? "qrc:/qml/WelcomePage.qml" : "qrc:/qml/Tools/ToolsTab.qml"
     }
 
-    Component.onCompleted: {
-        drawer.headerHeight = stackView.currentItem.header.height
-           if (GroupModel.groupModel.rowCount()===0){
-               console.log("WelcomePage")
-           }
+
+    StackView.onActivated: {
+        onActivated: drawer.headerHeight = stackView.currentItem.header.height
+
     }
 }

@@ -3,14 +3,12 @@
         <file>qml/main.qml</file>
         <file>qml/Page1Form.ui.qml</file>
         <file>qml/About.qml</file>
-        <file>qml/MenuItem.qml</file>
         <file>assets/icon.png</file>
         <file>assets/logo.svg</file>
         <file>qml/testouilleRow.qml</file>
         <file>qml/SpinBoxTest.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>qml/PageTheme.qml</file>
-        <file>qml/HeaderTest.qml</file>
         <file>assets/next.svg</file>
         <file>assets/add.svg</file>
         <file>assets/contact-group.svg</file>
@@ -45,5 +43,6 @@
         <file>qml/Model/Database.qml</file>
         <file>qml/Model/ItemModel.qml</file>
         <file>assets/starred.svg</file>
+        <file>qml/WelcomePage.qml</file>
     </qresource>
 </RCC>

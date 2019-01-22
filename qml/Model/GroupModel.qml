@@ -76,7 +76,7 @@ QtObject {
             for (var i = 0; i < results.rows.length; i++) {
                 //console.log(results.rows.item(i).name + " - " + results.rows.item(i).type)
                 groupModel.append({
-                     rowid: results.rows.item(i).group_id,
+                     rowId: results.rows.item(i).group_id,
                      name: results.rows.item(i).name,
                      type: results.rows.item(i).type
                  })
