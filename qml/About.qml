@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import "Components"
 
 Page{
 
@@ -24,10 +25,42 @@ Page{
 
 
             text: "Welcome to Team ToolBox, a project to help you work or play with teams/groups randomly!"
-            + "It helps whenever we need to pick someone, don't find volunteers, define teams (practical exercises, collective workshops etc...) , define passing order or assign tasks."
-            + "This tool may be useful for trainers, teachers, managers or anyone else who works with or within groups."
-            + ""
-            + "Author: Lionel Duboeuf"
+
+
+        }
+
+        Text{
+            anchors.margins: 16
+            width: parent.width
+            wrapMode: Text.Wrap
+            horizontalAlignment: Qt.AlignHCenter
+
+
+            text: "It helps whenever we need to pick someone, don't find volunteers, define teams (practical exercises, collective workshops etc...) , define passing order or assign tasks."
+
+        }
+
+        Text{
+            anchors.margins: 16
+            width: parent.width
+            wrapMode: Text.Wrap
+            horizontalAlignment: Qt.AlignHCenter
+
+
+            text: "This tool may be useful for trainers, teachers, managers or anyone else who works with or within groups."
+
+
+        }
+
+        Text{
+            anchors.margins: 16
+            width: parent.width
+            wrapMode: Text.Wrap
+            horizontalAlignment: Qt.AlignHCenter
+
+
+            text: "Author: Lionel Duboeuf"
+
 
         }
 
