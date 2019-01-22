@@ -81,7 +81,9 @@ ApplicationWindow {
 
                     onClicked: {
                         menuList.currentIndex = index
-                        stackView.clear()
+                        if (model.source === stackView.initialItem){
+                            stackView.clear()
+                        }
                         stackView.push(model.source)
                         drawer.close()
                     }
@@ -135,12 +137,18 @@ ApplicationWindow {
     StackView {
         id: stackView
         anchors.fill: parent
-        initialItem: (GroupModel.groupModel.rowCount()===0) ? "qrc:/qml/WelcomePage.qml" : "qrc:/qml/Tools/ToolsTab.qml"
-    }
-
-
-    StackView.onActivated: {
-        onActivated: drawer.headerHeight = stackView.currentItem.header.height
+        initialItem: "qrc:/qml/Tools/ToolsTab.qml"
+        //initialItem: "qrc:/qml/MyGroups/ItemFormBulk.qml"
 
     }
+
+    Component.onCompleted: {
+        console.log("here here")
+        drawer.headerHeight = stackView.currentItem.header.height
+        if (GroupModel.groupModel.rowCount()===0) {
+            stackView.push("qrc:/qml/WelcomePage.qml")
+        }
+
+    }
+
 }

@@ -37,10 +37,13 @@ QtObject {
             tx.executeSql('INSERT INTO _group(name, type) VALUES(?, ?)',
                           [groupName, selectedGroupType])
             var result = tx.executeSql('SELECT last_insert_rowid()')
-            rowid = result.insertId
+            rowid = parseInt(result.insertId)
         })
+        console.log("id"+ rowid)
 
         groupModel.append({rowId: rowid, name: groupName, type: selectedGroupType})
+
+        return rowid
 
     }
 

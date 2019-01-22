@@ -44,5 +44,6 @@
         <file>qml/Model/ItemModel.qml</file>
         <file>assets/starred.svg</file>
         <file>qml/WelcomePage.qml</file>
+        <file>qml/MyGroups/ItemFormBulk.qml</file>
     </qresource>
 </RCC>

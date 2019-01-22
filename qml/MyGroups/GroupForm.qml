@@ -9,7 +9,7 @@ Page {
     id: addGroupPage
 
     property int index: 0
-    property int rowid:0
+    property int rowId: 0
     property string name:""
     property string type:GroupModel.groupTypePeoplesName
 
@@ -47,14 +47,16 @@ Page {
 
         if (updateMode){
             //DB.updateGroup(rowid, groupInput.displayText)
-            GroupModel.updateGroup(index, rowid, groupInput.displayText, selectedGroupType)
+            GroupModel.updateGroup(index, rowId, groupInput.displayText, selectedGroupType)
         }else{
-            GroupModel.addGroup(groupInput.displayText, selectedGroupType)
+            rowId = GroupModel.addGroup(groupInput.displayText, selectedGroupType)
             //DB.insertGroup(groupInput.displayText)
         }
 
+        console.log("new rowId:" + rowId + (typeof rowId))
+
+        stackView.replace("qrc:/qml/MyGroups/ItemFormBulk.qml", {groupId: rowId, name: groupInput.displayText})
         groupInput.text = ""
-        stackView.pop()
     }
 
     padding: 16

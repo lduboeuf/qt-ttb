@@ -54,7 +54,7 @@ QtObject {
             tx.executeSql('INSERT INTO item(group_id, name) VALUES(?, ?)',
                           [pGroupId, pName])
             var result = tx.executeSql('SELECT last_insert_rowid()')
-            rowid = result.insertId
+            rowid = parseInt(result.insertId)
         })
         itemModel.append({
                              rowId: rowid,
@@ -63,6 +63,14 @@ QtObject {
 
                          })
     }
+
+    function insertMembers(pGroupId, pNames)
+    {
+        for (var i=0; i < pNames.length; i++){
+            insertMember(pGroupId, pNames[i])
+        }
+    }
+
 
     function updateMember(index, pId, pName)
     {
