@@ -45,5 +45,6 @@
         <file>assets/starred.svg</file>
         <file>qml/WelcomePage.qml</file>
         <file>qml/MyGroups/ItemFormBulk.qml</file>
+        <file>qml/Components/ScrollablePage.qml</file>
     </qresource>
 </RCC>

@@ -1,10 +1,10 @@
-import QtQuick 2.0
+import QtQuick 2.6
 import QtQuick.Controls 2.1
 import "../Components"
 import "../Model"
 
 
-Page {
+ScrollablePage {
     id: bulkItemForm
 
     title: groupId + qsTr(" - Add members")
@@ -14,21 +14,21 @@ Page {
 
     header:NavigationBar{
         toolbarButtons: ToolButton {
-              id: addActionBar
-              anchors.right: parent.right
-              contentItem: Image {
-                  fillMode: Image.Pad
-                  horizontalAlignment: Image.AlignHCenter
-                  verticalAlignment: Image.AlignVCenter
-                  sourceSize.width: parent.height  * 0.4
-                  sourceSize.height: sourceSize.height
-                  source: "/assets/ok.svg"
-              }
+            id: addActionBar
+            anchors.right: parent.right
+            contentItem: Image {
+                fillMode: Image.Pad
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+                sourceSize.width: parent.height  * 0.4
+                sourceSize.height: sourceSize.height
+                source: "/assets/ok.svg"
+            }
 
-              onClicked: {
+            onClicked: {
                 save()
-              }
-           }
+            }
+        }
     }
 
 
@@ -47,14 +47,18 @@ Page {
 
     }
 
-
     Column {
+        id:container
         spacing: 40
         anchors.margins:16
-        anchors.fill: parent
+        //anchors.fill: parent
+        width: parent.width
+        //height: parent.height
 
-    Repeater {
-        id: fields
+
+
+        Repeater {
+            id: fields
             model: ListModel{
                 id:itemModel
                 ListElement { name: ""}
@@ -84,9 +88,9 @@ Page {
 
 
         }
-
-
     }
+
+
 
 
 
