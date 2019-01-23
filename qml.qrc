@@ -46,5 +46,7 @@
         <file>qml/WelcomePage.qml</file>
         <file>qml/MyGroups/ItemFormBulk.qml</file>
         <file>qml/Components/ScrollablePage.qml</file>
+        <file>qml/Settings.qml</file>
+        <file>assets/settings.svg</file>
     </qresource>
 </RCC>

@@ -74,6 +74,7 @@ Page {
             id: row
             width: form.width
             topPadding: 8
+            //anchors.top: comboBox.bottom
 
             Button {
                 id: button

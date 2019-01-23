@@ -79,6 +79,7 @@ Page {
             Repeater {
                 id: fields
 
+
                 onItemAdded:function(index, item){
                     if (index === count -1){ //only for last item
                         var keyboardHeight=  Qt.inputMethod && Qt.inputMethod.visible ? Qt.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio : 0
@@ -134,6 +135,9 @@ Page {
 
 
     }
+
+    StackView.onActivated: fields.itemAt(0).forceActiveFocus() //focus on first element
+
 
 
 
