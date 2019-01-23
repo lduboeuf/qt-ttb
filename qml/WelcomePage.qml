@@ -7,7 +7,27 @@ Page{
     //topPadding: 16
     title: qsTr("Welcome")
 
-    header:NavigationBar{}
+    header:NavigationBar{
+
+        leftAction.visible: false
+
+        toolbarButtons: ToolButton {
+              id: close
+              anchors.right: parent.right
+              contentItem: Image {
+                  fillMode: Image.Pad
+                  horizontalAlignment: Image.AlignHCenter
+                  verticalAlignment: Image.AlignVCenter
+                  sourceSize.width: parent.height  * 0.4
+                  sourceSize.height: sourceSize.height
+                  source: "/assets/close.svg"
+              }
+
+              onClicked: stackView.pop()
+           }
+
+
+    }
 
 
 
@@ -45,7 +65,7 @@ Page{
 
 
 
-            text: qsTr("Welcome,\n Maybe your first time here. You can start adding Groups and Items by selecting \"My Groups\" in side menu")
+            text: qsTr("<strong>hello ;-)</strong>. Welcome to <strong>Team Tool Box!</strong><br><br> Maybe your first time here, please have a look to the About section. You can start adding Groups and Items by selecting \"My Groups\" in side menu")
 
         }
 

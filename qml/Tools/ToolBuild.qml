@@ -46,7 +46,7 @@ Page {
                     //  activated. Wrapping the delegate into a plain Item prevents that.
             delegate: Item {
                 width: parent.width
-                height: checkDelegate.height
+                height: (model.type===GroupModel.groupTypePeoplesName) ? checkDelegate.height: 0 //only display people type groups
 
                 function toggle() { checkDelegate.toggle() }
 

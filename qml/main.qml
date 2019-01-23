@@ -41,7 +41,7 @@ ApplicationWindow {
 
     Drawer {
         id: drawer
-        width: Math.min(window.width, window.height) / 3 * 2
+        width: Math.min(window.width, window.height) * 0.4
         height: window.height
 
 
@@ -147,7 +147,8 @@ ApplicationWindow {
         console.log("here here")
         drawer.headerHeight = stackView.currentItem.header.height
         if (GroupModel.groupModel.rowCount()===0) {
-            stackView.push("qrc:/qml/WelcomePage.qml")
+
+            stackView.push("qrc:/qml/WelcomePage.qml",{},StackView.Immediate)
         }
 
     }

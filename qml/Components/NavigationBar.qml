@@ -11,12 +11,15 @@ import QtQuick.Controls 2.0
 ToolBar {
     id:mainToolBar
     property alias toolbarButtons: buttonsLoader.sourceComponent
+    property alias leftAction:toolButtonLeft
 
 
     RowLayout {
         anchors.fill: parent
 
         ToolButton {
+            id: toolButtonLeft
+            visible: (contentItem!==null)
             contentItem: Image {
                 id:navImage
                 fillMode: Image.Pad
