@@ -18,6 +18,7 @@ ApplicationWindow {
 
     title: qsTr("Team Toolbox")
 
+
  //   property var groupList
 
 
@@ -139,13 +140,14 @@ ApplicationWindow {
         id: stackView
         anchors.fill: parent
         initialItem: "qrc:/qml/Tools/ToolsTab.qml"
-        //initialItem: "qrc:/qml/MyGroups/ItemFormBulk.qml"
+        //initialItem: "qrc:/qml/TestCollapse.qml"
 
     }
 
     Component.onCompleted: {
         console.log("here here")
-        drawer.headerHeight = stackView.currentItem.header.height
+        drawer.headerHeight =  (stackView.currentItem.header !== null) ? stackView.currentItem.header.height : window.height * 0.1
+
         if (GroupModel.groupModel.rowCount()===0) {
 
             stackView.push("qrc:/qml/WelcomePage.qml",{},StackView.Immediate)

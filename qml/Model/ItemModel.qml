@@ -30,22 +30,24 @@ QtObject {
         return list;
     }
 
-//    function findAllitems(pGroupId)
-//    {
-//        Database.db.transaction(function (tx) {
-//            listModel.clear()
-//            var results = tx.executeSql('SELECT * FROM item WHERE group_id = ?', [pGroupId])
-//            for (var i = 0; i < results.rows.length; i++) {
-//                console.log(results.rows.item(i).name)
-//                listModel.append({
-//                                     rowid: results.rows.item(i).item_id,
-//                                     name: results.rows.item(i).name,
-//                                     groupid: results.rows.item(i).group_id,
+    function findAllitems(pGroupIds)
+    {
+        var items = [];
+        Database.db.transaction(function (tx) {
+            var results = tx.executeSql('SELECT * FROM item WHERE group_id IN (' + pGroupIds.toString() +')')
+            for (var i = 0; i < results.rows.length; i++) {
+                console.log(results.rows.item(i).name)
+                items[i] = {
+                     rowid: results.rows.item(i).item_id,
+                     name: results.rows.item(i).name,
+                     groupid: results.rows.item(i).group_id
 
-//                                 })
-//            }
-//        })
-//    }
+                 }
+
+            }
+        })
+        return items;
+    }
 
     function insertMember(pGroupId, pName)
     {

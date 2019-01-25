@@ -119,8 +119,11 @@ Page {
                                 itemModel.append({name:""})
                             }
                         }
+                    }
 
-
+                    Keys.onReturnPressed: {
+                        //focus on next field
+                        fields.itemAt(index+1).forceActiveFocus()
                     }
 
 

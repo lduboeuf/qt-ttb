@@ -6,7 +6,6 @@
         <file>assets/icon.png</file>
         <file>assets/logo.svg</file>
         <file>qml/testouilleRow.qml</file>
-        <file>qml/SpinBoxTest.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>qml/PageTheme.qml</file>
         <file>assets/next.svg</file>
@@ -21,7 +20,6 @@
         <file>assets/ok.svg</file>
         <file>assets/contact.svg</file>
         <file>qml/test.js</file>
-        <file>qml/tools.js</file>
         <file>assets/select.svg</file>
         <file>assets/item.svg</file>
         <file>assets/items.svg</file>
@@ -49,5 +47,10 @@
         <file>qml/Settings.qml</file>
         <file>assets/settings.svg</file>
         <file>assets/close.svg</file>
+        <file>qml/Tools/tools.js</file>
+        <file>qml/TestCollapse.qml</file>
+        <file>qml/TestCollapse2.qml</file>
+        <file>qml/Tools/ToolGroupSelect.qml</file>
+        <file>qml/Tools/ToolBuildResult.qml</file>
     </qresource>
 </RCC>

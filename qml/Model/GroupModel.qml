@@ -88,6 +88,8 @@ QtObject {
 
     }
 
+
+
       Component.onCompleted:{
         buildModel()
 
