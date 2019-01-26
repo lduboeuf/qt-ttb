@@ -16,7 +16,8 @@ var groupListNames = ["Team1", "Team2", "Team3", "Team4" ];
 
 function build(list, nbItems){
 
-    var nbGroups = Math.floor(list.length/nbItems) + (list.length % nbItems)
+    var groupToAdd = (list.length % nbItems > 0)  ? 1: 0
+    var nbGroups = Math.floor(list.length/nbItems) + groupToAdd
 
     var shuffled_array = shuffle(list);
 

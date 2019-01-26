@@ -10,29 +10,53 @@ Page {
 
     property int nbItems: 0
 
+
     header: NavigationBar{
 
+        id: navBar
+
+        function toggleEnabled(flag){
+            toolBarBtnItem.enabled = flag
+        }
+
+
         toolbarButtons: ToolButton {
+
+
             id: validateActionBtn
             anchors.right: parent.right
+
+            enabled: false
+
             contentItem: Image {
+                id: validateImg
                 fillMode: Image.Pad
                 horizontalAlignment: Image.AlignHCenter
                 verticalAlignment: Image.AlignVCenter
                 sourceSize.width: parent.height  * 0.4
                 sourceSize.height: sourceSize.height
                 source: "/assets/ok.svg"
+
             }
 
             onClicked: {
                 stackView.replace("qrc:/qml/Tools/ToolBuildResult.qml", {selectedGroup: selectedGroup, nbItems: nbItems})
 
             }
+
+
         }
 
     }
 
     property var selectedGroup: []
+
+
+    function onSelectedGroupChanged() {
+        console.log("kikou")
+        header.toggleEnabled(selectedGroup.length!==0)
+        //ttt = true;
+    }
 
     function go(){
         console.log(selectedGroup)
@@ -66,6 +90,7 @@ Page {
                     }else{
                         selectedGroup.splice(idx, 1)
                     }
+                    toolBuildSelect.onSelectedGroupChanged()
                 }
 
             }

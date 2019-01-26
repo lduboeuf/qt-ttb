@@ -140,7 +140,7 @@ ApplicationWindow {
         id: stackView
         anchors.fill: parent
         initialItem: "qrc:/qml/Tools/ToolsTab.qml"
-        //initialItem: "qrc:/qml/TestCollapse.qml"
+        //initialItem: "qrc:/qml/MyGroups/GroupForm.qml"
 
     }
 

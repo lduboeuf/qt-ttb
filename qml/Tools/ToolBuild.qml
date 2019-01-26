@@ -56,7 +56,9 @@ Page {
             id: buttonSelect
             text: qsTr("select")
             focusPolicy: Qt.ClickFocus
-            width: form.width
+            width: form.width * 0.6
+            anchors.horizontalCenter: parent.horizontalCenter
+
             topPadding: 6
             //highlighted: true
             onClicked: {

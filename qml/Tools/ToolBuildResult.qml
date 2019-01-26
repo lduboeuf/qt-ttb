@@ -11,13 +11,31 @@ Page {
     id: toolBuildSelect
     title: qsTr("Build Teams result:")
 
-    header:NavigationBar{}
+    header:NavigationBar{
+        toolbarButtons: ToolButton {
+            id: addActionBar
+            anchors.right: parent.right
+            contentItem: Image {
+                fillMode: Image.Pad
+                horizontalAlignment: Image.AlignHCenter
+                verticalAlignment: Image.AlignVCenter
+                sourceSize.width: parent.height  * 0.4
+                sourceSize.height: sourceSize.height
+                source: "/assets/reload.svg"
+            }
+
+            onClicked: {
+                build()
+            }
+        }
+    }
 
     property var selectedGroup: []
     property int nbItems: 0
 
-    onSelectedGroupChanged: {
+    onSelectedGroupChanged: build()
 
+    function build(){
         console.log(selectedGroup)
         if (selectedGroup.length == 0 ) return //don't do nothing
         var list = ItemModel.findAllitems(selectedGroup)
@@ -31,7 +49,6 @@ Page {
 
 
     }
-
 
         ListView {
             id:resultList

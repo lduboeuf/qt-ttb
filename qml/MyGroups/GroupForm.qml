@@ -62,10 +62,10 @@ Page {
     padding: 16
     Column {
         spacing: 20
-        //anchors.margins:16
         width: parent.width
-        anchors.horizontalCenter:  parent.horizontalCenter
-
+        //anchors.margins:16
+        //anchors.fill: parent
+        //anchors.horizontalCenter:  parent.horizontalCenter
 
         TextField {
             id: groupInput
@@ -85,6 +85,10 @@ Page {
 
         Label{
 
+            id: lblGroupType
+            anchors.topMargin: 20
+            //anchors.top: groupInput.bottom
+            anchors.left: groupInput.left
             text: qsTr("Group type:")
         }
 
@@ -94,48 +98,92 @@ Page {
             id: iconType
             spacing: 6
             width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
+
+//            anchors{
+//                top:lblGroupType.bottom
+//                left: parent.left
+//                right: parent.right
+//                //horizontalCenter: parent.horizontalCenter
+//            }
+
+//            Rectangle{
+//                anchors.fill: parent
+//                height: 30
+//                color: "blue"
+//            }
 
 
-            RadioButton {
-                checked: type===GroupModel.groupTypePeoplesName ? true: false
-                implicitHeight: 30
-                implicitWidth: implicitHeight
-                padding:0
 
-                anchors.margins: 0
-                onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypePeoplesName
+////            Row{
 
-                contentItem: RowLayout{
-                    spacing:4
-                    anchors.left: parent.right
-                    anchors.leftMargin: 8
+////                Rectangle{
+////                    anchors.fill: parent
+////                    color: "blue"
+////                }
 
-                    width: parent.width
-                    height: parent.height
-                    Image {
-                        id: peopleImg
+////                width: parent.width
+////                anchors{
+////                    left: parent.left
+////                    right: parent.right
+////                    horizontalCenter: parent.horizontalCenter
+////                    margins: 4
+////                }
+//               // anchors.margins: 4
 
-                        //anchors.centerIn: parent
-                        sourceSize.width: peopleLabel.height
-                        sourceSize.height: peopleLabel.width
-                        source: GroupModel.getImageSource(GroupModel.groupTypePeoplesName)
+
+                RadioButton {
+                    checked: type===GroupModel.groupTypePeoplesName ? true: false
+                    //implicitHeight: 40
+                    //implicitWidth: implicitHeight
+
+                    padding:0
+                    onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypePeoplesName
+                    implicitWidth: 100
+
+                    contentItem: RowLayout{
+                        //spacing:4
+                        anchors.left: parent.right
+                        //anchors.leftMargin: 8
+
+                        //width: parent.width
+                        //height: parent.height
+                        //width: parent.width
+
+
+
+                        Image {
+                            id: peopleImg
+
+
+                            //anchors.centerIn: parent
+                            sourceSize.width: peopleLabel.height
+                            sourceSize.height: peopleLabel.width
+                            source: GroupModel.getImageSource(GroupModel.groupTypePeoplesName)
+                        }
+                        Label{
+                            //anchors.horizontalCenter: iconType.horizontalCenter
+
+                            id: peopleLabel
+                            text: qsTr("Peoples")
+
+
+                        }
+
                     }
-                    Label{
-                        id: peopleLabel
-                        text: qsTr("Peoples")
 
-
-                    }
 
                 }
 
+  //          }
+////            Row{
 
-            }
+
             RadioButton {
 
                 checked: type===GroupModel.groupTypeItemsName ? true: false
-                implicitHeight: 30
-                implicitWidth: implicitHeight
+                //implicitHeight: 30
+                implicitWidth: 100
                 padding:0
 
                 onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypeItemsName
@@ -144,13 +192,13 @@ Page {
 
                 contentItem: RowLayout{
                     anchors.left: parent.right
-                    anchors.leftMargin: 8
+                    //anchors.leftMargin: 8
 
                     //anchors.leftMargin: 16
-                    width: parent.width
-                    height: parent.height
-                    implicitHeight: 30
-                    spacing:4
+                    //width: parent.width
+                    //height: parent.height
+                    //implicitHeight: 30
+                    //spacing:4
 
 
                     Image {
@@ -170,19 +218,23 @@ Page {
 
 
             }
+
+////            }
+
+////        Row{
             RadioButton {
                 checked: type===GroupModel.groupTypeTasksName ? true: false
 
                 implicitHeight: 30
-                implicitWidth: implicitHeight
+                implicitWidth: 100
                 padding:0
                 onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypeTasksName
 
                 contentItem: RowLayout{
                     //anchors.leftMargin: 16
-                    width: parent.width
-                    height: parent.height
-                    anchors.leftMargin: 8
+                    //width: parent.width
+                    //height: parent.height
+                    //anchors.leftMargin: 8
 
                     spacing:4
                     anchors.left: parent.right
@@ -202,6 +254,7 @@ Page {
                 }
 
             }
+
 
         }
     }

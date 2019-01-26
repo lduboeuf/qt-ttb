@@ -11,6 +11,7 @@ import QtQuick.Controls 2.0
 ToolBar {
     id:mainToolBar
     property alias toolbarButtons: buttonsLoader.sourceComponent
+    property alias toolBarBtnItem: buttonsLoader.item
     property alias leftAction:toolButtonLeft
 
 

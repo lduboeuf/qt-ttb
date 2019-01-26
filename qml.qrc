@@ -52,5 +52,6 @@
         <file>qml/TestCollapse2.qml</file>
         <file>qml/Tools/ToolGroupSelect.qml</file>
         <file>qml/Tools/ToolBuildResult.qml</file>
+        <file>assets/reload.svg</file>
     </qresource>
 </RCC>
