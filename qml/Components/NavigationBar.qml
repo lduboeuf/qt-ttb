@@ -46,8 +46,8 @@ ToolBar {
             font.pixelSize: 20
             elide: Label.ElideRight
             //anchors.fill: parent
-            anchors.left: parent.left
-            anchors.right: parent.right
+            anchors.left: navImage.right
+            anchors.right: buttonsLoader.left
             horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
             Layout.fillWidth: true

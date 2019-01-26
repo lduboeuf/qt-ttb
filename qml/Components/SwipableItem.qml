@@ -64,7 +64,7 @@ SwipeDelegate {
         color: SwipeDelegate.pressed ? Qt.darker("red", 1.1) : "red"
         //width: parent.width
         anchors.left: parent.left
-        width: parent.width - (parent.width*0.6)
+        width: parent.width * 0.2
         height: parent.height
         clip: true
 
@@ -96,7 +96,7 @@ SwipeDelegate {
     swipe.right: Rectangle {
         color: SwipeDelegate.pressed ? Qt.darker("green", 1.1) : "green"
         anchors.right: parent.right
-        width: parent.width * 0.3
+        width: parent.width * 0.2
         height: parent.height
         clip: true
 
