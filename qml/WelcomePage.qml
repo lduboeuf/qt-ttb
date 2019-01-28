@@ -16,7 +16,6 @@ Page{
             Action{
                 id: actionClose
                 source: "/assets/close.svg"
-                enabled: false
                 onTriggered: function(){
                     stackView.pop()
                 }

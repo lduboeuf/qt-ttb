@@ -12,7 +12,7 @@
 }
 
 
-var groupListNames = ["Team1", "Team2", "Team3", "Team4" ];
+var groupListName = "Team"
 
 function build(list, nbItems){
 
@@ -24,7 +24,8 @@ function build(list, nbItems){
     var k = 0;
     for (var i=0; i < nbGroups; i++){
 
-        var groupName = groupListNames[i];
+        //var groupName = groupListNames[i];
+        var groupName = groupListName + " " + (i +1)
 
         for (var j=0; j < nbItems; j++){
             shuffled_array[k].groupName = groupName;

@@ -44,8 +44,7 @@ SwipeDelegate {
         }
         Image {
             anchors.right: parent.right
-            //fillMode: Image.Pad
-            //horizontalAlignment: Image.AlignHCenter
+            opacity: 0.60
             anchors.verticalCenter: parent.verticalCenter
             sourceSize.width: swipeDelegate.height * 0.4
             sourceSize.height: sourceSize.height
