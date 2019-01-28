@@ -1,3 +1,4 @@
 NavigationBar ./NavigationBar.qml
 SwipableItem ./SwipableItem.qml
 ScrollablePage ./ScrollablePage.qml
+Action ./Action.qml

@@ -42,7 +42,7 @@ ApplicationWindow {
 
     Drawer {
         id: drawer
-        width: Math.min(window.width, window.height) * 0.4
+        width: Math.min(window.width, window.height) * 0.5
         height: window.height
 
 
@@ -56,10 +56,21 @@ ApplicationWindow {
             anchors.fill: parent
 
             header:
+
+
                 RowLayout{
                 id:menuHeader
                 width:drawer.width
                 height: drawer.headerHeight
+
+//                Image {
+//                   id:logo
+//                   fillMode: Image.Pad
+//                   anchors.horizontalCenter: parent.horizontalCenter
+//                   sourceSize.height: parent.height * 0.6
+//                   //sourceSize.height: parent.height * 0.3
+//                   source: "/assets/icon.png"
+//               }
 
                 LinearGradient {
                     anchors.fill:parent

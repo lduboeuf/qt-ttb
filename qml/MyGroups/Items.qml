@@ -20,20 +20,17 @@ Page {
     }
 
      header:NavigationBar{
-         toolbarButtons: ToolButton {
-               id: addActionBar
-               anchors.right: parent.right
-               contentItem: Image {
-                   fillMode: Image.Pad
-                   horizontalAlignment: Image.AlignHCenter
-                   verticalAlignment: Image.AlignVCenter
-                   sourceSize.width: parent.height  * 0.4
-                   sourceSize.height: sourceSize.height
-                   source: "/assets/add.svg"
-               }
 
-               onClicked: stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {groupId: groupId, groupName: groupName})
-            }
+         rightActions:[
+             Action{
+                 id: actionOK
+                 source: "/assets/add.svg"
+                 onTriggered: function(){
+                     stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {groupId: groupId, groupName: groupName})
+                 }
+
+             }
+         ]
 
      }
 

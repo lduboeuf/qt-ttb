@@ -53,5 +53,6 @@
         <file>qml/Tools/ToolGroupSelect.qml</file>
         <file>qml/Tools/ToolBuildResult.qml</file>
         <file>assets/reload.svg</file>
+        <file>qml/Components/Action.qml</file>
     </qresource>
 </RCC>

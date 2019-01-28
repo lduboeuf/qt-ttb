@@ -19,22 +19,17 @@ Page {
 
 
     header:NavigationBar{
-        toolbarButtons: ToolButton {
-              id: addActionBar
-              anchors.right: parent.right
-              contentItem: Image {
-                  fillMode: Image.Pad
-                  horizontalAlignment: Image.AlignHCenter
-                  verticalAlignment: Image.AlignVCenter
-                  sourceSize.width: parent.height  * 0.4
-                  sourceSize.height: sourceSize.height
-                  source: "/assets/ok.svg"
-              }
+        rightActions:[
+            Action{
+                id: actionOK
+                source: "/assets/ok.svg"
+                enabled: false
+                onTriggered: function(){
+                    save()
+                }
 
-              onClicked: {
-                save()
-              }
-           }
+            }
+        ]
     }
 
     function save(){
@@ -66,6 +61,10 @@ Page {
 
             Keys.onReturnPressed: {
                 save()
+            }
+
+            onDisplayTextChanged: {
+                actionOK.enabled = (memberInput.length > 0) ? true: false
             }
 
         }

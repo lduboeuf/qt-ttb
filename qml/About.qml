@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import "Components"
 
-Page{
+ScrollablePage{
 
     //topPadding: 16
     title: qsTr("About")
@@ -14,6 +14,16 @@ Page{
         spacing: 40
         anchors.margins: 16
         anchors.fill: parent
+
+        Image {
+           id:logo
+           fillMode: Image.Pad
+           anchors.horizontalCenter: parent.horizontalCenter
+           sourceSize.width: parent.width * 0.3
+           //sourceSize.height: parent.height * 0.3
+           source: "/assets/icon.png"
+       }
+
 
 
         Text{

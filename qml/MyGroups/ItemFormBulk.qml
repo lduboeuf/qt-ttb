@@ -16,22 +16,16 @@ Page {
     property string name:""
 
     header:NavigationBar{
-        toolbarButtons: ToolButton {
-            id: addActionBar
-            anchors.right: parent.right
-            contentItem: Image {
-                fillMode: Image.Pad
-                horizontalAlignment: Image.AlignHCenter
-                verticalAlignment: Image.AlignVCenter
-                sourceSize.width: parent.height  * 0.4
-                sourceSize.height: sourceSize.height
+        rightActions:[
+            Action{
+                id: actionOK
                 source: "/assets/ok.svg"
-            }
+                onTriggered: function(){
+                    save()
+                }
 
-            onClicked: {
-                save()
             }
-        }
+        ]
     }
 
 

@@ -9,22 +9,20 @@ Page{
 
     header:NavigationBar{
 
+
         leftAction.visible: false
 
-        toolbarButtons: ToolButton {
-              id: close
-              anchors.right: parent.right
-              contentItem: Image {
-                  fillMode: Image.Pad
-                  horizontalAlignment: Image.AlignHCenter
-                  verticalAlignment: Image.AlignVCenter
-                  sourceSize.width: parent.height  * 0.4
-                  sourceSize.height: sourceSize.height
-                  source: "/assets/close.svg"
-              }
+        rightActions:[
+            Action{
+                id: actionClose
+                source: "/assets/close.svg"
+                enabled: false
+                onTriggered: function(){
+                    stackView.pop()
+                }
 
-              onClicked: stackView.pop()
-           }
+            }
+        ]
 
 
     }

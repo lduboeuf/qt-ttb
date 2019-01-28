@@ -1,6 +1,6 @@
-import QtQuick 2.6
+import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.2
 import "../Components"
 import "../Model"
 //import GroupModel 1.0
@@ -14,20 +14,31 @@ Page {
     title: qsTr("My Groups")
 
      header:NavigationBar{
-         toolbarButtons: ToolButton {
-               id: addActionBar
-               anchors.right: parent.right
-               contentItem: Image {
-                   fillMode: Image.Pad
-                   horizontalAlignment: Image.AlignHCenter
-                   verticalAlignment: Image.AlignVCenter
-                   sourceSize.width: parent.height  * 0.4
-                   sourceSize.height: sourceSize.height
-                   source: "/assets/add.svg"
-               }
+//         toolbarButtons: ToolButton {
+//               id: addActionBar
+//               anchors.right: parent.right
+//               contentItem: Image {
+//                   fillMode: Image.Pad
+//                   horizontalAlignment: Image.AlignHCenter
+//                   verticalAlignment: Image.AlignVCenter
+//                   sourceSize.width: parent.height  * 0.4
+//                   sourceSize.height: sourceSize.height
+//                   source: "/assets/add.svg"
+//               }
 
-               onClicked: stackView.push("qrc:/qml/MyGroups/GroupForm.qml")
-            }
+//               onClicked: stackView.push("qrc:/qml/MyGroups/GroupForm.qml")
+//            }
+
+
+            rightActions:[
+                Action{
+                    source: "/assets/add.svg"
+                    onTriggered: function(){
+                        stackView.push("qrc:/qml/MyGroups/GroupForm.qml")
+                    }
+
+                }
+            ]
 
      }
 

@@ -12,22 +12,18 @@ Page {
     title: qsTr("Build Teams result:")
 
     header:NavigationBar{
-        toolbarButtons: ToolButton {
-            id: addActionBar
-            anchors.right: parent.right
-            contentItem: Image {
-                fillMode: Image.Pad
-                horizontalAlignment: Image.AlignHCenter
-                verticalAlignment: Image.AlignVCenter
-                sourceSize.width: parent.height  * 0.4
-                sourceSize.height: sourceSize.height
-                source: "/assets/reload.svg"
-            }
 
-            onClicked: {
-                build()
+
+        rightActions:[
+            Action{
+                id: actionOK
+                source: "/assets/reload.svg"
+                onTriggered: function(){
+                    build()
+                }
+
             }
-        }
+        ]
     }
 
     property var selectedGroup: []

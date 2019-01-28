@@ -21,22 +21,18 @@ Page {
 
 
     header:NavigationBar{
-        toolbarButtons: ToolButton {
-            id: addActionBar
-            anchors.right: parent.right
-            contentItem: Image {
-                fillMode: Image.Pad
-                horizontalAlignment: Image.AlignHCenter
-                verticalAlignment: Image.AlignVCenter
-                sourceSize.width: parent.height  * 0.4
-                sourceSize.height: sourceSize.height
-                source: "/assets/ok.svg"
-            }
 
-            onClicked: {
-                save()
+        rightActions:[
+            Action{
+                id: actionOK
+                source: "/assets/ok.svg"
+                enabled: false
+                onTriggered: function(){
+                    save()
+                }
+
             }
-        }
+        ]
     }
 
     function save(){
@@ -46,11 +42,9 @@ Page {
 
 
         if (updateMode){
-            //DB.updateGroup(rowid, groupInput.displayText)
             GroupModel.updateGroup(index, rowId, groupInput.displayText, selectedGroupType)
         }else{
             rowId = GroupModel.addGroup(groupInput.displayText, selectedGroupType)
-            //DB.insertGroup(groupInput.displayText)
         }
 
         console.log("new rowId:" + rowId + (typeof rowId))
@@ -76,6 +70,11 @@ Page {
             placeholderText: "Group name"
             text:  name
             width: parent.width * 0.8
+            maximumLength: 20
+
+            onDisplayTextChanged: {
+                actionOK.enabled = (groupInput.length > 0) ? true: false
+            }
 
             Keys.onReturnPressed: {
                 save()
@@ -100,36 +99,6 @@ Page {
             width: parent.width
             anchors.horizontalCenter: parent.horizontalCenter
 
-//            anchors{
-//                top:lblGroupType.bottom
-//                left: parent.left
-//                right: parent.right
-//                //horizontalCenter: parent.horizontalCenter
-//            }
-
-//            Rectangle{
-//                anchors.fill: parent
-//                height: 30
-//                color: "blue"
-//            }
-
-
-
-////            Row{
-
-////                Rectangle{
-////                    anchors.fill: parent
-////                    color: "blue"
-////                }
-
-////                width: parent.width
-////                anchors{
-////                    left: parent.left
-////                    right: parent.right
-////                    horizontalCenter: parent.horizontalCenter
-////                    margins: 4
-////                }
-//               // anchors.margins: 4
 
 
                 RadioButton {
@@ -142,14 +111,7 @@ Page {
                     implicitWidth: 100
 
                     contentItem: RowLayout{
-                        //spacing:4
                         anchors.left: parent.right
-                        //anchors.leftMargin: 8
-
-                        //width: parent.width
-                        //height: parent.height
-                        //width: parent.width
-
 
 
                         Image {
@@ -176,7 +138,6 @@ Page {
                 }
 
   //          }
-////            Row{
 
 
             RadioButton {
@@ -192,13 +153,6 @@ Page {
 
                 contentItem: RowLayout{
                     anchors.left: parent.right
-                    //anchors.leftMargin: 8
-
-                    //anchors.leftMargin: 16
-                    //width: parent.width
-                    //height: parent.height
-                    //implicitHeight: 30
-                    //spacing:4
 
 
                     Image {
@@ -231,17 +185,13 @@ Page {
                 onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypeTasksName
 
                 contentItem: RowLayout{
-                    //anchors.leftMargin: 16
-                    //width: parent.width
-                    //height: parent.height
-                    //anchors.leftMargin: 8
+
 
                     spacing:4
                     anchors.left: parent.right
                     Image {
                         id: taskImg
 
-                        //anchors.centerIn: parent
                         sourceSize.width: taskLabel.height
                         sourceSize.height: taskLabel.width
                         source: GroupModel.getImageSource(GroupModel.groupTypeTasksName)
