@@ -9,7 +9,6 @@ QtObject {
     function dbInit()
     {
 
-        //dbReset()
         try {
             db.transaction(function (tx) {
 
@@ -30,6 +29,8 @@ QtObject {
                 tx.executeSql('DROP TABLE item')
 
             })
+
+            dbInit()
         } catch (err) {
             console.log("Error creating table in database: " + err)
         };

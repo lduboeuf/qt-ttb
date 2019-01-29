@@ -14,21 +14,6 @@ Page {
     title: qsTr("My Groups")
 
      header:NavigationBar{
-//         toolbarButtons: ToolButton {
-//               id: addActionBar
-//               anchors.right: parent.right
-//               contentItem: Image {
-//                   fillMode: Image.Pad
-//                   horizontalAlignment: Image.AlignHCenter
-//                   verticalAlignment: Image.AlignVCenter
-//                   sourceSize.width: parent.height  * 0.4
-//                   sourceSize.height: sourceSize.height
-//                   source: "/assets/add.svg"
-//               }
-
-//               onClicked: stackView.push("qrc:/qml/MyGroups/GroupForm.qml")
-//            }
-
 
             rightActions:[
                 Action{
@@ -41,11 +26,6 @@ Page {
             ]
 
      }
-
-
-
-    //StackView.onActivated: DB.findAllGroups()
-
 
 
     Column {
@@ -77,7 +57,7 @@ Page {
 
                 onEditClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowId: data.rowId, name:data.name, type:data.type})
+                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowId: data.rowId, name:data.name, currentType:data.type})
                     swipe.close()
                 }
 

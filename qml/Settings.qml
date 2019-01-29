@@ -52,6 +52,7 @@ Page {
 
         onAccepted: {
             Database.dbReset()
+            GroupModel.groupModel.clear()
             confirmationDialog.close()
 
         }

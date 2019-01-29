@@ -17,7 +17,7 @@ QtObject {
         Database.db.transaction(function (tx) {
             var results = tx.executeSql('SELECT * FROM item WHERE group_id = ?', [pGroupId])
             for (var i = 0; i < results.rows.length; i++) {
-                console.log(results.rows.item(i).name)
+                //console.log(results.rows.item(i).name)
                 itemModel.append({
                               rowId: results.rows.item(i).item_id,
                               name: results.rows.item(i).name,

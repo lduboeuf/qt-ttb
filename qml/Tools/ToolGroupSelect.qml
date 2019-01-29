@@ -9,6 +9,18 @@ Page {
     title: qsTr("Select Groups")
 
     property int nbItems: 0
+    property string filter: GroupModel.groupTypePeoplesName
+
+
+    onFilterChanged:{
+        model.clear()
+        for (var i=0; i < GroupModel.groupModel.count; i++){
+            if (GroupModel.groupModel.get(i).type === filter){
+                model.append(GroupModel.groupModel.get(i))
+            }
+        }
+
+    }
 
 
     header: NavigationBar{
@@ -28,10 +40,6 @@ Page {
         ]
 
 
-
-
-
-
     }
 
     property var selectedGroup: []
@@ -40,14 +48,15 @@ Page {
     ListView {
         id: selectGroupList
         anchors.fill: parent
-        model: GroupModel.groupModel
+        model: ListModel{
+            id: model
 
-
+        }
         // ComboBox closes the popup when its items (anything AbstractButton derivative) are
         //  activated. Wrapping the delegate into a plain Item prevents that.
         delegate: Item {
             width: parent.width
-            height: (model.type===GroupModel.groupTypePeoplesName) ? checkDelegate.height: 0 //only display people type groups
+            height: checkDelegate.height
 
             function toggle() { checkDelegate.toggle() }
 

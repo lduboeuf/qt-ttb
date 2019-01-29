@@ -46,42 +46,54 @@ Page {
 
     }
 
-        ListView {
-            id:resultList
-            anchors.fill: parent
-            anchors.margins: 16
-
-            model: ListModel{
-
-            }
+    ListView {
+        id:resultList
+        anchors.fill: parent
+        anchors.margins: 16
+        anchors.topMargin: 50
 
 
-            delegate: Text {
-                text: name;
-                font.pixelSize: 24
-                anchors.left: parent.left
-                anchors.leftMargin: 2
-            }
-            focus: true
+        model: ListModel{
 
-            section {
-                property: "groupName"
-                criteria: ViewSection.FullString
-                delegate: Rectangle {
-                    color: "#b0dfb0"
+        }
+
+
+        delegate: Text {
+            text: name;
+            //font.pixelSize: 24
+            anchors.left: parent.left
+            height: implicitHeight * 2
+
+            anchors.topMargin: 8
+            anchors.leftMargin: 4
+        }
+        focus: true
+
+        section {
+            property: "groupName"
+            criteria: ViewSection.FullString
+            delegate: Column{
+                width: parent.width
+
+
+                Text {
+                    //anchors.left: parent.left
+                    font.pixelSize: 16
+                    color: "grey"
+                    text: section
+                }
+                Rectangle {
                     width: parent.width
-                    height: childrenRect.height + 4
-                    Text { anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize: 16
-                        font.bold: true
-                        text: section
-                    }
+                    color: "lightgrey"
+                    height: 1
                 }
             }
-
-
-            ScrollBar.vertical: ScrollBar {}
         }
+
+
+
+        ScrollBar.vertical: ScrollBar {}
+    }
 
 
 

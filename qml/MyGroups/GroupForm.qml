@@ -11,10 +11,9 @@ Page {
     property int index: 0
     property int rowId: 0
     property string name:""
-    property string type:GroupModel.groupTypePeoplesName
+    property string currentType:GroupModel.groupTypePeoplesName
 
     property bool updateMode: name.length==0 ? false: true
-    property string selectedGroupType: GroupModel.groupTypePeoplesName
 
     title: updateMode ? qsTr("Modify Group"): qsTr("Add Group")
 
@@ -40,6 +39,9 @@ Page {
             return
         }
 
+        var selectedGroupType = groupTypeList.model.get(groupTypeList.currentIndex).type
+
+        console.log("groupType:" + selectedGroupType)
 
         if (updateMode){
             GroupModel.updateGroup(index, rowId, groupInput.displayText, selectedGroupType)
@@ -86,124 +88,77 @@ Page {
 
             id: lblGroupType
             anchors.topMargin: 20
-            //anchors.top: groupInput.bottom
-            anchors.left: groupInput.left
+            anchors.left: parent.left
             text: qsTr("Group type:")
         }
+
+
 
 
         Column {
 
             id: iconType
             spacing: 6
-            width: parent.width
+            width: parent.width * 0.8
             anchors.horizontalCenter: parent.horizontalCenter
 
+            ListView {
+                id: groupTypeList
+                width: parent.width
+                height: 200
+                currentIndex: 0
 
+                model: ListModel{
+                    ListElement {
+                        name: qsTr("Peoples")
+                        type: "peoples"
+                    }
+                    ListElement {
+                        name: qsTr("Items")
+                        type: "items"
+                    }
+                    ListElement {
+                        name: qsTr("Tasks")
+                        type: "tasks"
+                    }
+                }
 
-                RadioButton {
-                    checked: type===GroupModel.groupTypePeoplesName ? true: false
-                    //implicitHeight: 40
-                    //implicitWidth: implicitHeight
+                delegate: RadioDelegate {
+                    text: name
+                    width: parent.width
+                    checked: currentType===type ? true: false
+                    onClicked: groupTypeList.currentIndex = index
 
                     padding:0
-                    onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypePeoplesName
-                    implicitWidth: 100
 
-                    contentItem: RowLayout{
-                        anchors.left: parent.right
-
+                    contentItem: Row{
+                        spacing: 16
 
                         Image {
-                            id: peopleImg
+                            id: icon
 
 
                             //anchors.centerIn: parent
-                            sourceSize.width: peopleLabel.height
-                            sourceSize.height: peopleLabel.width
-                            source: GroupModel.getImageSource(GroupModel.groupTypePeoplesName)
+                            sourceSize.width: label.height
+                            sourceSize.height: label.height
+                            source: GroupModel.getImageSource(type)
+                            anchors.verticalCenter: parent.verticalCenter
                         }
                         Label{
                             //anchors.horizontalCenter: iconType.horizontalCenter
-
-                            id: peopleLabel
-                            text: qsTr("Peoples")
+                            id: label
+                            text: name
+                            anchors.verticalCenter: parent.verticalCenter
 
 
                         }
-
                     }
-
-
                 }
-
-  //          }
-
-
-            RadioButton {
-
-                checked: type===GroupModel.groupTypeItemsName ? true: false
-                //implicitHeight: 30
-                implicitWidth: 100
-                padding:0
-
-                onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypeItemsName
-
-
-
-                contentItem: RowLayout{
-                    anchors.left: parent.right
-
-
-                    Image {
-                        id: itemImg
-
-                        //anchors.centerIn: parent
-                        sourceSize.width: itemLabel.height
-                        sourceSize.height: itemLabel.width
-                        source: GroupModel.getImageSource(GroupModel.groupTypeItemsName)
-                    }
-                    Label{
-                        id: itemLabel
-                        text: qsTr("Items")
-                    }
-
-                }
-
-
             }
 
-////            }
-
-////        Row{
-            RadioButton {
-                checked: type===GroupModel.groupTypeTasksName ? true: false
-
-                implicitHeight: 30
-                implicitWidth: 100
-                padding:0
-                onCheckedChanged:if (checked) selectedGroupType = GroupModel.groupTypeTasksName
-
-                contentItem: RowLayout{
 
 
-                    spacing:4
-                    anchors.left: parent.right
-                    Image {
-                        id: taskImg
 
-                        sourceSize.width: taskLabel.height
-                        sourceSize.height: taskLabel.width
-                        source: GroupModel.getImageSource(GroupModel.groupTypeTasksName)
-                    }
-                    Label{
-                        id:taskLabel
-                        text: qsTr("Tasks")
-                    }
-
-                }
-
-            }
 
 
         }
