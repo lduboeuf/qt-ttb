@@ -17,6 +17,15 @@ QtObject {
                 tx.executeSql('CREATE TABLE IF NOT EXISTS item (item_id INTEGER  PRIMARY KEY,group_id INTEGER, name TEXT, created_date INTEGER);')
                 tx.executeSql('CREATE TABLE IF NOT EXISTS category (category_id INTEGER  PRIMARY KEY,name TEXT, created_date INTEGER);')
 
+                var results = tx.executeSql('SELECT count(*) as cnt FROM category')
+                 if (parseInt(results.rows.item(0).cnt)===0){
+                     //init datas
+                     tx.executeSql('INSERT INTO category (name, created_date)  VALUES(?, ?)', ['Category 1', Date.now()])
+                     tx.executeSql('INSERT INTO category (name, created_date)  VALUES(?, ?)', ['Category 2', Date.now()])
+                     tx.executeSql('INSERT INTO category (name, created_date)  VALUES(?, ?)', ['Category 3', Date.now()])
+
+                 }
+
             })
         } catch (err) {
             console.log("Error creating table in database: " + err)

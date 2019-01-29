@@ -45,17 +45,20 @@ ScrollablePage {
 
         console.log("groupType:" + selectedGroupType)
 
-        var categ = groupCategoryList.model.get(groupCategoryList.currentIndex)
-        if (categ===null){
-            return //TODO alert msg
-        }
-        var categid = categ.rowId
+        var category = groupCategoryList.model.get(groupCategoryList.currentIndex)
 
+        var newData = {
+            rowId: rowId,
+            name: groupInput.displayText,
+            type:selectedGroupType,
+            categoryId: category.rowId,
+            categoryName: category.name
+        }
 
         if (updateMode){
-            GroupModel.updateGroup(index, rowId, groupInput.displayText, selectedGroupType, categid)
+            GroupModel.updateGroup(index,newData)
         }else{
-            rowId = GroupModel.addGroup(groupInput.displayText, selectedGroupType, categid)
+            rowId = GroupModel.addGroup(newData)
         }
 
         console.log("new rowId:" + rowId + (typeof rowId))
@@ -114,7 +117,7 @@ ScrollablePage {
                     id: groupCategoryList
                     width: parent.width
                     //height: 100
-                    currentIndex: -1
+                    currentIndex: 0
                     textRole: "name"
                     model: CategoryModel.categoryModel
 
@@ -125,7 +128,7 @@ ScrollablePage {
 
                     sourceSize.width: parent.height * 0.4
                     sourceSize.height: parent.height* 0.4
-                    source: "/assets/add.svg"
+                    source: "/assets/edit.svg"
 
                     anchors.verticalCenter: parent.verticalCenter
                     //anchors.left: groupCategoryList.right
@@ -133,7 +136,7 @@ ScrollablePage {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-
+                            stackView.push("qrc:/qml/MyGroups/Categories.qml")
                         }
                     }
                 }
@@ -253,7 +256,6 @@ ScrollablePage {
 
 
     StackView.onActivated: groupInput.forceActiveFocus()
-
 
 
 

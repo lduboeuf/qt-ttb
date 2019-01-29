@@ -51,11 +51,24 @@ Page {
         }
 
         onAccepted: {
-            Database.dbReset()
+            //clear models
             GroupModel.groupModel.clear()
+            CategoryModel.categoryModel.clear()
+            ItemModel.itemModel.clear()
+
+            Database.dbReset()
+            //special case for category, it have default insert data on reset, rebuild the List
+            CategoryModel.buildModel()
+
+
             confirmationDialog.close()
+
+            deleteButton.text = qsTr('done')
+            deleteButton.enabled = false
 
         }
     }
+
+
 
 }

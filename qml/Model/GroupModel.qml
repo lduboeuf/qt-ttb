@@ -30,18 +30,20 @@ QtObject {
     //groupModel is shared among several Pages
     property ListModel groupModel : ListModel {}
 
-    function addGroup(groupName, selectedGroupType, categoryId){
+    function addGroup(newData){
         //var id = DB.insertGroup(groupName, selectedGroupType)
         var rowid = 0;
         Database.db.transaction(function (tx) {
             tx.executeSql('INSERT INTO _group(name, type, created_date, category_id) VALUES(?, ?, ?, ?)',
-                          [groupName, selectedGroupType, Date.now(), categoryId])
+                          [newData.name, newData.type, Date.now(), newData.categoryId])
             var result = tx.executeSql('SELECT last_insert_rowid()')
             rowid = parseInt(result.insertId)
         })
         console.log("id"+ rowid)
+        newData.rowId = rowid
+        newData.createdDate = Date.now()
 
-        groupModel.append({rowId: rowid, name: groupName, type: selectedGroupType, createdDate: Date.now(), categoryId: categoryId})
+        groupModel.append(newData)
 
         return rowid
 
@@ -58,16 +60,16 @@ QtObject {
 
     }
 
-    function updateGroup(index, rowId, name, type, categoryId){
+    function updateGroup(index, newData){
         var data = groupModel.get(index)
 
         Database.db.transaction(function (tx) {
             tx.executeSql(
-                        'update _group set name=?, type=?, category_id=? where group_id = ?', [name, type, rowId, categoryId])
+                        'update _group set name=?, type=?, category_id=? where group_id = ?', [newData.name, newData.type, newData.rowId, newData.categoryId])
         })
 
-        data.name = name
-        data.type = type
+        groupModel.set(index, newData)
+
     }
 
     function buildModel(){
@@ -75,15 +77,16 @@ QtObject {
 
          Database.db.transaction(function (tx) {
 
-            var results = tx.executeSql('SELECT * FROM _group')
+            var results = tx.executeSql('SELECT group_id, _group.name as groupName, type, _group.category_id as categoryId, category.name as categoryName FROM _group LEFT JOIN category ON _group.category_id = category.category_id')
             for (var i = 0; i < results.rows.length; i++) {
                 //console.log(results.rows.item(i).name + " - " + results.rows.item(i).type)
                 groupModel.append({
                      rowId: results.rows.item(i).group_id,
-                     name: results.rows.item(i).name,
+                     name: results.rows.item(i).groupName,
                      type: results.rows.item(i).type,
                      createdDate: results.rows.item(i).created_date,
-                     categoryId: results.rows.item(i).category_id,
+                     categoryId: results.rows.item(i).categoryId,
+                     categoryName: results.rows.item(i).categoryName
 
                  })
             }

@@ -31,6 +31,7 @@ Page {
         spacing: 40
        // width: parent.width
         anchors.fill: parent
+        anchors.topMargin: 16
 
         ListView {
             id: groupList
@@ -59,6 +60,24 @@ Page {
                 onItemClicked: function(index){
                     var data = groupList.model.get(index)
                     stackView.push("qrc:/qml/MyGroups/Items.qml", {groupId: data.rowId, groupName:data.name})
+                }
+            }
+
+            section {
+                property: "categoryName"
+                criteria: ViewSection.FullString
+                delegate: Text {
+                    //anchors.horizontalCenter: parent.horizontalCenter
+                    text: section
+                    opacity: 0.60
+
+                    Rectangle {
+                        color: "lightgrey"
+                        width: groupList.width
+                        anchors.top: parent.bottom
+                        height: 1
+
+                    }
                 }
             }
         }
