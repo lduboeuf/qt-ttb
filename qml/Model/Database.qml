@@ -13,8 +13,9 @@ QtObject {
             db.transaction(function (tx) {
 
 
-                tx.executeSql('CREATE TABLE IF NOT EXISTS _group (group_id INTEGER  PRIMARY KEY,name TEXT, type TEXT);')
-                tx.executeSql('CREATE TABLE IF NOT EXISTS item (item_id INTEGER  PRIMARY KEY,group_id INTEGER, name TEXT);')
+                tx.executeSql('CREATE TABLE IF NOT EXISTS _group (group_id INTEGER  PRIMARY KEY, category_id INTEGER, name TEXT, type TEXT, created_date INTEGER);')
+                tx.executeSql('CREATE TABLE IF NOT EXISTS item (item_id INTEGER  PRIMARY KEY,group_id INTEGER, name TEXT, created_date INTEGER);')
+                tx.executeSql('CREATE TABLE IF NOT EXISTS category (category_id INTEGER  PRIMARY KEY,name TEXT, created_date INTEGER);')
 
             })
         } catch (err) {
@@ -25,8 +26,10 @@ QtObject {
     function dbReset(){
         try {
             db.transaction(function (tx) {
+
                 tx.executeSql('DROP TABLE _group')
                 tx.executeSql('DROP TABLE item')
+                tx.executeSql('DROP TABLE category')
 
             })
 

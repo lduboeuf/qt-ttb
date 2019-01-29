@@ -64,7 +64,7 @@ Page {
             }
 
             onDisplayTextChanged: {
-                actionOK.enabled = (memberInput.length > 0) ? true: false
+                actionOK.enabled = (text.length > 0) ? true: false
             }
 
         }

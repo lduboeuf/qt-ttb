@@ -22,7 +22,7 @@ QtObject {
                               rowId: results.rows.item(i).item_id,
                               name: results.rows.item(i).name,
                               groupId: results.rows.item(i).group_id,
-
+                               createdDate: Date.now()
                           })
             }
         })
@@ -40,8 +40,8 @@ QtObject {
                 items[i] = {
                      rowid: results.rows.item(i).item_id,
                      name: results.rows.item(i).name,
-                     groupid: results.rows.item(i).group_id
-
+                     groupid: results.rows.item(i).group_id,
+                      createdDate: results.rows.item(i).created_date
                  }
 
             }
@@ -53,7 +53,7 @@ QtObject {
     {
         var rowid = 0;
         Database.db.transaction(function (tx) {
-            tx.executeSql('INSERT INTO item(group_id, name) VALUES(?, ?)',
+            tx.executeSql('INSERT INTO item(group_id, name, created_date) VALUES(?, ?, strftime(\'%s\',\'now\'))',
                           [pGroupId, pName])
             var result = tx.executeSql('SELECT last_insert_rowid()')
             rowid = parseInt(result.insertId)
@@ -62,7 +62,7 @@ QtObject {
                              rowId: rowid,
                              name: pName,
                              groupId: pGroupId,
-
+                             createdDate: Date.now()
                          })
     }
 

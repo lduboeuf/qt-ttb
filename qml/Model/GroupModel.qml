@@ -30,18 +30,18 @@ QtObject {
     //groupModel is shared among several Pages
     property ListModel groupModel : ListModel {}
 
-    function addGroup(groupName, selectedGroupType){
+    function addGroup(groupName, selectedGroupType, categoryId){
         //var id = DB.insertGroup(groupName, selectedGroupType)
         var rowid = 0;
         Database.db.transaction(function (tx) {
-            tx.executeSql('INSERT INTO _group(name, type) VALUES(?, ?)',
-                          [groupName, selectedGroupType])
+            tx.executeSql('INSERT INTO _group(name, type, created_date, category_id) VALUES(?, ?, ?, ?)',
+                          [groupName, selectedGroupType, Date.now(), categoryId])
             var result = tx.executeSql('SELECT last_insert_rowid()')
             rowid = parseInt(result.insertId)
         })
         console.log("id"+ rowid)
 
-        groupModel.append({rowId: rowid, name: groupName, type: selectedGroupType})
+        groupModel.append({rowId: rowid, name: groupName, type: selectedGroupType, createdDate: Date.now(), categoryId: categoryId})
 
         return rowid
 
@@ -58,12 +58,12 @@ QtObject {
 
     }
 
-    function updateGroup(index, rowId, name, type){
+    function updateGroup(index, rowId, name, type, categoryId){
         var data = groupModel.get(index)
 
         Database.db.transaction(function (tx) {
             tx.executeSql(
-                        'update _group set name=?, type=? where group_id = ?', [name, type, rowId])
+                        'update _group set name=?, type=?, category_id=? where group_id = ?', [name, type, rowId, categoryId])
         })
 
         data.name = name
@@ -81,7 +81,10 @@ QtObject {
                 groupModel.append({
                      rowId: results.rows.item(i).group_id,
                      name: results.rows.item(i).name,
-                     type: results.rows.item(i).type
+                     type: results.rows.item(i).type,
+                     createdDate: results.rows.item(i).created_date,
+                     categoryId: results.rows.item(i).category_id,
+
                  })
             }
         })

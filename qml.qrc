@@ -1,13 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/main.qml</file>
-        <file>qml/Page1Form.ui.qml</file>
         <file>qml/About.qml</file>
         <file>assets/icon.png</file>
         <file>assets/logo.svg</file>
-        <file>qml/testouilleRow.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>qml/PageTheme.qml</file>
         <file>assets/next.svg</file>
         <file>assets/add.svg</file>
         <file>assets/contact-group.svg</file>
@@ -19,7 +16,6 @@
         <file>assets/navigation-menu.svg</file>
         <file>assets/ok.svg</file>
         <file>assets/contact.svg</file>
-        <file>qml/test.js</file>
         <file>assets/select.svg</file>
         <file>assets/item.svg</file>
         <file>assets/items.svg</file>
@@ -37,7 +33,6 @@
         <file>qml/Components/SwipableItem.qml</file>
         <file>qml/Model/GroupModel.qml</file>
         <file>qml/Model/qmldir</file>
-        <file>qml/Model/Database.js.old</file>
         <file>qml/Model/Database.qml</file>
         <file>qml/Model/ItemModel.qml</file>
         <file>assets/starred.svg</file>
@@ -48,11 +43,10 @@
         <file>assets/settings.svg</file>
         <file>assets/close.svg</file>
         <file>qml/Tools/tools.js</file>
-        <file>qml/TestCollapse.qml</file>
-        <file>qml/TestCollapse2.qml</file>
         <file>qml/Tools/ToolGroupSelect.qml</file>
         <file>qml/Tools/ToolBuildResult.qml</file>
         <file>assets/reload.svg</file>
         <file>qml/Components/Action.qml</file>
+        <file>qml/Model/CategoryModel.qml</file>
     </qresource>
 </RCC>
