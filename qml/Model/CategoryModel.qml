@@ -57,7 +57,7 @@ QtObject {
 
             var results = tx.executeSql('SELECT * FROM category')
             for (var i = 0; i < results.rows.length; i++) {
-                console.log("name"+ results.rows.item(i).name)
+                console.log("ID"+ results.rows.item(i).category_id + " name"+ results.rows.item(i).name)
                 categoryModel.append({
                      rowId: results.rows.item(i).category_id,
                      name: results.rows.item(i).name,

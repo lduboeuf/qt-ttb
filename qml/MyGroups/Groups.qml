@@ -67,9 +67,9 @@ Page {
                 property: "categoryName"
                 criteria: ViewSection.FullString
                 delegate: Text {
-                    //anchors.horizontalCenter: parent.horizontalCenter
                     text: section
                     opacity: 0.60
+                    padding: 8
 
                     Rectangle {
                         color: "lightgrey"
