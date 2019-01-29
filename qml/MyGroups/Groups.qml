@@ -3,7 +3,6 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import "../Components"
 import "../Model"
-//import GroupModel 1.0
 
 
 
@@ -49,10 +48,6 @@ Page {
 
                 onRemoveClicked: function(index){
                     GroupModel.removeGroup(index)
-//                    var data = groupList.model.get(index)
-//                    console.log("delete index:"+index)
-//                    DB.deleteGroup(data.rowid)
-//                    groupList.model.remove(index, 1)
                 }
 
                 onEditClicked: function(index){

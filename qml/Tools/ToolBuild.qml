@@ -2,8 +2,6 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../Model"
-//import "." //Apparently pages that are not shown troughout stackView cannot load singleton TTBApplication
-
 import "./tools.js" as Tools
 
 Page {
@@ -21,15 +19,8 @@ Page {
             margins: 16
         }
 
-        //anchors.fill: parent
 
-
-        //anchors.top: parent.top
-        //anchors.margins:16
         spacing: 6
-        //anchors.horizontalCenter: parent.horizontalCenter
-
-
 
 
         Label {
@@ -41,7 +32,7 @@ Page {
             width: form.width * 0.6
             anchors.horizontalCenter: parent.horizontalCenter
 
-            from: 1
+            from: 2
             to: 10
             value: 2
         }

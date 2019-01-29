@@ -20,8 +20,16 @@ Page {
             id:toolBuild
         }
 
-        ToolFind{
-            id: toolFind
+        Label{
+            text: qsTr('Not implemented yet')
+        }
+
+        Label{
+            text: qsTr('Not implemented yet')
+        }
+
+        Label{
+            text: qsTr('Not implemented yet')
         }
 
     }
@@ -34,10 +42,14 @@ Page {
             text: qsTr("Build Teams")
         }
         TabButton {
-            text: qsTr("Find Members")
+            text: qsTr("Find")
         }
         TabButton {
-            text: "Third"
+            text: qsTr("Who's next")
+        }
+
+        TabButton {
+            text: qsTr("Find pairs")
         }
     }
 
