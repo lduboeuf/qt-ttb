@@ -160,11 +160,13 @@ Page {
                     }
                 }
             }
+
+            ScrollBar.vertical: ScrollBar {}
+
         }
 
 
 
-        ScrollBar.vertical: ScrollBar {}
 
 
 

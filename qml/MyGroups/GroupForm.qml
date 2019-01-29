@@ -74,9 +74,10 @@ Page {
             width: parent.width * 0.8
             maximumLength: 20
 
-            onDisplayTextChanged: {
-                actionOK.enabled = (groupInput.length > 0) ? true: false
+            onTextChanged: {
+                 actionOK.enabled = (groupInput.length > 0) ? true: false
             }
+
 
             Keys.onReturnPressed: {
                 save()
