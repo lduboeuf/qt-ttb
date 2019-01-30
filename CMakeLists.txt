@@ -1,4 +1,4 @@
-project(ttb C CXX)
+project(ttbn C CXX)
 cmake_minimum_required(VERSION 3.0.0)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
@@ -21,8 +21,8 @@ execute_process(
 
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
-set(PROJECT_NAME "ttb")
-set(FULL_PROJECT_NAME "ttb.lduboeuf")
+set(PROJECT_NAME "ttbn")
+set(FULL_PROJECT_NAME "ttbn.lduboeuf")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)

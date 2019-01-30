@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setApplicationName("ttb.lduboeuf");
+    QGuiApplication::setApplicationName("ttbn.lduboeuf");
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);

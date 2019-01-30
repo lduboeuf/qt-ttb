@@ -1,12 +1,12 @@
 {
-    "name": "ttb.lduboeuf",
+    "name": "ttbn.lduboeuf",
     "description": "Play with teams",
     "architecture": "@CLICK_ARCH@",
     "title": "Team Toolbox",
     "hooks": {
-        "ttb": {
-            "apparmor": "ttb.apparmor",
-            "desktop":  "ttb.desktop"
+        "ttbn": {
+            "apparmor": "ttbn.apparmor",
+            "desktop":  "ttbn.desktop"
         }
     },
     "version": "1.0.0",

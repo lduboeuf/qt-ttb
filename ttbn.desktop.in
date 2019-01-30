@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=Team Toolbox
-Exec=ttb
+Exec=ttbn
 Icon=assets/icon.png
 Terminal=false
 Type=Application
