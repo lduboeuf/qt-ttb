@@ -57,12 +57,14 @@ Page{
             padding: 16
             horizontalAlignment: Text.AlignJustify
             anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: Qt.application.font.pixelSize * 1.2
+
             width: parent.width
             wrapMode: Text.Wrap
 
 
 
-            text: qsTr("<strong>hello ;-)</strong>. Welcome to <strong>Team Tool Box!</strong><br><br> Maybe your first time here, please have a look to the About section. You can start adding Groups and Items by selecting \"My Groups\" in side menu")
+            text: qsTr("<strong>hello ;-)</strong>. Welcome to <strong>Team Tool Box!</strong><br><br> Maybe your first time here. You can start adding Groups and Items by selecting \"My Groups\" in side menu")
 
         }
 

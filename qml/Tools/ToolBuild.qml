@@ -24,6 +24,7 @@ Page {
 
 
         Label {
+            anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Define:")
         }
 
@@ -31,15 +32,19 @@ Page {
             id: spinBox
             width: form.width * 0.6
             anchors.horizontalCenter: parent.horizontalCenter
+            height: implicitHeight * 2
 
             from: 2
             to: 10
             value: 2
+
+
+
         }
 
 
         Label {
-
+            anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Members per team within:")
         }
 

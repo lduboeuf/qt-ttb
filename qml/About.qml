@@ -30,6 +30,7 @@ ScrollablePage{
             id:content
             anchors.margins: 16
             width: parent.width
+            font.pixelSize: Qt.application.font.pixelSize * 1.2
             wrapMode: Text.Wrap
             horizontalAlignment: Qt.AlignHCenter
 
@@ -43,6 +44,8 @@ ScrollablePage{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap
+            font.pixelSize: Qt.application.font.pixelSize * 1.2
+
             horizontalAlignment: Qt.AlignHCenter
 
 
@@ -54,6 +57,8 @@ ScrollablePage{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap
+            font.pixelSize: Qt.application.font.pixelSize * 1.2
+
             horizontalAlignment: Qt.AlignHCenter
 
 

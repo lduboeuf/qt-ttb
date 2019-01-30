@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../Model"
@@ -65,7 +65,7 @@ Page {
         id:resultList
         anchors.fill: parent
         anchors.margins: 16
-        anchors.topMargin: 50
+        anchors.topMargin: 20
 
 
         model: ListModel{
@@ -74,11 +74,13 @@ Page {
         delegate:
 
             RowLayout {
+            //width: parent.width
             width: parent.width
+            height: txtLeft.height * 2
             anchors.margins: 16
-            height: implicitHeight * 2
+            //height: implicitHeight * 2
 
-            // spacing: 16
+           spacing: 16
 
 
             Text {
@@ -86,7 +88,7 @@ Page {
                 text: name;
                 //font.pixelSize: 24
                 //anchors.left: parent.left
-                opacity: 0.60
+                //opacity: 0.60
                 anchors.leftMargin: 2
             }
             Image {
@@ -115,6 +117,7 @@ Page {
             delegate: Text {
                 //anchors.horizontalCenter: parent.horizontalCenter
                 //font.pixelSize: 16
+                topPadding: 16
                 font.bold: true
                 text: section
 

@@ -71,6 +71,8 @@ ScrollablePage {
     Column {
         spacing: 20
         anchors.fill: parent
+        height: Qt.inputMethod && Qt.inputMethod.visible ? Qt.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio : parent.height
+
 
 
         TextField {
@@ -144,38 +146,6 @@ ScrollablePage {
 
             }
 
-
-
-
-//            Row {
-//                width: parent.width
-//                anchors.top: groupCategoryList.bottom
-//                //anchors.horizontalCenter:  parent.horizontalCenter
-//                TextField {
-//                    id: newCategoryInput
-
-//                    placeholderText: qsTr(" New category name")
-//                    maximumLength: 20
-
-//                }
-
-//                Image {
-//                    id: newCategoryButton
-
-//                    sourceSize.width: newCategoryInput.height
-//                    sourceSize.height: newCategoryInput.height
-//                    source: "/assets/ok.svg"
-//                    anchors.right: parent.right
-
-//                    MouseArea {
-//                        anchors.fill: parent
-//                        onClicked: {
-//                            if (newCategoryInput.length>0)
-//                                CategoryModel.add(newCategoryInput.text)
-//                        }
-//                    }
-//                }
-//            }
 
         }
 
