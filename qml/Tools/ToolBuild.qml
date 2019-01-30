@@ -32,7 +32,7 @@ Page {
             id: spinBox
             width: form.width * 0.6
             anchors.horizontalCenter: parent.horizontalCenter
-            height: implicitHeight * 2
+            height: implicitHeight * 1.6
 
             from: 2
             to: 10

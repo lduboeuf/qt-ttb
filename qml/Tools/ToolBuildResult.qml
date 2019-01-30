@@ -89,6 +89,7 @@ Page {
                 //font.pixelSize: 24
                 //anchors.left: parent.left
                 //opacity: 0.60
+                font.pixelSize: Qt.application.font.pixelSize * 1.2
                 anchors.leftMargin: 2
             }
             Image {

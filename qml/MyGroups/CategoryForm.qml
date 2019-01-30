@@ -57,6 +57,8 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             placeholderText: "Category name"
             text:  name
+            inputMethodHints: Qt.ImhNoPredictiveText; //workaround for onTextChanged not fired on mobile
+
             //width: parent.width -this.height
 
             Keys.onReturnPressed: {

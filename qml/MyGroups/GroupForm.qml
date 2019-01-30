@@ -83,6 +83,7 @@ ScrollablePage {
             text:  name
             width: parent.width * 0.8
             maximumLength: 20
+            inputMethodHints: Qt.ImhNoPredictiveText; //workaround for onTextChanged not fired on mobile
 
             onTextChanged: {
                 actionOK.enabled = (text.length > 0) ? true: false
