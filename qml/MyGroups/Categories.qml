@@ -10,7 +10,7 @@ import "../Model"
 Page {
     id: categoryPage
 
-    title: qsTr("My Groups")
+    title: qsTr("Categories")
 
      header:NavigationBar{
 

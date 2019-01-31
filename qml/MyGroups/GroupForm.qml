@@ -129,8 +129,8 @@ ScrollablePage {
                 Image {
                     id: newCategoryButton
 
-                    sourceSize.width: parent.height * 0.4
-                    sourceSize.height: parent.height* 0.4
+                    sourceSize.width: parent.height * 0.6
+                    sourceSize.height: parent.height* 0.6
                     source: "/assets/edit.svg"
 
                     anchors.verticalCenter: parent.verticalCenter

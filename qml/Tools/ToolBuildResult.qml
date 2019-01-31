@@ -89,7 +89,7 @@ Page {
                 //font.pixelSize: 24
                 //anchors.left: parent.left
                 //opacity: 0.60
-                font.pixelSize: Qt.application.font.pixelSize * 1.2
+                //font.pixelSize: Qt.application.font.pixelSize * 1.2
                 anchors.leftMargin: 2
             }
             Image {
@@ -100,7 +100,7 @@ Page {
 
                 sourceSize.height: txtLeft.height
                 sourceSize.width:txtLeft.height
-                source: "/assets/edit-delete.svg"
+                source: "/assets/close.svg"
 
             }
 
@@ -119,7 +119,7 @@ Page {
                 //anchors.horizontalCenter: parent.horizontalCenter
                 //font.pixelSize: 16
                 topPadding: 16
-                font.bold: true
+                //font.bold: true
                 text: section
 
 

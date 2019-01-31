@@ -16,16 +16,17 @@ int main(int argc, char *argv[])
     QSettings settings;
         QString style = QQuickStyle::name();
         QString platform = QGuiApplication::platformName();
-        if (platform=="android"){
-            settings.setValue("style", "material");
-            QQuickStyle::setStyle("material");
-        }else if (settings.contains("style")) {
-            QQuickStyle::setStyle(settings.value("style").toString());
-        }
-        else {
-            settings.setValue("style", "Suru");
-            QQuickStyle::setStyle("Suru");
-        }
+//        if (platform=="android"){
+//            settings.setValue("style", "Material");
+//            QQuickStyle::setStyle("Material");
+//        }else if (settings.contains("style")) {
+
+//            QQuickStyle::setStyle(settings.value("style").toString());
+//        }
+//        else {
+//            settings.setValue("style", "Suru");
+//            QQuickStyle::setStyle("Suru");
+//        }
 
 
 

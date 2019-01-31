@@ -30,6 +30,7 @@ QtObject {
     //groupModel is shared among several Pages
     property ListModel groupModel : ListModel {}
 
+
     function addGroup(newData){
         //var id = DB.insertGroup(groupName, selectedGroupType)
         var rowid = 0;

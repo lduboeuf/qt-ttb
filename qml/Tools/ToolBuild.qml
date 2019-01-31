@@ -52,6 +52,7 @@ Page {
             id: buttonSelect
             text: qsTr("select")
             focusPolicy: Qt.ClickFocus
+            height: implicitHeight * 1.6
             width: form.width * 0.6
             anchors.horizontalCenter: parent.horizontalCenter
 

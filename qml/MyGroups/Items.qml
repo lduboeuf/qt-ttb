@@ -53,7 +53,7 @@ Page {
 
             delegate: SwipableItem{
 
-                iconSource : "/assets/starred.svg"
+                iconSource : "/assets/non-starred.svg"
 
                 onRemoveClicked: function(index){
 

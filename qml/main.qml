@@ -22,10 +22,10 @@ ApplicationWindow {
  //   property var groupList
 
 
-//    Settings {
-//        id: settings
-//        //property string style: getStyle()
-//    }
+    Settings {
+        id: settings
+        property string style: "System"
+    }
 
 //    function getStyle(){
 //        var style = "System";

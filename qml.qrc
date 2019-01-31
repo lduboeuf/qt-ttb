@@ -50,5 +50,6 @@
         <file>qml/Model/CategoryModel.qml</file>
         <file>qml/MyGroups/Categories.qml</file>
         <file>qml/MyGroups/CategoryForm.qml</file>
+        <file>assets/non-starred.svg</file>
     </qresource>
 </RCC>
