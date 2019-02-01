@@ -53,7 +53,7 @@ Page {
 
                 onEditClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowId: data.rowId, name:data.name, currentType:data.type})
+                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowId: data.rowId, name:data.name, currentType:data.type, currentCategoryId: data.categoryId})
                     swipe.close()
                 }
 
@@ -80,7 +80,25 @@ Page {
                     }
                 }
             }
+
+            function sortModel()
+            {
+                for(var i=0; i<model.count; i++)
+                {
+                    for(var j=0; j<i; j++)
+                    {
+                        if(model.get(i).categoryId === model.get(j).categoryId)
+                            model.move(i,j,1)
+                        break
+                    }
+                }
+            }
         }
 
     }
+
+
+
+    //make sure sections are well ordered
+    //StackView.onActivated:groupList.sortModel()
 }

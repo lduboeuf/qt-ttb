@@ -30,6 +30,19 @@ QtObject {
     //groupModel is shared among several Pages
     property ListModel groupModel : ListModel {}
 
+    function sortModel()
+    {
+        for(var i=0; i<groupModel.count; i++)
+        {
+            for(var j=0; j<i; j++)
+            {
+                if(groupModel.get(i).categoryId === groupModel.get(j).categoryId)
+                    groupModel.move(i,j,1)
+                break
+            }
+        }
+    }
+
 
     function addGroup(newData){
         //var id = DB.insertGroup(groupName, selectedGroupType)
@@ -45,6 +58,7 @@ QtObject {
         newData.createdDate = Date.now()
 
         groupModel.append(newData)
+        sortModel()
 
         return rowid
 
@@ -58,6 +72,7 @@ QtObject {
         })
 
         groupModel.remove(index, 1)
+        //sortModel()
 
     }
 
@@ -70,6 +85,7 @@ QtObject {
         })
 
         groupModel.set(index, newData)
+        sortModel()
 
     }
 
@@ -78,19 +94,26 @@ QtObject {
 
          Database.db.transaction(function (tx) {
 
-            var results = tx.executeSql('SELECT group_id, _group.name as groupName, type, _group.category_id as categoryId, category.name as categoryName FROM _group LEFT JOIN category ON _group.category_id = category.category_id')
+            var results = tx.executeSql('SELECT group_id, _group.name as groupName, _group.created_date, type, _group.category_id as categoryId, category.name as categoryName FROM _group LEFT JOIN category ON _group.category_id = category.category_id ORDER BY _group.category_id, _group.created_date DESC')
             for (var i = 0; i < results.rows.length; i++) {
-                //console.log(results.rows.item(i).name + " - " + results.rows.item(i).type)
+                console.log(results.rows.item(i).categoryId + " - " + results.rows.item(i).categoryName)
+                var categName = results.rows.item(i).categoryName
+
+                if (categName===null){
+                    categName="Deleted"
+                }
+
                 groupModel.append({
                      rowId: results.rows.item(i).group_id,
                      name: results.rows.item(i).groupName,
                      type: results.rows.item(i).type,
                      createdDate: results.rows.item(i).created_date,
                      categoryId: results.rows.item(i).categoryId,
-                     categoryName: results.rows.item(i).categoryName
+                     categoryName: categName
 
                  })
             }
+
         })
 
     }

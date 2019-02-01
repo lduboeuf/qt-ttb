@@ -79,7 +79,7 @@ ApplicationWindow {
                     end: Qt.point(drawer.width, 0)
                     gradient: Gradient {
                         GradientStop { position: 0.0; color: "white" }
-                        GradientStop { position: 1.0; color: "#5676b3" }
+                        GradientStop { position: 1.0; color: "#41cd52" }
                     }
                 }
 

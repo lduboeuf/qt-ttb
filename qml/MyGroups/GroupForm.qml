@@ -12,7 +12,7 @@ ScrollablePage {
     property int rowId: 0
     property string name:""
     property string currentType:GroupModel.groupTypePeoplesName
-    property int currentCategory : 0
+    property int currentCategoryId : 0
 
 
     property bool updateMode: name.length==0 ? false: true
@@ -36,6 +36,17 @@ ScrollablePage {
         ]
     }
 
+    onCurrentCategoryIdChanged: {
+        for (var i=0; i < groupCategoryList.model.count ; i ++){
+            if (currentCategoryId===groupCategoryList.model.get(i).rowId){
+                groupCategoryList.currentIndex = i
+                break;
+            }
+        }
+
+
+    }
+
     function save(){
         if ( groupInput.displayText.trim() == "" ) {
             return
@@ -57,18 +68,20 @@ ScrollablePage {
 
         if (updateMode){
             GroupModel.updateGroup(index,newData)
+            stackView.pop()
         }else{
             rowId = GroupModel.addGroup(newData)
+            stackView.replace("qrc:/qml/MyGroups/ItemFormBulk.qml", {groupId: rowId, name: groupInput.displayText})
         }
 
         console.log("new rowId:" + rowId + (typeof rowId))
 
-        stackView.replace("qrc:/qml/MyGroups/ItemFormBulk.qml", {groupId: rowId, name: groupInput.displayText})
         groupInput.text = ""
     }
 
     padding: 16
     Column {
+        id:container
         spacing: 20
         anchors.fill: parent
         height: Qt.inputMethod && Qt.inputMethod.visible ? Qt.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio : parent.height
@@ -91,7 +104,12 @@ ScrollablePage {
 
 
             Keys.onReturnPressed: {
-                save()
+                if (Qt.inputMethod && Qt.inputMethod.visible ){
+                    Qt.inputMethod.hide()
+
+                }
+
+                //save()
             }
 
         }
@@ -167,11 +185,15 @@ ScrollablePage {
                 text: qsTr("Group type:")
             }
 
+
+
             ListView {
                 id: groupTypeList
                 width: parent.width
                 height: 150
+                //anchors.bottom: container.bottom
                 currentIndex: 0
+
 
                 model: ListModel{
                     ListElement {

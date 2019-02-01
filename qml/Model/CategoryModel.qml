@@ -34,6 +34,7 @@ QtObject {
         })
 
         categoryModel.remove(index, 1)
+        GroupModel.buildModel()
 
     }
 
@@ -48,6 +49,8 @@ QtObject {
         })
 
         data.name = name
+
+        GroupModel.buildModel()
     }
 
     function buildModel(){
