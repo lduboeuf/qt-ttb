@@ -10,9 +10,10 @@ import "./tools.js" as Tools
 
 Page {
     id: toolBuildSelect
-    title: qsTr("Build Teams result:")
+    title: qsTr("Build Teams")
 
     header:NavigationBar{
+        subtitle: qsTr("Result")
 
 
         rightActions:[

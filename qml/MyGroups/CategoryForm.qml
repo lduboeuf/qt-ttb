@@ -54,6 +54,7 @@ Page {
 
         TextField {
             id: categoryInput
+            width: parent.width * 0.8
             anchors.horizontalCenter: parent.horizontalCenter
             placeholderText: "Category name"
             text:  name

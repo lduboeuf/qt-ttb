@@ -9,7 +9,10 @@ Page {
 
     //anchors.fill: parent
 
-    header:NavigationBar{}
+    header:NavigationBar{
+        subtitle: swipeView.currentItem.title
+    }
+
 
     SwipeView {
         id: swipeView

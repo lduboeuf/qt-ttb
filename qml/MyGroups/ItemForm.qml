@@ -54,6 +54,8 @@ Page {
 
         TextField {
             id: memberInput
+            width: parent.width * 0.8
+
             anchors.horizontalCenter: parent.horizontalCenter
             placeholderText: "Member name"
             text:  name

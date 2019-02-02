@@ -2,7 +2,7 @@
     "name": "ttbn.lduboeuf",
     "description": "Play with teams",
     "architecture": "@CLICK_ARCH@",
-    "title": "Team Toolbox",
+    "title": "Team Toolbox-n",
     "hooks": {
         "ttbn": {
             "apparmor": "ttbn.apparmor",

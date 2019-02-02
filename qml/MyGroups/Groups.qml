@@ -11,6 +11,8 @@ Page {
     id: groupPage
 
     title: qsTr("My Groups")
+   // property string subtitle: qsTr("Build Teams")
+
 
      header:NavigationBar{
 
@@ -81,24 +83,8 @@ Page {
                 }
             }
 
-            function sortModel()
-            {
-                for(var i=0; i<model.count; i++)
-                {
-                    for(var j=0; j<i; j++)
-                    {
-                        if(model.get(i).categoryId === model.get(j).categoryId)
-                            model.move(i,j,1)
-                        break
-                    }
-                }
-            }
         }
 
     }
 
-
-
-    //make sure sections are well ordered
-    //StackView.onActivated:groupList.sortModel()
 }

@@ -12,6 +12,7 @@ ToolBar {
     id:mainToolBar
 
     property alias leftAction:toolButtonLeft
+    property alias subtitle: subTitleLabel.text
     property list<Action> rightActions
 
 
@@ -40,23 +41,38 @@ ToolBar {
                 }
             }
         }
-
-        Label {
-            id: titleLabel
-            text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
-            font.pixelSize: 20
-            elide: Label.ElideRight
-            //anchors.fill: parent
-            //anchors.left: toolButtonLeft.right
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.margins: actionsRow.width
+        Column{
+            anchors.left: toolButtonLeft.right
             //anchors.right: parent.right
+            //anchors.margins: actionsRow.width
+            Label {
+                id: titleLabel
+                text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
+                font.pixelSize: 20
+                elide: Label.ElideRight
+                //anchors.fill: parent
+                //anchors.left: toolButtonLeft.right
 
-            horizontalAlignment: Text.AlignHCenter
-            //verticalAlignment: Qt.AlignVCenter
-            //Layout.fillWidth: true
+                //anchors.right: parent.right
+
+                //horizontalAlignment: Text.AlignHCenter
+                //verticalAlignment: Qt.AlignVCenter
+                //Layout.fillWidth: true
+            }
+
+            Label {
+                id: subTitleLabel
+                font.pixelSize: 12
+                elide: Label.ElideRight
+
+               // horizontalAlignment: Text.AlignHCenter
+
+            }
+
+
         }
+
+
 
         Row {
                 id: actionsRow

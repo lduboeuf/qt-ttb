@@ -17,11 +17,14 @@ ScrollablePage {
 
     property bool updateMode: name.length==0 ? false: true
 
-    title: updateMode ? qsTr("Modify Group"): qsTr("Add Group")
+    title: qsTr("My Groups")
 
 
 
     header:NavigationBar{
+
+        subtitle: updateMode ? qsTr("Modify Group"): qsTr("Add Group")
+
 
         rightActions:[
             Action{
