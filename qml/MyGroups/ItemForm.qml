@@ -10,15 +10,18 @@ Page {
 
     property int index: 0
     property int groupId:0
+    property string groupName : ""
     property int rowId:0
     property string name:""
 
     property bool updateMode: name.length===0 ? false: true
 
-    title: updateMode ? qsTr("Modify Member"): qsTr("Add Member")
+    title: groupName
 
 
     header:NavigationBar{
+        subtitle: updateMode ? qsTr("Edit Member"): qsTr("Add Member")
+
         rightActions:[
             Action{
                 id: actionOK
@@ -55,7 +58,7 @@ Page {
         TextField {
             id: memberInput
             width: parent.width * 0.8
-
+            maximumLength: 26
             anchors.horizontalCenter: parent.horizontalCenter
             placeholderText: "Member name"
             text:  name

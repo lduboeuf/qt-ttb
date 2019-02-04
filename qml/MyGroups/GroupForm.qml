@@ -17,13 +17,13 @@ ScrollablePage {
 
     property bool updateMode: name.length==0 ? false: true
 
-    title: qsTr("My Groups")
+    title: name
 
 
 
     header:NavigationBar{
 
-        subtitle: updateMode ? qsTr("Modify Group"): qsTr("Add Group")
+        subtitle: updateMode ? qsTr("Edit Group"): qsTr("Add Group")
 
 
         rightActions:[
@@ -98,7 +98,7 @@ ScrollablePage {
             placeholderText: "Group name"
             text:  name
             width: parent.width * 0.8
-            maximumLength: 20
+            maximumLength: 26
             inputMethodHints: Qt.ImhNoPredictiveText; //workaround for onTextChanged not fired on mobile
 
             onTextChanged: {

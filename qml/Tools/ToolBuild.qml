@@ -8,13 +8,13 @@ Page {
     id: toolBuild
     title: qsTr("Build Teams")
 
+
     //property string subtitle: qsTr("Build Teams")
     property var selectedGroup: []
 
     Column {
         id: form
         anchors.centerIn: parent
-
 
         spacing: 24
 
@@ -28,7 +28,7 @@ Page {
             id: spinBox
             //width: form.width * 0.6
             //anchors.horizontalCenter: parent.horizontalCenter
-            height: implicitHeight * 1.6
+            //height: implicitHeight * 1.6
 
             from: 2
             to: 10

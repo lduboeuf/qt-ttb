@@ -138,6 +138,8 @@ ApplicationWindow {
             model: ListModel {
                 ListElement { title: qsTr("Home"); source: "qrc:/qml/Tools/ToolsTab.qml"; iconsource:"../assets/home.svg" }
                 ListElement { title: qsTr("My Groups"); source: "qrc:/qml/MyGroups/Groups.qml"; iconsource:"../assets/groups.svg" }
+                ListElement { title: qsTr("Categories"); source: "qrc:/qml/MyGroups/Categories.qml"; iconsource:"../assets/groups.svg" }
+
                 ListElement { title: qsTr("Settings"); source: "qrc:/qml/Settings.qml"; iconsource:"../assets/settings.svg" }
                 ListElement { title: qsTr("About"); source: "qrc:/qml/About.qml"; iconsource:"../assets/info.svg" }
                 //ListElement { title: qsTr("Spinbox"); source: "qrc:/qml/SpinBoxTest.qml"; iconsource:"\uea09" }

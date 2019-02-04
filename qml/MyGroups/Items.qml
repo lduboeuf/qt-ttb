@@ -10,7 +10,7 @@ import "../Model"
 Page {
     id: membersPage
 
-    title: groupName + qsTr(" Members")
+    title: groupName
 
     property int groupId: -1
     property string groupName
@@ -20,6 +20,8 @@ Page {
     }
 
      header:NavigationBar{
+
+         subtitle: qsTr(" Members")
 
          rightActions:[
              Action{
@@ -62,14 +64,14 @@ Page {
 
                 onEditClicked: function(index){
                     var data = memberList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId})
+                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId, groupName:groupName})
                     swipe.close()
 
                 }
 
                 onItemClicked: function(index){
                     var data = memberList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId})
+                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId, groupName:groupName})
                 }
             }
         }
