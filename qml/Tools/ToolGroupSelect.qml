@@ -133,6 +133,10 @@ Page {
                 onCheckedChanged: {
                     //model.selected = checked
 
+                    if (model.selected !== checked){
+                        model.selected = checked
+                    }
+
                     (checkDelegate.checked) ? nbSelectedGroup++ : nbSelectedGroup--
 
                     //actionOK.enabled = (selectedGroup.length > 0) ? true: false
