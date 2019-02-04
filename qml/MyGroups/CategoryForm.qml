@@ -15,10 +15,29 @@ Page {
 
     property bool updateMode: name.length===0 ? false: true
 
-    title: updateMode ? qsTr("Modify Category"): qsTr("Add Category")
+    title: name
+
+    //onCategoryIdChanged: filterGroupList()
+
+
+    function filterGroupList(){
+        groupModel.clear()
+        for (var i=0; i < GroupModel.groupModel.count; i++){
+            var row = GroupModel.groupModel.get(i)
+
+            if (row.categoryId === categoryId){
+                groupModel.append(row)
+
+            }
+        }
+    }
 
 
     header:NavigationBar{
+
+        subtitle: updateMode ? qsTr("Edit Category"): qsTr("Add Category")
+
+
         rightActions:[
             Action{
                 id: actionOK
@@ -72,9 +91,53 @@ Page {
             }
 
         }
+
+        Label{
+
+            text: qsTr("Groups:")
+        }
+
+
+        ListView {
+            id: groupList
+             width: parent.width
+             height: parent.height
+            ScrollBar.vertical: ScrollBar {
+                active: true
+            }
+
+            model: ListModel{
+                id: groupModel
+
+            }
+
+            delegate: SwipableItem{
+
+               iconSource : GroupModel.getImageSource(model.type)
+
+                onRemoveClicked: function(index){
+                    GroupModel.removeGroup(index)
+                }
+
+                onEditClicked: function(index){
+                    var data = groupList.model.get(index)
+                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowId: data.rowId, name:data.name, currentType:data.type, currentCategoryId: data.categoryId})
+                    swipe.close()
+                }
+
+                onItemClicked: function(index){
+                    var data = groupList.model.get(index)
+                    stackView.push("qrc:/qml/MyGroups/Items.qml", {groupId: data.rowId, groupName:data.name})
+                }
+            }
+
+        }
     }
-    StackView.onActivated: categoryInput.forceActiveFocus()
+    StackView.onActivated: {
 
+        categoryInput.forceActiveFocus()
+        filterGroupList() //refresh view
 
+    }
 
 }
