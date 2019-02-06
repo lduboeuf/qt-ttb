@@ -47,7 +47,8 @@ Page {
                iconSource : ""
 
                 onRemoveClicked: function(index){
-                    CategoryModel.remove(index)
+                    confirmationDialog.open()
+                    //CategoryModel.remove(index)
                 }
 
                 onEditClicked: function(index){
@@ -63,5 +64,33 @@ Page {
             }
         }
 
+    }
+
+    Dialog {
+        id: confirmationDialog
+
+        x: (parent.width - width) / 2
+        y: (parent.height - height) / 2
+        parent: ApplicationWindow.overlay
+
+        modal: true
+        title: "Confirmation"
+        standardButtons: Dialog.Yes | Dialog.No
+
+        Column {
+            spacing: 20
+            anchors.fill: parent
+            Label {
+                text: qsTr("This category contains groups and items, are you sure you want to remove it?")
+            }
+
+        }
+
+        onAccepted: {
+
+            confirmationDialog.close()
+            CategoryModel.remove(categoryList.currentIndex)
+
+        }
     }
 }

@@ -77,9 +77,8 @@ Page {
             RowLayout {
             //width: parent.width
             width: parent.width
-            height: txtLeft.height * 2
+            height: txtLeft.height * 3
             anchors.margins: 16
-            //height: implicitHeight * 2
 
            spacing: 16
 
