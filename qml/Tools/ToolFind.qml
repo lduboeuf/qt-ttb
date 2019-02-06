@@ -1,56 +1,65 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
+import "../Model"
+import "./tools.js" as Tools
 
 Page {
     id: toolBuild
     title: qsTr("Build Teams")
 
+
     Column {
         id: form
-        anchors.fill: parent
+        anchors.centerIn: parent
 
-        anchors.margins:16
-        spacing: 6
-        anchors.horizontalCenter: parent.horizontalCenter
+        spacing: 24
+
 
         Label {
+            anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Find:")
         }
 
         SpinBox {
             id: spinBox
-            width: form.width
+
             from: 1
             to: 10
-            value: 2
+            value: 1
+
+
+
         }
 
-        Label {
 
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Members within:")
         }
 
-        ComboBox {
-            id: comboBox
-            width: form.width
-            model: ["kikou", "blabla", "blibli"]
-        }
+        Button {
+            id: buttonSelect
+            text: qsTr("select")
+            focusPolicy: Qt.ClickFocus
+            //height: implicitHeight * 1.6
+            width: form.width * 0.6
+            anchors.horizontalCenter: parent.horizontalCenter
 
-        Row {
-            id: row
-            width: form.width
-            topPadding: 8
+            topPadding: 6
+            //highlighted: true
+            onClicked: {
 
-            Button {
-                id: button
-                text: qsTr("OK")
-                //font.family: "Times New Roman"
-                focusPolicy: Qt.ClickFocus
-                width: form.width
-                topPadding: 6
-                //highlighted: true
+                stackView.push("qrc:/qml/Tools/ToolGroupSelect.qml", {nbItems: spinBox.value, target:"qrc:/qml/Tools/ToolFindResult.qml"})
+
             }
         }
+
+
+
+
+
+
     }
 
 }

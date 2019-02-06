@@ -37,4 +37,26 @@ function build(list, nbItems){
     return shuffled_array;
 }
 
+function find(list, nbItems){
+
+    //define an array of indices
+    var idxs = list.map(function (x, i) { return i });
+
+    var tmpmembers = [nbItems];
+    var idx, n;
+    var nb = Math.min(nbItems, list.length);
+    var groupName= "Hall of fame:";
+
+    for (var i=0; i < nb;i++){
+
+        n = Math.floor(Math.random() * idxs.length);
+       idx = idxs.splice(n, 1);
+       tmpmembers[i] = list[idx];
+       tmpmembers[i].groupName = groupName
+
+    }
+
+    return tmpmembers
+}
+
 

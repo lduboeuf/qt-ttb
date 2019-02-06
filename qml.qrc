@@ -51,5 +51,6 @@
         <file>qml/MyGroups/Categories.qml</file>
         <file>qml/MyGroups/CategoryForm.qml</file>
         <file>assets/non-starred.svg</file>
+        <file>qml/Tools/ToolFindResult.qml</file>
     </qresource>
 </RCC>

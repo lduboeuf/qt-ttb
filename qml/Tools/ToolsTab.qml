@@ -23,9 +23,10 @@ Page {
             id:toolBuild
         }
 
-        Label{
-            text: qsTr('Not implemented yet')
+        ToolFind{
+            id:toolFind
         }
+
 
         Label{
             text: qsTr('Not implemented yet')
@@ -42,7 +43,7 @@ Page {
         currentIndex: swipeView.currentIndex
 
         TabButton {
-            text: qsTr("Build Teams")
+            text: qsTr("Build")
         }
         TabButton {
             text: qsTr("Find")
@@ -52,7 +53,7 @@ Page {
         }
 
         TabButton {
-            text: qsTr("Find pairs")
+            text: qsTr("Pairs")
         }
     }
 

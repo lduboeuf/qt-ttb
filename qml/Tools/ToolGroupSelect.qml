@@ -12,6 +12,7 @@ Page {
     property int nbItems: 0
     property string filter: GroupModel.groupTypePeoplesName
     property int nbSelectedGroup: 0
+    property string target: "qrc:/qml/Tools/ToolBuildResult.qml"
 
     onNbSelectedGroupChanged: {
         actionOK.enabled = (nbSelectedGroup > 0)
@@ -52,7 +53,7 @@ Page {
                         if (row.selected) selectedGroup.push(row.rowId)
                     }
 
-                    stackView.replace("qrc:/qml/Tools/ToolBuildResult.qml", {selectedGroup: selectedGroup, nbItems: nbItems})
+                    stackView.replace(toolBuildSelect.target, {selectedGroup: selectedGroup, nbItems: nbItems})
                 }
 
             }
