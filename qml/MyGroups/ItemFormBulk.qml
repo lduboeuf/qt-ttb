@@ -8,7 +8,7 @@ import "../Model"
 Page {
     id: bulkItemForm
 
-    title: name + qsTr(" - Add members")
+    title: name
 
 
 
@@ -16,6 +16,7 @@ Page {
     property string name:""
 
     header:NavigationBar{
+        subtitle: qsTr("Add members")
         rightActions:[
             Action{
                 id: actionOK
@@ -105,6 +106,7 @@ Page {
                 delegate:  TextField {
                     //id: memberInput
                     id:input
+                    width: parent.width * 0.8
                     anchors.horizontalCenter: parent.horizontalCenter
                     placeholderText: "Member name " + (index+1)
                     onEditingFinished: {

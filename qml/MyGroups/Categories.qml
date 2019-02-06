@@ -18,7 +18,7 @@ Page {
                 Action{
                     source: "/assets/add.svg"
                     onTriggered: function(){
-                        stackView.push("qrc:/qml/MyGroups/CategoryForm.qml")
+                        stackView.push("qrc:/qml/MyGroups/CategoryForm.qml", StackView.Immediate)
                     }
 
                 }
@@ -47,19 +47,20 @@ Page {
                iconSource : ""
 
                 onRemoveClicked: function(index){
+                    categoryList.currentIndex = index
                     confirmationDialog.open()
                     //CategoryModel.remove(index)
                 }
 
                 onEditClicked: function(index){
                     var data = categoryList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/CategoryForm.qml", {index: index, rowId: data.rowId, name:data.name})
+                    stackView.push("qrc:/qml/MyGroups/CategoryForm.qml", {index: index, rowId: data.rowId, name:data.name}, StackView.Immediate)
                     swipe.close()
                 }
 
                 onItemClicked: function(index){
                     var data = categoryList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/CategoryForm.qml", {categoryId: data.rowId, name:data.name})
+                    stackView.push("qrc:/qml/MyGroups/CategoryForm.qml", {categoryId: data.rowId, name:data.name}, StackView.Immediate)
                 }
             }
         }

@@ -17,7 +17,7 @@ Page{
                 id: actionClose
                 source: "/assets/close.svg"
                 onTriggered: function(){
-                    stackView.pop()
+                    stackView.pop(StackView.Immediate)
                 }
 
             }
@@ -57,7 +57,7 @@ Page{
             padding: 16
             horizontalAlignment: Text.AlignJustify
             anchors.horizontalCenter: parent.horizontalCenter
-            font.pixelSize: Qt.application.font.pixelSize * 1.2
+            font.pixelSize: Qt.application.font.pixelSize * 1.1
 
             width: parent.width
             wrapMode: Text.Wrap

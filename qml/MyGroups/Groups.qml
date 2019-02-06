@@ -20,7 +20,7 @@ Page {
                 Action{
                     source: "/assets/add.svg"
                     onTriggered: function(){
-                        stackView.push("qrc:/qml/MyGroups/GroupForm.qml")
+                        stackView.push("qrc:/qml/MyGroups/GroupForm.qml", StackView.Immediate)
                     }
 
                 }
@@ -55,13 +55,13 @@ Page {
 
                 onEditClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowId: data.rowId, name:data.name, currentType:data.type, currentCategoryId: data.categoryId})
+                    stackView.push("qrc:/qml/MyGroups/GroupForm.qml", {index: index, rowId: data.rowId, name:data.name, currentType:data.type, currentCategoryId: data.categoryId}, StackView.Immediate)
                     swipe.close()
                 }
 
                 onItemClicked: function(index){
                     var data = groupList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/Items.qml", {groupId: data.rowId, groupName:data.name})
+                    stackView.push("qrc:/qml/MyGroups/Items.qml", {groupId: data.rowId, groupName:data.name}, StackView.Immediate)
                 }
             }
 

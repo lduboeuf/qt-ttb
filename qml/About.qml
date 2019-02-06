@@ -30,7 +30,7 @@ ScrollablePage{
             id:content
             anchors.margins: 16
             width: parent.width
-            font.pixelSize: Qt.application.font.pixelSize * 1.2
+            font.pixelSize: Qt.application.font.pixelSize * 1.1
             wrapMode: Text.Wrap
             horizontalAlignment: Qt.AlignHCenter
 
@@ -44,7 +44,7 @@ ScrollablePage{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap
-            font.pixelSize: Qt.application.font.pixelSize * 1.2
+            font.pixelSize: Qt.application.font.pixelSize * 1.1
 
             horizontalAlignment: Qt.AlignHCenter
 
@@ -57,7 +57,7 @@ ScrollablePage{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap
-            font.pixelSize: Qt.application.font.pixelSize * 1.2
+            font.pixelSize: Qt.application.font.pixelSize * 1.1
 
             horizontalAlignment: Qt.AlignHCenter
 
@@ -71,10 +71,24 @@ ScrollablePage{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap
+            font.pixelSize: Qt.application.font.pixelSize * 1.1
+
             horizontalAlignment: Qt.AlignHCenter
 
 
-            text: "Author: Lionel Duboeuf"
+            text: "Note that this project is made just for fun, to begin play with Qt QML, but i will appreciate your feedback"
+
+
+        }
+
+        Text{
+            anchors.margins: 16
+            width: parent.width
+            wrapMode: Text.Wrap
+            horizontalAlignment: Qt.AlignHCenter
+
+
+            text: "Initial author: Lionel Duboeuf"
 
 
         }

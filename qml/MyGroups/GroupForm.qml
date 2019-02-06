@@ -71,10 +71,10 @@ ScrollablePage {
 
         if (updateMode){
             GroupModel.updateGroup(index,newData)
-            stackView.pop()
+            stackView.pop(StackView.Immediate)
         }else{
             rowId = GroupModel.addGroup(newData)
-            stackView.replace("qrc:/qml/MyGroups/ItemFormBulk.qml", {groupId: rowId, name: groupInput.displayText})
+            stackView.replace("qrc:/qml/MyGroups/ItemFormBulk.qml", {groupId: rowId, name: groupInput.displayText}, StackView.Immediate)
         }
 
         console.log("new rowId:" + rowId + (typeof rowId))

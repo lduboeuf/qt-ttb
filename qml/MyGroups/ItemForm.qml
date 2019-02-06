@@ -47,7 +47,7 @@ Page {
         }
 
         memberInput.text = ""
-        stackView.pop()
+        stackView.pop(StackView.Immediate)
     }
 
     Column {

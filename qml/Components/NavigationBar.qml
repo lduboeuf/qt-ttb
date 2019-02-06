@@ -43,21 +43,13 @@ ToolBar {
         }
         Column{
             anchors.left: toolButtonLeft.right
-            //anchors.right: parent.right
+            anchors.right: actionsRow.left
             //anchors.margins: actionsRow.width
             Label {
                 id: titleLabel
                 text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
                 font.pixelSize: 20
                 elide: Label.ElideRight
-                //anchors.fill: parent
-                //anchors.left: toolButtonLeft.right
-
-                //anchors.right: parent.right
-
-                //horizontalAlignment: Text.AlignHCenter
-                //verticalAlignment: Qt.AlignVCenter
-                //Layout.fillWidth: true
             }
 
             Label {
@@ -79,12 +71,10 @@ ToolBar {
 
                 anchors {
                     right: parent.right
-                    //rightMargin: Units.dp(16)
                 }
 
                 height: parent.implicitHeight
 
-                //spacing: Units.dp(24)
 
                 Repeater {
                     model: rightActions.length

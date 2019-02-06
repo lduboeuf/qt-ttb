@@ -28,7 +28,7 @@ Page {
                  id: actionOK
                  source: "/assets/add.svg"
                  onTriggered: function(){
-                     stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {groupId: groupId, groupName: groupName})
+                     stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {groupId: groupId, groupName: groupName}, StackView.Immediate)
                  }
 
              }
@@ -64,14 +64,14 @@ Page {
 
                 onEditClicked: function(index){
                     var data = memberList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId, groupName:groupName})
+                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId, groupName:groupName}, StackView.Immediate)
                     swipe.close()
 
                 }
 
                 onItemClicked: function(index){
                     var data = memberList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId, groupName:groupName})
+                    stackView.push("qrc:/qml/MyGroups/ItemForm.qml", {index: index,rowId: data.rowId, name:data.name, groupId:data.groupId, groupName:groupName}, StackView.Immediate)
                 }
             }
         }
