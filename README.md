@@ -1,4 +1,4 @@
-# TTB
+# Team Toolbox
 
-A short description of your app
-# qt-ttb
+An app based on the initial webapp https://github.com/lduboeuf/team-tool-box just to make me learn QML QT...
+
