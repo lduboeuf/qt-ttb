@@ -6,7 +6,7 @@ import "./tools.js" as Tools
 
 Page {
     id: toolBuild
-    title: qsTr("Build Teams")
+    title: qsTr("Find members")
 
 
     Column {
@@ -50,7 +50,7 @@ Page {
             //highlighted: true
             onClicked: {
 
-                stackView.push("qrc:/qml/Tools/ToolGroupSelect.qml", {nbItems: spinBox.value, target:"qrc:/qml/Tools/ToolFindResult.qml"})
+                stackView.push("qrc:/qml/Tools/ToolGroupSelect.qml", {nbItems: spinBox.value, target:"qrc:/qml/Tools/ToolFindResult.qml", contextTitle: title})
 
             }
         }

@@ -56,7 +56,7 @@ Page {
             //highlighted: true
             onClicked: {
 
-                stackView.push("qrc:/qml/Tools/ToolGroupSelect.qml", {nbItems: spinBox.value, target:"qrc:/qml/Tools/ToolBuildResult.qml"})
+                stackView.push("qrc:/qml/Tools/ToolGroupSelect.qml", {nbItems: spinBox.value, target:"qrc:/qml/Tools/ToolBuildResult.qml", contextTitle: title})
 
             }
         }

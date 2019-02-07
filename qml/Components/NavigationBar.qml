@@ -1,6 +1,8 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
+import QtGraphicalEffects 1.0
+import QtQuick.Controls.Material 2.1
 
 //    Component.onCompleted: {
 //           window.header = header
@@ -40,6 +42,15 @@ ToolBar {
                     drawer.open()
                 }
             }
+
+            ColorOverlay {
+                    id: overlay
+                    anchors.fill: parent
+                    source: navImage
+                    color: Material.foreground
+                    //cached: true
+                   // opacity: icon.color.a
+                }
         }
         Column{
             anchors.left: toolButtonLeft.right
@@ -86,12 +97,22 @@ ToolBar {
                         enabled:  rightActions[index].enabled
 
                         contentItem: Image {
+                            id: rigthActionImg
                            fillMode: Image.Pad
                            horizontalAlignment: Image.AlignHCenter
                            verticalAlignment: Image.AlignVCenter
                            sourceSize.width: parent.height  * 0.4
                            sourceSize.height: sourceSize.height
                            source: rightActions[index].source
+
+                           ColorOverlay {
+                                   source: rigthActionImg
+                                   anchors.fill: parent
+                                   color: Material.foreground
+                                   //cached: true
+
+                                  // opacity: icon.color.a
+                               }
                        }
 
                        onClicked: rightActions[index].onTriggered()

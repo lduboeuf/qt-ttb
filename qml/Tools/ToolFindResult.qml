@@ -1,6 +1,8 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Material 2.1
+
 import "../Model"
 import "../Components"
 
@@ -95,6 +97,7 @@ Page {
             Text {
                 id:txtLeft
                 text: name;
+                color:Material.foreground
                 //font.pixelSize: 24
                 //anchors.left: parent.left
                 //opacity: 0.60
@@ -130,6 +133,9 @@ Page {
                 topPadding: 16
                 //font.bold: true
                 text: section
+                color:Material.foreground
+                opacity: 0.6
+
 
 
                 Rectangle {

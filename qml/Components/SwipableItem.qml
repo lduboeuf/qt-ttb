@@ -2,6 +2,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.Material 2.1
+
 
 
 SwipeDelegate {
@@ -30,6 +32,13 @@ SwipeDelegate {
             sourceSize.width: swipeDelegate.height * 0.4
             sourceSize.height: sourceSize.height
             source: iconSource
+                            opacity: 0.60
+            ColorOverlay{
+                source:iconLeft
+                anchors.fill: parent
+                color:Material.foreground
+
+            }
 
         }
 
@@ -38,6 +47,7 @@ SwipeDelegate {
             anchors.leftMargin: 16
             opacity: 0.60
             anchors.verticalCenter: parent.verticalCenter
+            color: Material.foreground
             //font.pixelSize: Qt.application.font.pixelSize * 1.2
             //anchors.left: parent.left
             text: name

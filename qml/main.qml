@@ -18,13 +18,22 @@ ApplicationWindow {
 
     title: qsTr("Team Toolbox")
 
+    //Material.theme: themeSwitch.checked ? Material.Dark : Material.Light
+    Material.theme: settings.theme
+
+    Switch {
+        id: themeSwitch
+        text: "Dark"
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
 
  //   property var groupList
 
 
     Settings {
         id: settings
-        property string style: "System"
+        property int theme: Material.Light
     }
 
 //    function getStyle(){
@@ -79,7 +88,7 @@ ApplicationWindow {
                     end: Qt.point(drawer.width, 0)
                     gradient: Gradient {
                         GradientStop { position: 0.0; color: "white" }
-                        GradientStop { position: 1.0; color: "#41cd52" }
+                        GradientStop { position: 1.0; color: Material.primary }
                     }
                 }
 
@@ -121,11 +130,12 @@ ApplicationWindow {
 
                         Text {
                             id:menuLabel
-                            opacity: 0.60
+                            opacity: 0.80
                             text: model.title
                             anchors.left: parent.left
                             anchors.bottom:  menuIcon.bottom
                             anchors.leftMargin: 36
+                            color: Material.foreground
                         }
 
 

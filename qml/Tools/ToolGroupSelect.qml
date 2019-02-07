@@ -6,13 +6,14 @@ import "../Components"
 
 Page {
     id: toolBuildSelect
-    title: qsTr("Build Teams")
+    title: contextTitle
 
 
     property int nbItems: 0
     property string filter: GroupModel.groupTypePeoplesName
     property int nbSelectedGroup: 0
     property string target: "qrc:/qml/Tools/ToolBuildResult.qml"
+    property string contextTitle: ""
 
     onNbSelectedGroupChanged: {
         actionOK.enabled = (nbSelectedGroup > 0)
