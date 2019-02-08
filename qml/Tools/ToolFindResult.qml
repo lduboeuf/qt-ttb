@@ -76,50 +76,40 @@ Page {
     ListView {
         id:resultList
         anchors.fill: parent
-        anchors.margins: 16
+        anchors.margins: 2
         anchors.topMargin: 20
 
 
         model: ListModel{
 
         }
-        delegate:
+        delegate:SwipableItem{
 
-            RowLayout {
-            //width: parent.width
-            width: parent.width
-            height: txtLeft.height * 3
-            anchors.margins: 16
+            iconSource : ""
+            swipe.right: null
 
-           spacing: 16
+             onRemoveClicked: function(index){
+                 toolBuildSelect.removeItem(index)
+             }
 
 
-            Text {
-                id:txtLeft
-                text: name;
-                color:Material.foreground
-                //font.pixelSize: 24
-                //anchors.left: parent.left
-                //opacity: 0.60
-                //font.pixelSize: Qt.application.font.pixelSize * 1.2
-                anchors.leftMargin: 2
-            }
-            Image {
-                id: iconRight
-                anchors.rightMargin:  16
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
 
-                sourceSize.height: txtLeft.height
-                sourceSize.width:txtLeft.height
-                source: "/assets/close.svg"
+            //            Image {
+            //                id: iconRight
+            //                anchors.rightMargin:  16
+            //                anchors.right: parent.right
+            //                anchors.verticalCenter: parent.verticalCenter
 
-            }
+            //                sourceSize.height: txtLeft.height
+            //                sourceSize.width:txtLeft.height
+            //                source: "/assets/close.svg"
 
-            MouseArea { //workaround for mobile
-                anchors.fill: iconRight
-                onClicked: toolBuildSelect.removeItem(index)
-            }
+            //            }
+
+            //            MouseArea { //workaround for mobile
+            //                anchors.fill: iconRight
+            //                onClicked: toolBuildSelect.removeItem(index)
+            //            }
 
         }
         //focus: true

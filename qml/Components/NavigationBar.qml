@@ -30,8 +30,8 @@ ToolBar {
                 fillMode: Image.Pad
                 horizontalAlignment: Image.AlignHCenter
                 verticalAlignment: Image.AlignVCenter
-                sourceSize.width: parent.height * 0.6
-                sourceSize.height: parent.height * 0.4
+                sourceSize.width: toolButtonLeft.height * 0.4
+                sourceSize.height: toolButtonLeft.height * 0.4
                 source: stackView.depth > 1 ? "/assets/go-previous.svg" : "/assets/navigation-menu.svg"
             }
             onClicked: {
@@ -80,46 +80,38 @@ ToolBar {
         Row {
                 id: actionsRow
 
-                anchors {
-                    right: parent.right
-                }
-
+                anchors.right: parent.right
                 height: parent.implicitHeight
-
 
                 Repeater {
                     model: rightActions.length
 
                     delegate: ToolButton {
                         id: iconAction
-
-                        //objectName: "action/" + action.objectName
                         enabled:  rightActions[index].enabled
 
-                        contentItem: Image {
-                            id: rigthActionImg
-                           fillMode: Image.Pad
-                           horizontalAlignment: Image.AlignHCenter
-                           verticalAlignment: Image.AlignVCenter
-                           sourceSize.width: parent.height  * 0.4
-                           sourceSize.height: sourceSize.height
-                           source: rightActions[index].source
+                        contentItem: Item{
 
-                           ColorOverlay {
-                                   source: rigthActionImg
-                                   anchors.fill: parent
-                                   color: Material.foreground
-                                   //cached: true
+                            Image {
+                                id: rigthActionImg
+                                fillMode: Image.Pad
+                                sourceSize.width: iconAction.height  * 0.4
+                                sourceSize.height: iconAction.height  * 0.4
+                                source: rightActions[index].source
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.horizontalCenter: parent.horizontalCenter
 
-                                  // opacity: icon.color.a
-                               }
-                       }
+                            }
+                            ColorOverlay {
+                                source: rigthActionImg
+                                anchors.fill: rigthActionImg
+                                color: Material.foreground
+                            }
+                        }
 
                        onClicked: rightActions[index].onTriggered()
 
-
-
-                        anchors.verticalCenter: parent ? parent.verticalCenter : undefined
+                        //anchors.verticalCenter: parent ? parent.verticalCenter : undefined
                     }
                 }
 

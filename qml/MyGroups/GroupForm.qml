@@ -17,7 +17,7 @@ ScrollablePage {
 
     property bool updateMode: name.length==0 ? false: true
 
-    title: name
+    title: (name.length>0) ? name: qsTr('My Groups')
 
 
 

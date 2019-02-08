@@ -50,7 +50,7 @@ Page{
        }
 
 
-        Text{
+        Label{
             id:content
             //anchors.centerIn: parent
             //anchors.margins: 16

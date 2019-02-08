@@ -21,19 +21,13 @@ ApplicationWindow {
     //Material.theme: themeSwitch.checked ? Material.Dark : Material.Light
     Material.theme: settings.theme
 
-    Switch {
-        id: themeSwitch
-        text: "Dark"
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
-
 
  //   property var groupList
 
 
     Settings {
         id: settings
-        property int theme: Material.Light
+        property int theme: Material.theme
     }
 
 //    function getStyle(){
@@ -87,7 +81,7 @@ ApplicationWindow {
                     start: Qt.point(0, 0)
                     end: Qt.point(drawer.width, 0)
                     gradient: Gradient {
-                        GradientStop { position: 0.0; color: "white" }
+                        GradientStop { position: 0.0; color: Qt.lighter(Material.primary, 2) }
                         GradientStop { position: 1.0; color: Material.primary }
                     }
                 }
@@ -146,7 +140,7 @@ ApplicationWindow {
 
 
             model: ListModel {
-                ListElement { title: qsTr("Home"); source: "qrc:/qml/Tools/ToolsTab.qml"; iconsource:"../assets/home.svg" }
+                ListElement { title: qsTr("Home"); source: "qrc:/qml/Home.qml"; iconsource:"../assets/home.svg" }
                 ListElement { title: qsTr("My Groups"); source: "qrc:/qml/MyGroups/Groups.qml"; iconsource:"../assets/groups.svg" }
                 ListElement { title: qsTr("Categories"); source: "qrc:/qml/MyGroups/Categories.qml"; iconsource:"../assets/groups.svg" }
 
@@ -162,19 +156,22 @@ ApplicationWindow {
     StackView {
         id: stackView
         anchors.fill: parent
-        initialItem: "qrc:/qml/Tools/ToolsTab.qml"
+        initialItem: "qrc:/qml/Home.qml"
         //initialItem: "qrc:/qml/MyGroups/GroupForm.qml"
 
     }
 
     Component.onCompleted: {
-        console.log("here here")
+        console.log("main.qml loaded")
         drawer.headerHeight =  (stackView.currentItem.header !== null) ? stackView.currentItem.header.height : window.height * 0.1
 
         if (GroupModel.groupModel.rowCount()===0) {
 
             stackView.push("qrc:/qml/WelcomePage.qml",{},StackView.Immediate)
         }
+
+        console.log(Qt.application.version)
+
 
     }
 

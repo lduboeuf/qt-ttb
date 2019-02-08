@@ -81,8 +81,10 @@ QtObject {
 
         Database.db.transaction(function (tx) {
             tx.executeSql(
-                        'update _group set name=?, type=?, category_id=? where group_id = ?', [newData.name, newData.type, newData.rowId, newData.categoryId])
+                        'update _group set name=?, type=?, category_id=? where group_id = ?', [newData.name, newData.type, newData.categoryId, newData.rowId ])
         })
+
+        console.log("updated group with data:" + data)
 
         groupModel.set(index, newData)
         sortModel()

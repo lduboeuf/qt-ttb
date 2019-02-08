@@ -60,7 +60,7 @@ Page {
 
                 onItemClicked: function(index){
                     var data = categoryList.model.get(index)
-                    stackView.push("qrc:/qml/MyGroups/CategoryForm.qml", {categoryId: data.rowId, name:data.name}, StackView.Immediate)
+                    stackView.push("qrc:/qml/MyGroups/CategoryForm.qml", {index: index, rowId: data.rowId, name:data.name}, StackView.Immediate)
                 }
             }
         }

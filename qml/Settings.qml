@@ -20,34 +20,34 @@ Page {
         anchors.topMargin: 40
         anchors.margins: 16
         //padding: 16
-        RowLayout{
-            width: parent.width
-            height: themeSwitchLabel.implicitHeight * 2
+//        RowLayout{
+//            width: parent.width
+//            height: themeSwitchLabel.implicitHeight * 2
 
-            Label {
-                id:themeSwitchLabel
-                //width: parent.width
-                //wrapMode: Label.Wrap
-                verticalAlignment:  Qt.AlignVCenter
-                text: qsTr("Change Theme:")
-            }
+//            Label {
+//                id:themeSwitchLabel
+//                //width: parent.width
+//                //wrapMode: Label.Wrap
+//                verticalAlignment:  Qt.AlignVCenter
+//                text: qsTr("Change Theme:")
+//            }
 
-            Switch {
-                id: themeSwitch
-                padding: 0
-                //text: (settings.theme===Material.Dark) ? qsTr("Dark"): qsTr("Light")
-                checked: (settings.theme===Material.Dark)
-                anchors.right: parent.right
-                onCheckedChanged: {
-                    if (themeSwitch.checked){
-                        settings.theme = Material.Dark
-                    }else{
-                        settings.theme = Material.Light
-                    }
+//            Switch {
+//                id: themeSwitch
+//                padding: 0
+//                //text: (settings.theme===Material.Dark) ? qsTr("Dark"): qsTr("Light")
+//                checked: (settings.theme===Material.Dark)
+//                anchors.right: parent.right
+//                onCheckedChanged: {
+//                    if (themeSwitch.checked){
+//                        settings.theme = Material.Dark
+//                    }else{
+//                        settings.theme = Material.Light
+//                    }
 
-                }
-            }
-        }
+//                }
+//            }
+//        }
 
         RowLayout{
             width: parent.width

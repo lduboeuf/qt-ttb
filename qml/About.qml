@@ -26,7 +26,7 @@ ScrollablePage{
 
 
 
-        Text{
+        Label{
             id:content
             anchors.margins: 16
             width: parent.width
@@ -40,7 +40,7 @@ ScrollablePage{
 
         }
 
-        Text{
+        Label{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap
@@ -53,7 +53,7 @@ ScrollablePage{
 
         }
 
-        Text{
+        Label{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap
@@ -67,7 +67,7 @@ ScrollablePage{
 
         }
 
-        Text{
+        Label{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap
@@ -81,7 +81,7 @@ ScrollablePage{
 
         }
 
-        Text{
+        Label{
             anchors.margins: 16
             width: parent.width
             wrapMode: Text.Wrap

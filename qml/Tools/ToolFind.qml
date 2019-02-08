@@ -2,17 +2,25 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../Model"
+import "../Components"
 import "./tools.js" as Tools
 
 Page {
     id: toolBuild
     title: qsTr("Find members")
 
+    header:NavigationBar{
+        //subtitle: swipeView.currentItem.title
+
+
+    }
+
 
     Column {
         id: form
-        anchors.centerIn: parent
-
+        anchors.fill: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: 20
         spacing: 24
 
 
@@ -23,6 +31,8 @@ Page {
 
         SpinBox {
             id: spinBox
+            anchors.horizontalCenter: parent.horizontalCenter
+
 
             from: 1
             to: 10

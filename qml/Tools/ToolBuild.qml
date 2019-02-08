@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "../Model"
+import "../Components"
 import "./tools.js" as Tools
 
 Page {
@@ -12,10 +13,17 @@ Page {
     //property string subtitle: qsTr("Build Teams")
     property var selectedGroup: []
 
+    header:NavigationBar{
+        //subtitle: swipeView.currentItem.title
+
+
+    }
+
     Column {
         id: form
-        anchors.centerIn: parent
-
+        anchors.fill: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: 20
         spacing: 24
 
 
@@ -26,15 +34,11 @@ Page {
 
         SpinBox {
             id: spinBox
-            //width: form.width * 0.6
-            //anchors.horizontalCenter: parent.horizontalCenter
-            //height: implicitHeight * 1.6
+            anchors.horizontalCenter: parent.horizontalCenter
 
             from: 2
             to: 10
             value: 2
-
-
 
         }
 

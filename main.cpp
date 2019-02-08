@@ -7,10 +7,15 @@
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setApplicationName("ttbn.lduboeuf");
+
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+    app.setOrganizationName("ttbn.lduboeuf");
+    //app.setOrganizationDomain("ttbn.lduboeuf");
+    app.setApplicationName("ttbn.lduboeuf");
+    app.setApplicationVersion("0.7.3");
+
     //qmlRegisterSingletonType(QUrl("qrc:/qml/TTBApplication.qml"), "TTBApplication", 1, 0, "TTBApplication");
 
     QSettings settings;

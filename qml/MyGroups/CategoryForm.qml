@@ -9,7 +9,6 @@ Page {
     id: categoryForm
 
     property int index: 0
-    property int categoryId:0
     property int rowId:0
     property string name:""
 
@@ -25,7 +24,7 @@ Page {
         for (var i=0; i < GroupModel.groupModel.count; i++){
             var row = GroupModel.groupModel.get(i)
 
-            if (row.categoryId === categoryId){
+            if (row.categoryId === rowId){
                 groupModel.append(row)
 
             }

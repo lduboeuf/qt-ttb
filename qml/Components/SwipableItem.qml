@@ -32,15 +32,17 @@ SwipeDelegate {
             sourceSize.width: swipeDelegate.height * 0.4
             sourceSize.height: sourceSize.height
             source: iconSource
-                            opacity: 0.60
-            ColorOverlay{
-                source:iconLeft
-                anchors.fill: parent
-                color:Material.foreground
-
-            }
+            opacity: 0.60
 
         }
+
+        ColorOverlay{
+            source:iconLeft
+            anchors.fill: iconLeft
+            color:Material.foreground
+            cached: true
+        }
+
 
         Text{
             anchors.left: iconLeft.right
