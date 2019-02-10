@@ -43,19 +43,18 @@ ToolBar {
                 }
             }
 
+
+
             ColorOverlay {
                     id: overlay
                     anchors.fill: parent
                     source: navImage
                     color: Material.foreground
-                    //cached: true
-                   // opacity: icon.color.a
                 }
         }
         Column{
             anchors.left: toolButtonLeft.right
             anchors.right: actionsRow.left
-            //anchors.margins: actionsRow.width
             Label {
                 id: titleLabel
                 text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
@@ -67,8 +66,6 @@ ToolBar {
                 id: subTitleLabel
                 font.pixelSize: 12
                 elide: Label.ElideRight
-
-               // horizontalAlignment: Text.AlignHCenter
 
             }
 
@@ -110,8 +107,6 @@ ToolBar {
                         }
 
                        onClicked: rightActions[index].onTriggered()
-
-                        //anchors.verticalCenter: parent ? parent.verticalCenter : undefined
                     }
                 }
 

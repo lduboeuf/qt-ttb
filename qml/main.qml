@@ -47,10 +47,9 @@ ApplicationWindow {
         id: drawer
         width: Math.min(window.width, window.height) * 0.5
         height: window.height
+        dragMargin: 0
 
-
-
-        property int headerHeight: window.height * 0.15
+        //property int headerHeight: window.height * 0.15
 
         ListView {
             id: menuList
@@ -58,22 +57,11 @@ ApplicationWindow {
             currentIndex: -1
             anchors.fill: parent
 
-            header:
-
-
-                RowLayout{
+            header: RowLayout{
                 id:menuHeader
                 width:drawer.width
-                height: drawer.headerHeight
+                height: (stackView.currentItem.header !== null) ? stackView.currentItem.header.height : window.height * 0.1
 
-//                Image {
-//                   id:logo
-//                   fillMode: Image.Pad
-//                   anchors.horizontalCenter: parent.horizontalCenter
-//                   sourceSize.height: parent.height * 0.6
-//                   //sourceSize.height: parent.height * 0.3
-//                   source: "/assets/icon.png"
-//               }
 
                 LinearGradient {
                     anchors.fill:parent
@@ -163,7 +151,7 @@ ApplicationWindow {
 
     Component.onCompleted: {
         console.log("main.qml loaded")
-        drawer.headerHeight =  (stackView.currentItem.header !== null) ? stackView.currentItem.header.height : window.height * 0.1
+       // drawer.headerHeight =  (stackView.currentItem.header !== null) ? stackView.currentItem.header.height : window.height * 0.1
 
         if (GroupModel.groupModel.rowCount()===0) {
 
