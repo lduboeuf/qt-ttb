@@ -102,7 +102,7 @@ ToolBar {
                             ColorOverlay {
                                 source: rigthActionImg
                                 anchors.fill: rigthActionImg
-                                color: Material.foreground
+                                color: Material.background
                             }
                         }
 
