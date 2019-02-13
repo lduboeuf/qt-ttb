@@ -55,5 +55,7 @@
         <file>qml/Home.qml</file>
         <file>assets/torch-off.svg</file>
         <file>assets/torch-on.svg</file>
+        <file>qml/Tools/ToolNext.qml</file>
+        <file>qml/Tools/ToolNextResult.qml</file>
     </qresource>
 </RCC>

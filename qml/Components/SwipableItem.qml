@@ -17,12 +17,19 @@ SwipeDelegate {
 
 
     property string iconSource : ""
+    property alias indexLabelVisible: indexLabel.visible
 
 
     contentItem: RowLayout {
         width: parent.width
         height: parent.height
         spacing: 16
+
+        Label{
+            id: indexLabel
+            text:index + 1
+            visible: false
+        }
 
         Image {
             id: iconLeft

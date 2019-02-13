@@ -2,7 +2,6 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.1
-
 import "../Model"
 import "../Components"
 
@@ -11,8 +10,8 @@ import "./tools.js" as Tools
 
 
 Page {
-    id: toolFindSelect
-    title: qsTr("Find Members")
+    id: toolNextResult
+    title: qsTr("Who's next")
 
     header:NavigationBar{
         subtitle: qsTr("Result")
@@ -23,7 +22,7 @@ Page {
                 id: actionOK
                 source: "/assets/reload.svg"
                 onTriggered: function(){
-                    shuffle()
+                    build()
                 }
 
             }
@@ -33,72 +32,72 @@ Page {
     property var selectedGroup: []
     property var resultItems : []
     property int nbItems: 0
-    property var initialList
 
     onSelectedGroupChanged: build()
+
+    function setModel(){
+        resultList.model.clear()
+        for (var i=0; i < resultItems.length; i++){
+            resultList.model.append(resultItems[i])
+        }
+    }
 
 
     function build(){
         console.log(selectedGroup)
         if (selectedGroup.length == 0 ) return //don't do nothing
-        initialList = ItemModel.findAllitems(selectedGroup)
+        var list = (resultItems.length!=0) ? resultItems : ItemModel.findAllitems(selectedGroup)
 
-        shuffle()
+        resultItems = Tools.next(list)
+
+        setModel()
     }
 
     function removeItem(index){
-        var row = resultItems[index]
-        //remove from the main list
-        for (var i=0; i < initialList.length;i++){
-            if (initialList[i].rowId === row.rowId ){
-                initialList.splice(i, 1)
-                break
-            }
-        }
 
-        shuffle()
+        resultItems.splice(index, 1)
+        resultItems = Tools.next(resultItems)
+
+        setModel()
+
+
     }
-
-    function shuffle(){
-        resultItems = Tools.find(initialList,nbItems )
-        //build view
-        model.clear()
-        for (var i=0; i < resultItems.length; i++){
-            model.append(resultItems[i])
-        }
-    }
-
 
     ListView {
         id:resultList
         anchors.fill: parent
-        anchors.margins: 2
+        anchors.margins: 16
         anchors.topMargin: 20
 
 
         model: ListModel{
-            id:model
+
         }
-        delegate:SwipableItem{
+        delegate:
+
+            SwipableItem{
 
             iconSource : ""
+            indexLabelVisible: true
             swipe.right: null
 
             onRemoveClicked: function(index){
-                toolFindSelect.removeItem(index)
+                toolNextResult.removeItem(index)
             }
-
         }
 
         section {
             property: "groupName"
             criteria: ViewSection.FullString
             delegate: Text {
+                //anchors.horizontalCenter: parent.horizontalCenter
+                //font.pixelSize: 16
                 topPadding: 16
-                text: section
+                //leftPadding: 4
                 color:Material.foreground
                 opacity: 0.6
-
+                //font.bold: true
+                text: section
 
 
                 Rectangle {
@@ -114,5 +113,10 @@ Page {
         ScrollBar.vertical: ScrollBar {}
 
     }
+
+
+
+
+
 
 }

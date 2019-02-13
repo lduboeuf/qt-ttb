@@ -17,6 +17,8 @@ ToolBar {
     property alias subtitle: subTitleLabel.text
     property list<Action> rightActions
 
+    //property int color: Material.color(Material.white)
+
 
     RowLayout {
         anchors.fill: parent
@@ -24,6 +26,8 @@ ToolBar {
         ToolButton {
             id: toolButtonLeft
             visible: (contentItem!==null)
+
+
 
             contentItem: Image {
                 id:navImage
@@ -42,8 +46,6 @@ ToolBar {
                     drawer.open()
                 }
             }
-
-
 
             ColorOverlay {
                     id: overlay
@@ -102,7 +104,7 @@ ToolBar {
                             ColorOverlay {
                                 source: rigthActionImg
                                 anchors.fill: rigthActionImg
-                                color: Material.background
+                                color: (rightActions[index].color===null) ? Material.foreground :rightActions[index].color
                             }
                         }
 

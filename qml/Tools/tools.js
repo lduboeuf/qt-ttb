@@ -37,6 +37,13 @@ function build(list, nbItems){
     return shuffled_array;
 }
 
+function next(list){
+
+    var shuffled_array = shuffle(list);
+    return shuffled_array
+
+}
+
 function find(list, nbItems){
 
     //define an array of indices

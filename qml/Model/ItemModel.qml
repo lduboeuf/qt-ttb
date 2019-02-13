@@ -38,9 +38,9 @@ QtObject {
             for (var i = 0; i < results.rows.length; i++) {
                 console.log(results.rows.item(i).name)
                 items[i] = {
-                     rowid: results.rows.item(i).item_id,
+                     rowId: results.rows.item(i).item_id,
                      name: results.rows.item(i).name,
-                     groupid: results.rows.item(i).group_id,
+                     groupId: results.rows.item(i).group_id,
                       createdDate: results.rows.item(i).created_date
                  }
 

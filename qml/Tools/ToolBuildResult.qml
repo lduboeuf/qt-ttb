@@ -77,59 +77,21 @@ Page {
 
             SwipableItem{
 
-                        iconSource : ""
-                        swipe.right: null
+            iconSource : ""
+            swipe.right: null
 
-                         onRemoveClicked: function(index){
-                             toolBuildSelect.removeItem(index)
-                         }
-                     }
-//            RowLayout {
-//            //width: parent.width
-//            width: parent.width
-//            height: txtLeft.height * 3
-//            anchors.margins: 16
-
-//           spacing: 16
-
-
-//            Text {
-//                id:txtLeft
-//                text: name;
-//                color:Material.foreground
-//                anchors.leftMargin: 2
-//            }
-//            Image {
-//                id: iconRight
-//                anchors.rightMargin:  16
-//                anchors.right: parent.right
-//                anchors.verticalCenter: parent.verticalCenter
-
-//                sourceSize.height: txtLeft.height
-//                sourceSize.width:txtLeft.height
-//                source: "/assets/close.svg"
-
-//            }
-
-//            MouseArea { //workaround for mobile
-//                anchors.fill: iconRight
-//                onClicked: toolBuildSelect.removeItem(index)
-//            }
-
-//        }
-        //focus: true
+            onRemoveClicked: function(index){
+                toolBuildSelect.removeItem(index)
+            }
+        }
 
         section {
             property: "groupName"
             criteria: ViewSection.FullString
             delegate: Text {
-                //anchors.horizontalCenter: parent.horizontalCenter
-                //font.pixelSize: 16
                 topPadding: 16
-                //leftPadding: 4
                 color:Material.foreground
                 opacity: 0.6
-                //font.bold: true
                 text: section
 
 

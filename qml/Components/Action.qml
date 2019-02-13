@@ -8,6 +8,7 @@ import QtQuick 2.0
 QtObject {
         id: action
         property string source: ""
+        property color color: "white"
         property var onTriggered: console.log("triggered")
         property bool enabled: true
     }

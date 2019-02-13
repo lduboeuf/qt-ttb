@@ -20,6 +20,7 @@ Page {
         rightActions:[
             Action{
                 id: themeSwitching
+                color: Material.background
                 source: (settings.theme===Material.Light) ? "/assets/torch-on.svg" : "/assets/torch-off.svg"
                 onTriggered: function(){
                     if (settings.theme===Material.Light){
@@ -81,7 +82,9 @@ Page {
                 radius: width/2
                 text: qsTr("Who's next")
                 Layout.alignment: Qt.AlignHCenter
-                enabled: false
+                onClicked: {
+                    stackView.push("qrc:/qml/Tools/ToolNext.qml")
+                }
 
             }
 
