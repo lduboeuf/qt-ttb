@@ -38,6 +38,31 @@ Page {
 
     }
 
+    ListModel {
+       id:toolsModel
+      ListElement { title: qsTr("Build Teams"); source: "qrc:/qml/Tools/ToolBuild.qml" }
+      ListElement { title: qsTr("Find members"); source: "qrc:/qml/Tools/ToolFind.qml" }
+      ListElement { title: qsTr("Who's next"); source: "qrc:/qml/Tools/ToolNext.qml" }
+      ListElement { title: qsTr("Find pairs"); source: ""}
+      //ListElement { title: qsTr("Build Teams"); source: "qrc:/qml/Tools/ToolBuild.qml" }
+    }
+
+    Component{
+        id:buttonDelegate
+        RoundButton{
+            Layout.fillWidth: true
+            implicitHeight: width
+            implicitWidth: width
+            enabled: (source.length > 0)
+            radius: width/2
+            text: title
+            Layout.alignment: Qt.AlignHCenter
+            onClicked: {
+                stackView.push(source)
+            }
+        }
+    }
+
 
     GridLayout {
             anchors.fill: parent
@@ -48,57 +73,13 @@ Page {
             columns: width > height ? 4: 2
             //flow:  width > height ? GridLayout.LeftToRight : GridLayout.TopToBottom
 
-            RoundButton{
-                Layout.fillWidth: true
-                implicitHeight: width
-                implicitWidth: width
-                radius: width/2
-                text: qsTr("Build Teams")
-                Layout.alignment: Qt.AlignHCenter
-                onClicked: {
-                    stackView.push("qrc:/qml/Tools/ToolBuild.qml")
-                }
-            }
 
-            RoundButton{
-                Layout.fillWidth: true
-                implicitHeight: width
-                implicitWidth: width
-
-
-                radius: width/2
-                text: qsTr("Find members")
-                Layout.alignment: Qt.AlignHCenter
-                onClicked: {
-                    stackView.push("qrc:/qml/Tools/ToolFind.qml")
-                }
+            Repeater{
+                model: toolsModel
+                delegate: buttonDelegate
 
             }
 
-            RoundButton{
-                Layout.fillWidth: true
-                implicitHeight: width
-                implicitWidth: width
-                radius: width/2
-                text: qsTr("Who's next")
-                Layout.alignment: Qt.AlignHCenter
-                onClicked: {
-                    stackView.push("qrc:/qml/Tools/ToolNext.qml")
-                }
-
-            }
-
-            RoundButton{
-                Layout.fillWidth: true
-                implicitHeight: width
-                implicitWidth: width
-                radius: width/2
-                text: qsTr("Find pairs")
-                Layout.alignment: Qt.AlignHCenter
-                enabled: false
-
-
-            }
 
 
         }
