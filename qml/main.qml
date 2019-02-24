@@ -60,7 +60,7 @@ ApplicationWindow {
             header: RowLayout{
                 id:menuHeader
                 width:drawer.width
-                height: (stackView.currentItem.header !== null) ? stackView.currentItem.header.height : window.height * 0.1
+                height: (stackView.currentItem !== null) ? stackView.currentItem.header.height : window.height * 0.1
 
 
                 LinearGradient {

@@ -27,15 +27,17 @@ ToolBar {
             id: toolButtonLeft
             visible: (contentItem!==null)
 
-
-
             contentItem: Image {
                 id:navImage
                 fillMode: Image.Pad
-                horizontalAlignment: Image.AlignHCenter
-                verticalAlignment: Image.AlignVCenter
-                sourceSize.width: toolButtonLeft.height * 0.4
-                sourceSize.height: toolButtonLeft.height * 0.4
+                sourceSize.width: toolButtonLeft.height  * 0.4
+                sourceSize.height: toolButtonLeft.height  * 0.4
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                //horizontalAlignment: Image.AlignHCenter
+                //verticalAlignment: Image.AlignVCenter
+                //sourceSize.width: toolButtonLeft.height * 0.4
+                //sourceSize.height: toolButtonLeft.height * 0.4
                 source: stackView.depth > 1 ? "/assets/go-previous.svg" : "/assets/navigation-menu.svg"
             }
             onClicked: {
@@ -49,9 +51,9 @@ ToolBar {
 
             ColorOverlay {
                     id: overlay
-                    anchors.fill: parent
+                    anchors.fill: navImage
                     source: navImage
-                    color: Material.foreground
+                    color: "#ffffff"
                 }
         }
         Column{
@@ -62,13 +64,15 @@ ToolBar {
                 text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
                 font.pixelSize: 20
                 elide: Label.ElideRight
+                color: "#ffffff"
+
             }
 
             Label {
                 id: subTitleLabel
                 font.pixelSize: 12
                 elide: Label.ElideRight
-
+                color: "#ffffff"
             }
 
 
@@ -104,7 +108,7 @@ ToolBar {
                             ColorOverlay {
                                 source: rigthActionImg
                                 anchors.fill: rigthActionImg
-                                color: (rightActions[index].color===null) ? Material.foreground :rightActions[index].color
+                                color: "#ffffff"
                             }
                         }
 
