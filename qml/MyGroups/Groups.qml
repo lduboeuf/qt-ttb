@@ -52,7 +52,9 @@ Page {
                iconSource : GroupModel.getImageSource(model.type)
 
                 onRemoveClicked: function(index){
-                    GroupModel.removeGroup(index)
+                    groupList.currentIndex = index
+                    confirmationDialog.open()
+                    swipe.close()
                 }
 
                 onEditClicked: function(index){
@@ -87,6 +89,15 @@ Page {
             }
 
         }
+
+    }
+
+    DeleteConfirmationDialog{
+        id: confirmationDialog
+        onConfirmed: {
+            GroupModel.removeGroup(groupList.currentIndex)
+        }
+
 
     }
 

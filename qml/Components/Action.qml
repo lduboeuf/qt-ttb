@@ -11,6 +11,7 @@ QtObject {
         property color color: "white"
         property var onTriggered: console.log("triggered")
         property bool enabled: true
+        property string tooltipText: ""
     }
 
 

@@ -49,6 +49,7 @@ Page {
                 onRemoveClicked: function(index){
                     categoryList.currentIndex = index
                     confirmationDialog.open()
+                    swipe.close()
                     //CategoryModel.remove(index)
                 }
 
@@ -67,31 +68,14 @@ Page {
 
     }
 
-    Dialog {
+    DeleteConfirmationDialog{
         id: confirmationDialog
-
-        x: (parent.width - width) / 2
-        y: (parent.height - height) / 2
-        parent: ApplicationWindow.overlay
-
-        modal: true
-        title: "Confirmation"
-        standardButtons: Dialog.Yes | Dialog.No
-
-        Column {
-            spacing: 20
-            anchors.fill: parent
-            Label {
-                text: qsTr("This category contains groups and items, are you sure you want to remove it?")
-            }
-
-        }
-
-        onAccepted: {
-
-            confirmationDialog.close()
+        onConfirmed: {
             CategoryModel.remove(categoryList.currentIndex)
-
         }
+
+
     }
+
+
 }

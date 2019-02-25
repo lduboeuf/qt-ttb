@@ -2,4 +2,5 @@ singleton Database 1.0 Database.qml
 singleton GroupModel 1.0 GroupModel.qml
 singleton ItemModel 1.0 ItemModel.qml
 singleton CategoryModel 1.0 CategoryModel.qml
+singleton ArchiveModel 1.0 ArchiveModel.qml
 

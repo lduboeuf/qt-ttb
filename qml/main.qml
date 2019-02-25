@@ -28,6 +28,7 @@ ApplicationWindow {
     Settings {
         id: settings
         property int theme: Material.theme
+        property color headerColor: "#F7F7F7"
     }
 
 //    function getStyle(){
@@ -131,6 +132,7 @@ ApplicationWindow {
                 ListElement { title: qsTr("Home"); source: "qrc:/qml/Home.qml"; iconsource:"../assets/home.svg" }
                 ListElement { title: qsTr("My Groups"); source: "qrc:/qml/MyGroups/Groups.qml"; iconsource:"../assets/groups.svg" }
                 ListElement { title: qsTr("Categories"); source: "qrc:/qml/MyGroups/Categories.qml"; iconsource:"../assets/groups.svg" }
+                ListElement { title: qsTr("Archive"); source: "qrc:/qml/MyGroups/Archives.qml"; iconsource:"../assets/archive.svg" }
 
                 ListElement { title: qsTr("Settings"); source: "qrc:/qml/Settings.qml"; iconsource:"../assets/settings.svg" }
                 ListElement { title: qsTr("About"); source: "qrc:/qml/About.qml"; iconsource:"../assets/info.svg" }

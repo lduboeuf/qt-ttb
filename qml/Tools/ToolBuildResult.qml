@@ -19,6 +19,15 @@ Page {
 
         rightActions:[
             Action{
+              id:actionSave
+              source: "/assets/save.svg"
+              onTriggered: function(){
+                archiveDialog.open()
+              }
+
+            },
+
+            Action{
                 id: actionOK
                 source: "/assets/reload.svg"
                 onTriggered: function(){
@@ -109,9 +118,13 @@ Page {
 
     }
 
+    ArchiveDialog{
+        id: archiveDialog
+        typeName: toolBuildSelect.title.toString()
+        toSave: resultItems
+        actionButton: actionSave
 
-
-
+    }
 
 
 }

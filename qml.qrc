@@ -57,5 +57,12 @@
         <file>assets/torch-on.svg</file>
         <file>qml/Tools/ToolNext.qml</file>
         <file>qml/Tools/ToolNextResult.qml</file>
+        <file>assets/archive.svg</file>
+        <file>qml/Model/ArchiveModel.qml</file>
+        <file>qml/MyGroups/Archives.qml</file>
+        <file>assets/save.svg</file>
+        <file>qml/Components/ArchiveDialog.qml</file>
+        <file>qml/MyGroups/ArchiveDetail.qml</file>
+        <file>qml/Components/DeleteConfirmationDialog.qml</file>
     </qresource>
 </RCC>

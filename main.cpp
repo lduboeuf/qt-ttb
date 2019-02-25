@@ -3,7 +3,7 @@
 #include <QQmlContext>
 #include <QSettings>
 #include <QQuickStyle>
-
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:qml/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
+    qDebug()<< "Default path >> "+engine.offlineStoragePath();
 
     return app.exec();
 }

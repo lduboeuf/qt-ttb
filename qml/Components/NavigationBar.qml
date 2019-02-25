@@ -17,6 +17,7 @@ ToolBar {
     property alias subtitle: subTitleLabel.text
     property list<Action> rightActions
 
+
     //property int color: Material.color(Material.white)
 
 
@@ -34,10 +35,6 @@ ToolBar {
                 sourceSize.height: toolButtonLeft.height  * 0.4
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
-                //horizontalAlignment: Image.AlignHCenter
-                //verticalAlignment: Image.AlignVCenter
-                //sourceSize.width: toolButtonLeft.height * 0.4
-                //sourceSize.height: toolButtonLeft.height * 0.4
                 source: stackView.depth > 1 ? "/assets/go-previous.svg" : "/assets/navigation-menu.svg"
             }
             onClicked: {
@@ -53,7 +50,7 @@ ToolBar {
                     id: overlay
                     anchors.fill: navImage
                     source: navImage
-                    color: "#ffffff"
+                    color: settings.headerColor
                 }
         }
         Column{
@@ -64,7 +61,7 @@ ToolBar {
                 text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
                 font.pixelSize: 20
                 elide: Label.ElideRight
-                color: "#ffffff"
+                color: settings.headerColor
 
             }
 
@@ -72,7 +69,7 @@ ToolBar {
                 id: subTitleLabel
                 font.pixelSize: 12
                 elide: Label.ElideRight
-                color: "#ffffff"
+                color: settings.headerColor
             }
 
 
@@ -92,6 +89,9 @@ ToolBar {
                     delegate: ToolButton {
                         id: iconAction
                         enabled:  rightActions[index].enabled
+                        ToolTip.text:rightActions[index].tooltipText
+                        ToolTip.visible:rightActions[index].tooltipText.length > 0
+                        ToolTip.timeout: 2000
 
                         contentItem: Item{
 
@@ -108,7 +108,7 @@ ToolBar {
                             ColorOverlay {
                                 source: rigthActionImg
                                 anchors.fill: rigthActionImg
-                                color: "#ffffff"
+                                color: settings.headerColor
                             }
                         }
 
