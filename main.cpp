@@ -4,6 +4,7 @@
 #include <QSettings>
 #include <QQuickStyle>
 #include <QDebug>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +16,13 @@ int main(int argc, char *argv[])
     //app.setOrganizationDomain("ttbn.lduboeuf");
     app.setApplicationName("ttbn.lduboeuf");
     app.setApplicationVersion("0.7.3");
+
+//load translation file
+    QTranslator myappTranslator;
+    qDebug()<< myappTranslator.load(QLocale(), QLatin1String("ttb"), QLatin1String("_"), QLatin1String(":/languages"));
+    app.installTranslator(&myappTranslator);
+
+
 
     //qmlRegisterSingletonType(QUrl("qrc:/qml/TTBApplication.qml"), "TTBApplication", 1, 0, "TTBApplication");
 

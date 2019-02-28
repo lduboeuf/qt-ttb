@@ -9,7 +9,7 @@
             "desktop":  "ttbn.desktop"
         }
     },
-    "version": "0.8",
+    "version": "0.9",
     "maintainer": "lionel <lionel.duboeuf@gmail.com>",
     "framework" : "ubuntu-sdk-16.04"
 }

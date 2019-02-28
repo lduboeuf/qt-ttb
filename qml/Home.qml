@@ -7,7 +7,7 @@ import QtQuick.Controls.Material 2.1
 import "Components"
 
 Page {
-    id: settingsPage
+    id: homePage
 
 
     title: qsTr('Team Toolbox')
@@ -40,16 +40,17 @@ Page {
 
     ListModel {
        id:toolsModel
-      ListElement { title: qsTr("Build Teams"); source: "qrc:/qml/Tools/ToolBuild.qml" }
-      ListElement { title: qsTr("Find members"); source: "qrc:/qml/Tools/ToolFind.qml" }
-      ListElement { title: qsTr("Who's next"); source: "qrc:/qml/Tools/ToolNext.qml" }
-      ListElement { title: qsTr("Find pairs"); source: ""}
+      ListElement { title: qsTr("Build"); source: "qrc:/qml/Tools/ToolBuild.qml" }
+      ListElement { title: qsTr("Find"); source: "qrc:/qml/Tools/ToolFind.qml" }
+      ListElement { title: qsTr("Next"); source: "qrc:/qml/Tools/ToolNext.qml" }
+      ListElement { title: qsTr("Pairs"); source: ""}
       //ListElement { title: qsTr("Build Teams"); source: "qrc:/qml/Tools/ToolBuild.qml" }
     }
 
     Component{
         id:buttonDelegate
         RoundButton{
+            id: roundButton
             Layout.fillWidth: true
             implicitHeight: width
             implicitWidth: width
@@ -60,8 +61,11 @@ Page {
             onClicked: {
                 stackView.push(source)
             }
+
+
         }
     }
+
 
 
     GridLayout {

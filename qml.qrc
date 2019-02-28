@@ -64,5 +64,7 @@
         <file>qml/Components/ArchiveDialog.qml</file>
         <file>qml/MyGroups/ArchiveDetail.qml</file>
         <file>qml/Components/DeleteConfirmationDialog.qml</file>
+        <file>languages/ttb_fr.qm</file>
+        <file>languages/ttb_en.qm</file>
     </qresource>
 </RCC>
