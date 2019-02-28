@@ -35,7 +35,7 @@ ScrollablePage{
             horizontalAlignment: Qt.AlignHCenter
 
 
-            text: "Welcome to Team ToolBox, a project to help you work or play with teams/groups randomly!"
+            text: qsTr("Welcome to Team ToolBox, a project to help you work or play with teams/groups randomly!")
 
 
         }
@@ -49,7 +49,7 @@ ScrollablePage{
             horizontalAlignment: Qt.AlignHCenter
 
 
-            text: "It helps whenever we need to pick someone, don't find volunteers, define teams (practical exercises, collective workshops etc...) , define passing order or assign tasks."
+            text: qsTr("It helps whenever we need to pick someone, don't find volunteers, define teams (practical exercises, collective workshops etc...) , define passing order or assign tasks.")
 
         }
 
@@ -62,7 +62,7 @@ ScrollablePage{
             horizontalAlignment: Qt.AlignHCenter
 
 
-            text: "This tool may be useful for trainers, teachers, managers or anyone else who works with or within groups."
+            text: qsTr("This tool may be useful for trainers, teachers, managers or anyone else who works with or within groups.")
 
 
         }
@@ -76,7 +76,7 @@ ScrollablePage{
             horizontalAlignment: Qt.AlignHCenter
 
 
-            text: "Note that this project is made just for fun, to begin play with Qt QML, but i will appreciate your feedback"
+            text: qsTr("Note that this project is made just for fun, to begin play with Qt QML, but i will appreciate your feedback")
 
 
         }
@@ -88,14 +88,14 @@ ScrollablePage{
             horizontalAlignment: Qt.AlignHCenter
 
 
-            text: "Initial author: Lionel Duboeuf"
+            text: qsTr("Initial author") + ": Lionel Duboeuf"
 
 
         }
 
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Source code"
+            text: qsTr("Source code")
             onClicked: {
                 Qt.openUrlExternally("https://github.com/lduboeuf/qt-ttb");
             }

@@ -8,6 +8,40 @@
         <source>About</source>
         <translation>A propos</translation>
     </message>
+    <message>
+        <location filename="../qml/About.qml" line="38"/>
+        <source>Welcome to Team ToolBox, a project to help you work or play with teams/groups randomly!</source>
+        <translation>Bienvenue sur Team Toolbox, un projet pour vous aider à travailler ou s&apos;amuser avec des groupes de manière aléatoire!</translation>
+    </message>
+    <message>
+        <location filename="../qml/About.qml" line="52"/>
+        <source>It helps whenever we need to pick someone, don&apos;t find volunteers, define teams (practical exercises, collective workshops etc...) , define passing order or assign tasks.</source>
+        <translation>Cela peut aider quand on a besoin de trouver une personne, ne trouvons pas de volontaires, définir des groupes, connaitre l&apos;ordre de passage ou assigner des tâches.</translation>
+    </message>
+    <message>
+        <location filename="../qml/About.qml" line="65"/>
+        <source>This tool may be useful for trainers, teachers, managers or anyone else who works with or within groups.</source>
+        <translation>Cet outils peut être utile pour des entraineurs, enseignants, coach, ou n&apos;importe qui qui travaille avec ou au sein de groupes.</translation>
+    </message>
+    <message>
+        <location filename="../qml/About.qml" line="79"/>
+        <source>Note that this project is made just for fun, to begin play with Qt QML, but i will appreciate your feedback</source>
+        <translation>Merci de noter que c&apos;est un projet de test. </translation>
+    </message>
+    <message>
+        <location filename="../qml/About.qml" line="91"/>
+        <source>Initial author</source>
+        <translation>Auteur initial</translation>
+    </message>
+    <message>
+        <source>Initial author: Lionel Duboeuf</source>
+        <translation type="vanished">Auteur initial: Lionel Duboeuf</translation>
+    </message>
+    <message>
+        <location filename="../qml/About.qml" line="98"/>
+        <source>Source code</source>
+        <translation>Code source</translation>
+    </message>
 </context>
 <context>
     <name>ArchiveDetail</name>
@@ -28,6 +62,16 @@
         <location filename="../qml/Components/ArchiveDialog.qml" line="20"/>
         <source>Save to archive</source>
         <translation>Sauvegarder</translation>
+    </message>
+    <message>
+        <location filename="../qml/Components/ArchiveDialog.qml" line="28"/>
+        <source>Please enter a name :</source>
+        <translation>Merci de préciser un nom:</translation>
+    </message>
+    <message>
+        <location filename="../qml/Components/ArchiveDialog.qml" line="34"/>
+        <source>archive name</source>
+        <translation>Nom de l&apos;archive</translation>
     </message>
     <message>
         <location filename="../qml/Components/ArchiveDialog.qml" line="41"/>
@@ -157,8 +201,12 @@
     </message>
     <message>
         <location filename="../qml/Home.qml" line="45"/>
+        <source>Next?</source>
+        <translation type="unfinished">Prochain?</translation>
+    </message>
+    <message>
         <source>Next</source>
-        <translation>Prochain</translation>
+        <translation type="vanished">Prochain</translation>
     </message>
     <message>
         <location filename="../qml/Home.qml" line="46"/>
@@ -357,22 +405,22 @@
     <message>
         <location filename="../qml/Tools/ToolsTab.qml" line="50"/>
         <source>Build</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Construire</translation>
     </message>
     <message>
         <location filename="../qml/Tools/ToolsTab.qml" line="53"/>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rechercher</translation>
     </message>
     <message>
         <location filename="../qml/Tools/ToolsTab.qml" line="56"/>
         <source>Who&apos;s next</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Qui est le suivant</translation>
     </message>
     <message>
         <location filename="../qml/Tools/ToolsTab.qml" line="60"/>
         <source>Pairs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Paires</translation>
     </message>
 </context>
 <context>

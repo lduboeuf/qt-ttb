@@ -42,7 +42,7 @@ Page {
        id:toolsModel
       ListElement { title: qsTr("Build"); source: "qrc:/qml/Tools/ToolBuild.qml" }
       ListElement { title: qsTr("Find"); source: "qrc:/qml/Tools/ToolFind.qml" }
-      ListElement { title: qsTr("Next"); source: "qrc:/qml/Tools/ToolNext.qml" }
+      ListElement { title: qsTr("Next?"); source: "qrc:/qml/Tools/ToolNext.qml" }
       ListElement { title: qsTr("Pairs"); source: ""}
       //ListElement { title: qsTr("Build Teams"); source: "qrc:/qml/Tools/ToolBuild.qml" }
     }

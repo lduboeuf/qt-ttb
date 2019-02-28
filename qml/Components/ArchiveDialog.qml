@@ -25,13 +25,13 @@ Dialog {
         anchors.fill: parent
         Label {
             elide: Label.ElideRight
-            text: "Please enter a name :"
+            text: qsTr("Please enter a name :")
             Layout.fillWidth: true
         }
         TextField {
             id: archiveName
             focus: true
-            placeholderText: "archive name"
+            placeholderText: qsTr("archive name")
             Layout.fillWidth: true
         }
     }
