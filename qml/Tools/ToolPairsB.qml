@@ -1,6 +1,8 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Material 2.1
+
 import "../Model"
 import "../Components"
 
@@ -64,17 +66,40 @@ Page {
             currentIndex: -1
             model: GroupModel.groupModel
 
-            onCurrentIndexChanged: {
-                if (currentIndex>-1){
+            delegate: ItemDelegate{
+                highlighted: (index==groupSelect.currentIndex)
+                width: parent.width
+                Image {
+                    id: iconLeft
+                    anchors.leftMargin: 16
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    sourceSize.width: groupSelect.height * 0.4
+                    sourceSize.height: sourceSize.height
+                    source: GroupModel.getImageSource(model.type)
+                    opacity: 0.60
 
-                    var list = ItemModel.findAllitems(groupSelect.model.get(currentIndex).rowId)
-                    memberList.model.clear()
-                    for (var i=0; i < list.length; i++){
-                        memberList.model.append(list[i])
+                }
+                Text{
+                    anchors.left: iconLeft.right
+                    anchors.leftMargin: 16
+                    opacity: 0.60
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: Material.foreground
+                    text: model.name
+                }
+                onClicked: {
+                    if (index>-1){
+
+                        var list = ItemModel.findAllitems(groupSelect.model.get(index).rowId)
+                        memberList.model.clear()
+                        for (var i=0; i < list.length; i++){
+                            memberList.model.append(list[i])
+                        }
                     }
                 }
-
             }
+
         }
 
 
