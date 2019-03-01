@@ -52,7 +52,7 @@ function find(list, nbItems){
     var tmpmembers = [nbItems];
     var idx, n;
     var nb = Math.min(nbItems, list.length);
-    var groupName= "Hall of fame:";
+    var groupName= qsTr("Hall of fame:");
 
     for (var i=0; i < nb;i++){
 
@@ -64,6 +64,48 @@ function find(list, nbItems){
     }
 
     return tmpmembers
+}
+
+function deepCopy(source, target) {
+    target = target || {};
+    for (var i in source) {
+        if (typeof source[i] === 'object') {
+            target[i] = (source[i].constructor === Array) ? [] : {};
+            deepCopy(source[i], target[i]);
+        } else {
+            target[i] = source[i];
+        }
+    }
+    return target;
+}
+
+function pairs(leftItems, rightItems){
+
+    var shuffledLeft = shuffle(deepCopy(leftItems, [])); //make sure we are working on cloned object. listmodel is readonly
+    var shuffledRight = shuffle(deepCopy(rightItems, []));
+
+    var tmpmembers = [];
+
+    var groupName= qsTr("Pair");
+    var gName, tmpLeft, tmpRight;
+
+    var maxPairs = Math.min(shuffledLeft.length, shuffledRight.length)
+
+    for (var i=0; i < maxPairs; i++){
+
+        gName = groupName + " #" + (i+1);
+        tmpLeft = shuffledLeft[i];
+        tmpLeft.groupName = gName;
+        tmpRight = shuffledRight[i];
+        tmpRight.groupName = gName;
+
+        tmpmembers.push(tmpLeft);
+        tmpmembers.push(tmpRight);
+
+    }
+
+    return tmpmembers;
+
 }
 
 

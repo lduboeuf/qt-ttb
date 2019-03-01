@@ -22,7 +22,8 @@ QtObject {
                               rowId: results.rows.item(i).item_id,
                               name: results.rows.item(i).name,
                               groupId: results.rows.item(i).group_id,
-                              createdDate: results.rows.item(i).created_date
+                              createdDate: results.rows.item(i).created_date,
+                              selected: false
                           })
             }
         })
@@ -41,7 +42,8 @@ QtObject {
                      rowId: results.rows.item(i).item_id,
                      name: results.rows.item(i).name,
                      groupId: results.rows.item(i).group_id,
-                      createdDate: results.rows.item(i).created_date
+                     createdDate: results.rows.item(i).created_date,
+                       selected: false
                  }
 
             }

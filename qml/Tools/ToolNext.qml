@@ -30,9 +30,13 @@ Page {
     }
 
     Column{
-        anchors.centerIn: parent
+        //anchors.centerIn: parent
+        anchors.topMargin: 20
+        anchors.fill: parent
         spacing: 16
         Label {
+            width: parent.width * 0.6
+            wrapMode: Label.Wrap
             anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Select a group and get a random ordered list:")
         }

@@ -171,6 +171,14 @@
     </message>
 </context>
 <context>
+    <name>GroupModel</name>
+    <message>
+        <location filename="../qml/Model/GroupModel.qml" line="105"/>
+        <source>Deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Groups</name>
     <message>
         <location filename="../qml/MyGroups/Groups.qml" line="15"/>
@@ -238,7 +246,7 @@
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../qml/Components/NavigationBar.qml" line="61"/>
+        <location filename="../qml/Components/NavigationBar.qml" line="62"/>
         <source>Team Toolbox</source>
         <translation type="unfinished"></translation>
     </message>
@@ -359,7 +367,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Tools/ToolNext.qml" line="37"/>
+        <location filename="../qml/Tools/ToolNext.qml" line="41"/>
         <source>Select a group and get a random ordered list:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -373,6 +381,55 @@
     </message>
     <message>
         <location filename="../qml/Tools/ToolNextResult.qml" line="17"/>
+        <source>Result</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ToolPairsA</name>
+    <message>
+        <location filename="../qml/Tools/ToolPairsA.qml" line="9"/>
+        <source>Find pairs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsA.qml" line="13"/>
+        <source>left group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsA.qml" line="44"/>
+        <source>Select left group:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ToolPairsB</name>
+    <message>
+        <location filename="../qml/Tools/ToolPairsB.qml" line="9"/>
+        <source>Find pairs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsB.qml" line="24"/>
+        <source>right group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsB.qml" line="56"/>
+        <source>Select right group:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ToolPairsResult</name>
+    <message>
+        <location filename="../qml/Tools/ToolPairsResult.qml" line="15"/>
+        <source>Find pairs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsResult.qml" line="18"/>
         <source>Result</source>
         <translation type="unfinished"></translation>
     </message>
@@ -448,7 +505,7 @@
     </message>
     <message>
         <location filename="../qml/main.qml" line="135"/>
-        <source>Archive</source>
+        <source>Archives</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -459,6 +516,19 @@
     <message>
         <location filename="../qml/main.qml" line="138"/>
         <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>tools</name>
+    <message>
+        <location filename="../qml/Tools/tools.js" line="55"/>
+        <source>Hall of fame:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/tools.js" line="89"/>
+        <source>Pair</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -12,7 +12,7 @@ Dialog {
 
 
     x: (parent.width - width) / 2
-    y: (parent.height - height) / 2
+    y: (parent.height - height) / 4
     parent: ApplicationWindow.overlay
 
     focus: true

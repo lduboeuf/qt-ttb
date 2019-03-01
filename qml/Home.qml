@@ -43,7 +43,7 @@ Page {
       ListElement { title: qsTr("Build"); source: "qrc:/qml/Tools/ToolBuild.qml" }
       ListElement { title: qsTr("Find"); source: "qrc:/qml/Tools/ToolFind.qml" }
       ListElement { title: qsTr("Next?"); source: "qrc:/qml/Tools/ToolNext.qml" }
-      ListElement { title: qsTr("Pairs"); source: ""}
+      ListElement { title: qsTr("Pairs"); source: "qrc:/qml/Tools/ToolPairsA.qml"}
       //ListElement { title: qsTr("Build Teams"); source: "qrc:/qml/Tools/ToolBuild.qml" }
     }
 
@@ -62,8 +62,18 @@ Page {
                 stackView.push(source)
             }
 
+            ScaleAnimator {
+                target: roundButton;
+                from: 0.2;
+                to: 1;
+                duration: 300
+                running: true
+            }
+
 
         }
+
+
     }
 
 

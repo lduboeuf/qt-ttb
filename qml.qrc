@@ -66,5 +66,8 @@
         <file>qml/Components/DeleteConfirmationDialog.qml</file>
         <file>languages/ttb_fr.qm</file>
         <file>languages/ttb_en.qm</file>
+        <file>qml/Tools/ToolPairsA.qml</file>
+        <file>qml/Tools/ToolPairsB.qml</file>
+        <file>qml/Tools/ToolPairsResult.qml</file>
     </qresource>
 </RCC>

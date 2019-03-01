@@ -27,7 +27,7 @@ Page {
 
             if (row.type === filter){
                 groupModel.append(row)
-                groupModel.setProperty(0, "selected", false)
+                groupModel.setProperty(0, "selected", false) //
 
             }
         }

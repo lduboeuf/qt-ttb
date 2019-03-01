@@ -102,7 +102,7 @@ QtObject {
                 var categName = results.rows.item(i).categoryName
 
                 if (categName===null){
-                    categName="Deleted"
+                    categName=qsTr("Deleted")
                 }
 
                 groupModel.append({

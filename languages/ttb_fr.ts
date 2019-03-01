@@ -11,7 +11,7 @@
     <message>
         <location filename="../qml/About.qml" line="38"/>
         <source>Welcome to Team ToolBox, a project to help you work or play with teams/groups randomly!</source>
-        <translation>Bienvenue sur Team Toolbox, un projet pour vous aider à travailler ou s&apos;amuser avec des groupes de manière aléatoire!</translation>
+        <translation>Bienvenue sur Team Toolbox, un projet pour travailler ou s&apos;amuser avec des groupes de manière aléatoire!</translation>
     </message>
     <message>
         <location filename="../qml/About.qml" line="52"/>
@@ -175,6 +175,14 @@
     </message>
 </context>
 <context>
+    <name>GroupModel</name>
+    <message>
+        <location filename="../qml/Model/GroupModel.qml" line="105"/>
+        <source>Deleted</source>
+        <translation>Supprimé</translation>
+    </message>
+</context>
+<context>
     <name>Groups</name>
     <message>
         <location filename="../qml/MyGroups/Groups.qml" line="15"/>
@@ -202,7 +210,7 @@
     <message>
         <location filename="../qml/Home.qml" line="45"/>
         <source>Next?</source>
-        <translation type="unfinished">Prochain?</translation>
+        <translation>Prochain?</translation>
     </message>
     <message>
         <source>Next</source>
@@ -250,7 +258,7 @@
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../qml/Components/NavigationBar.qml" line="61"/>
+        <location filename="../qml/Components/NavigationBar.qml" line="62"/>
         <source>Team Toolbox</source>
         <translation>Boite a outils</translation>
     </message>
@@ -371,7 +379,7 @@
         <translation>Qui est le suivant</translation>
     </message>
     <message>
-        <location filename="../qml/Tools/ToolNext.qml" line="37"/>
+        <location filename="../qml/Tools/ToolNext.qml" line="41"/>
         <source>Select a group and get a random ordered list:</source>
         <translation>Selectionnez un groupe et obtenez une liste ordonnée:</translation>
     </message>
@@ -385,6 +393,55 @@
     </message>
     <message>
         <location filename="../qml/Tools/ToolNextResult.qml" line="17"/>
+        <source>Result</source>
+        <translation>Résultat</translation>
+    </message>
+</context>
+<context>
+    <name>ToolPairsA</name>
+    <message>
+        <location filename="../qml/Tools/ToolPairsA.qml" line="9"/>
+        <source>Find pairs</source>
+        <translation>Recherche de paires</translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsA.qml" line="13"/>
+        <source>left group</source>
+        <translation>groupe A</translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsA.qml" line="44"/>
+        <source>Select left group:</source>
+        <translation>Selectionner le groupe A:</translation>
+    </message>
+</context>
+<context>
+    <name>ToolPairsB</name>
+    <message>
+        <location filename="../qml/Tools/ToolPairsB.qml" line="9"/>
+        <source>Find pairs</source>
+        <translation>Recherche de paires</translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsB.qml" line="24"/>
+        <source>right group</source>
+        <translation>groupe B</translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsB.qml" line="56"/>
+        <source>Select right group:</source>
+        <translation>Selectionner le groupe B:</translation>
+    </message>
+</context>
+<context>
+    <name>ToolPairsResult</name>
+    <message>
+        <location filename="../qml/Tools/ToolPairsResult.qml" line="15"/>
+        <source>Find pairs</source>
+        <translation>Recherche de paires</translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/ToolPairsResult.qml" line="18"/>
         <source>Result</source>
         <translation>Résultat</translation>
     </message>
@@ -460,8 +517,12 @@
     </message>
     <message>
         <location filename="../qml/main.qml" line="135"/>
+        <source>Archives</source>
+        <translation>Archives</translation>
+    </message>
+    <message>
         <source>Archive</source>
-        <translation>Archive</translation>
+        <translation type="vanished">Archive</translation>
     </message>
     <message>
         <location filename="../qml/main.qml" line="137"/>
@@ -472,6 +533,19 @@
         <location filename="../qml/main.qml" line="138"/>
         <source>About</source>
         <translation>A propos</translation>
+    </message>
+</context>
+<context>
+    <name>tools</name>
+    <message>
+        <location filename="../qml/Tools/tools.js" line="55"/>
+        <source>Hall of fame:</source>
+        <translation>Les chanceux:</translation>
+    </message>
+    <message>
+        <location filename="../qml/Tools/tools.js" line="89"/>
+        <source>Pair</source>
+        <translation>Paire</translation>
     </message>
 </context>
 </TS>

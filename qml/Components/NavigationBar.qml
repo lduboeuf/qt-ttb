@@ -56,12 +56,16 @@ ToolBar {
         Column{
             anchors.left: toolButtonLeft.right
             anchors.right: actionsRow.left
+
             Label {
                 id: titleLabel
                 text: stackView.currentItem ? stackView.currentItem.title : qsTr("Team Toolbox")
                 font.pixelSize: 20
+                width: mainToolBar.width - (actionsRow.width + toolButtonLeft.width)
+                //maximumLineCount: 1
                 elide: Label.ElideRight
                 color: settings.headerColor
+
 
             }
 
