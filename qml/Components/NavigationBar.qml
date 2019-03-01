@@ -14,6 +14,7 @@ ToolBar {
     id:mainToolBar
 
     property alias leftAction:toolButtonLeft
+    property bool returnHome: false
     property alias subtitle: subTitleLabel.text
     property list<Action> rightActions
 
@@ -38,12 +39,19 @@ ToolBar {
                 source: stackView.depth > 1 ? "/assets/go-previous.svg" : "/assets/navigation-menu.svg"
             }
             onClicked: {
-                if (stackView.depth > 1) {
-                    stackView.pop()
-                    menuList.currentIndex = -1
-                } else {
-                    drawer.open()
+
+                if (mainToolBar.returnHome) {
+                    stackView.pop(null)
+                }else{
+                    if (stackView.depth > 1) {
+                        stackView.pop()
+                        menuList.currentIndex = -1
+                    } else {
+                        drawer.open()
+                    }
                 }
+
+
             }
 
             ColorOverlay {

@@ -16,6 +16,7 @@ Page {
     header:NavigationBar{
         subtitle: qsTr("Result")
 
+        returnHome: true;
 
         rightActions:[
             Action{

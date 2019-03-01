@@ -17,6 +17,7 @@ Page {
     header:NavigationBar{
         subtitle: qsTr("Result")
 
+        returnHome: true
 
         rightActions:[
             Action{
@@ -45,9 +46,7 @@ Page {
     property var resultItems
 
 
-    Component.onCompleted: {
-        build()
-    }
+
 
 
     function build(){
@@ -111,5 +110,12 @@ Page {
         actionButton: actionSave
 
     }
+
+    Component.onCompleted: {
+        build()
+
+    }
+
+
 
 }
